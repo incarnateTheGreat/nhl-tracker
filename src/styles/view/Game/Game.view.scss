@@ -1,0 +1,82 @@
+.Game {
+  margin: 0 auto;
+  max-width: 900px;
+
+  &-header {
+    display: flex;
+    flex-direction: column;
+
+    &-score {
+      display: flex;
+
+      &-team {
+        border: 1px solid green;
+        display: flex;
+        flex: 1;
+        min-height: 80px;
+
+        &-logo {
+          align-items: center;
+          display: flex;
+          padding: 0 20px;
+        }
+
+        &-info {
+          display: flex;
+          flex: 1 1 auto;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        &-score {
+          align-items: center;
+          font-size: 2em;
+          display: flex;
+          padding: 0 20px;
+        }
+
+        &-home {
+          .Game-header-score-team-info {
+            text-align: right;
+          }
+        }
+      }
+    }
+
+    &-location {
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    &-status {
+      padding: 10px 0;
+      text-align: center;
+    }
+  }
+
+  &-boxscore {
+    display: table;
+    border-collapse: separate;
+    margin: 20px 0 0;
+    width: 100%;
+
+    &-header {
+      display: table-row;
+    }
+
+    &-periods {
+      display: table-row;
+
+      &-period {
+        border: 1px solid black;
+        display: table-cell;
+        padding: 10px;
+        text-align: center;
+
+        &-team {
+          text-align: left;
+        }
+      }
+    }
+  }
+}

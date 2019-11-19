@@ -1,0 +1,5602 @@
+{
+  "copyright": "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2019. All Rights Reserved.",
+  "gamePk": 2019020316,
+  "link": "/api/v1/game/2019020316/feed/live",
+  "metaData": {
+    "wait": 10,
+    "timeStamp": "20191119_001956"
+  },
+  "gameData": {
+    "game": {
+      "pk": 2019020316,
+      "season": "20192020",
+      "type": "R"
+    },
+    "datetime": {
+      "dateTime": "2019-11-19T00:00:00Z"
+    },
+    "status": {
+      "abstractGameState": "Live",
+      "codedGameState": "3",
+      "detailedState": "In Progress",
+      "statusCode": "3",
+      "startTimeTBD": false
+    },
+    "teams": {
+      "away": {
+        "id": 24,
+        "name": "Anaheim Ducks",
+        "link": "/api/v1/teams/24",
+        "venue": {
+          "id": 5046,
+          "name": "Honda Center",
+          "link": "/api/v1/venues/5046",
+          "city": "Anaheim",
+          "timeZone": {
+            "id": "America/Los_Angeles",
+            "offset": -8,
+            "tz": "PST"
+          }
+        },
+        "abbreviation": "ANA",
+        "triCode": "ANA",
+        "teamName": "Ducks",
+        "locationName": "Anaheim",
+        "firstYearOfPlay": "1993",
+        "division": {
+          "id": 15,
+          "name": "Pacific",
+          "nameShort": "PAC",
+          "link": "/api/v1/divisions/15",
+          "abbreviation": "P"
+        },
+        "conference": {
+          "id": 5,
+          "name": "Western",
+          "link": "/api/v1/conferences/5"
+        },
+        "franchise": {
+          "franchiseId": 32,
+          "teamName": "Ducks",
+          "link": "/api/v1/franchises/32"
+        },
+        "shortName": "Anaheim",
+        "officialSiteUrl": "http://www.anaheimducks.com/",
+        "franchiseId": 32,
+        "active": true
+      },
+      "home": {
+        "id": 15,
+        "name": "Washington Capitals",
+        "link": "/api/v1/teams/15",
+        "venue": {
+          "id": 5094,
+          "name": "Capital One Arena",
+          "link": "/api/v1/venues/5094",
+          "city": "Washington",
+          "timeZone": {
+            "id": "America/New_York",
+            "offset": -5,
+            "tz": "EST"
+          }
+        },
+        "abbreviation": "WSH",
+        "triCode": "WSH",
+        "teamName": "Capitals",
+        "locationName": "Washington",
+        "firstYearOfPlay": "1974",
+        "division": {
+          "id": 18,
+          "name": "Metropolitan",
+          "nameShort": "Metro",
+          "link": "/api/v1/divisions/18",
+          "abbreviation": "M"
+        },
+        "conference": {
+          "id": 6,
+          "name": "Eastern",
+          "link": "/api/v1/conferences/6"
+        },
+        "franchise": {
+          "franchiseId": 24,
+          "teamName": "Capitals",
+          "link": "/api/v1/franchises/24"
+        },
+        "shortName": "Washington",
+        "officialSiteUrl": "http://www.washingtoncapitals.com/",
+        "franchiseId": 24,
+        "active": true
+      }
+    },
+    "players": {
+      "ID8476905": {
+        "id": 8476905,
+        "fullName": "Chandler Stephenson",
+        "link": "/api/v1/people/8476905",
+        "firstName": "Chandler",
+        "lastName": "Stephenson",
+        "primaryNumber": "18",
+        "birthDate": "1994-04-22",
+        "currentAge": 25,
+        "birthCity": "Saskatoon",
+        "birthStateProvince": "SK",
+        "birthCountry": "CAN",
+        "nationality": "CAN",
+        "height": "6' 0\"",
+        "weight": 208,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "L",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 15,
+          "name": "Washington Capitals",
+          "link": "/api/v1/teams/15",
+          "triCode": "WSH"
+        },
+        "primaryPosition": {
+          "code": "C",
+          "name": "Center",
+          "type": "Forward",
+          "abbreviation": "C"
+        }
+      },
+      "ID8476329": {
+        "id": 8476329,
+        "fullName": "Travis Boyd",
+        "link": "/api/v1/people/8476329",
+        "firstName": "Travis",
+        "lastName": "Boyd",
+        "primaryNumber": "72",
+        "birthDate": "1993-09-14",
+        "currentAge": 26,
+        "birthCity": "Hopkins",
+        "birthStateProvince": "MN",
+        "birthCountry": "USA",
+        "nationality": "USA",
+        "height": "6' 0\"",
+        "weight": 190,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "R",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 15,
+          "name": "Washington Capitals",
+          "link": "/api/v1/teams/15",
+          "triCode": "WSH"
+        },
+        "primaryPosition": {
+          "code": "C",
+          "name": "Center",
+          "type": "Forward",
+          "abbreviation": "C"
+        }
+      },
+      "ID8471214": {
+        "id": 8471214,
+        "fullName": "Alex Ovechkin",
+        "link": "/api/v1/people/8471214",
+        "firstName": "Alex",
+        "lastName": "Ovechkin",
+        "primaryNumber": "8",
+        "birthDate": "1985-09-17",
+        "currentAge": 34,
+        "birthCity": "Moscow",
+        "birthCountry": "RUS",
+        "nationality": "RUS",
+        "height": "6' 3\"",
+        "weight": 236,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": true,
+        "rookie": false,
+        "shootsCatches": "R",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 15,
+          "name": "Washington Capitals",
+          "link": "/api/v1/teams/15",
+          "triCode": "WSH"
+        },
+        "primaryPosition": {
+          "code": "L",
+          "name": "Left Wing",
+          "type": "Forward",
+          "abbreviation": "LW"
+        }
+      },
+      "ID8471698": {
+        "id": 8471698,
+        "fullName": "T.J. Oshie",
+        "link": "/api/v1/people/8471698",
+        "firstName": "T.J.",
+        "lastName": "Oshie",
+        "primaryNumber": "77",
+        "birthDate": "1986-12-23",
+        "currentAge": 32,
+        "birthCity": "Everett",
+        "birthStateProvince": "WA",
+        "birthCountry": "USA",
+        "nationality": "USA",
+        "height": "6' 0\"",
+        "weight": 195,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "R",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 15,
+          "name": "Washington Capitals",
+          "link": "/api/v1/teams/15",
+          "triCode": "WSH"
+        },
+        "primaryPosition": {
+          "code": "R",
+          "name": "Right Wing",
+          "type": "Forward",
+          "abbreviation": "RW"
+        }
+      },
+      "ID8478873": {
+        "id": 8478873,
+        "fullName": "Troy Terry",
+        "link": "/api/v1/people/8478873",
+        "firstName": "Troy",
+        "lastName": "Terry",
+        "primaryNumber": "61",
+        "birthDate": "1997-09-10",
+        "currentAge": 22,
+        "birthCity": "Denver",
+        "birthStateProvince": "CO",
+        "birthCountry": "USA",
+        "nationality": "USA",
+        "height": "6' 0\"",
+        "weight": 180,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "R",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 24,
+          "name": "Anaheim Ducks",
+          "link": "/api/v1/teams/24",
+          "triCode": "ANA"
+        },
+        "primaryPosition": {
+          "code": "C",
+          "name": "Center",
+          "type": "Forward",
+          "abbreviation": "C"
+        }
+      },
+      "ID8475200": {
+        "id": 8475200,
+        "fullName": "Dmitry Orlov",
+        "link": "/api/v1/people/8475200",
+        "firstName": "Dmitry",
+        "lastName": "Orlov",
+        "primaryNumber": "9",
+        "birthDate": "1991-07-23",
+        "currentAge": 28,
+        "birthCity": "Novokuznetsk",
+        "birthCountry": "RUS",
+        "nationality": "RUS",
+        "height": "5' 11\"",
+        "weight": 208,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "L",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 15,
+          "name": "Washington Capitals",
+          "link": "/api/v1/teams/15",
+          "triCode": "WSH"
+        },
+        "primaryPosition": {
+          "code": "D",
+          "name": "Defenseman",
+          "type": "Defenseman",
+          "abbreviation": "D"
+        }
+      },
+      "ID8476894": {
+        "id": 8476894,
+        "fullName": "Brendan Leipsic",
+        "link": "/api/v1/people/8476894",
+        "firstName": "Brendan",
+        "lastName": "Leipsic",
+        "primaryNumber": "28",
+        "birthDate": "1994-05-19",
+        "currentAge": 25,
+        "birthCity": "Winnipeg",
+        "birthStateProvince": "MB",
+        "birthCountry": "CAN",
+        "nationality": "CAN",
+        "height": "5' 11\"",
+        "weight": 180,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "L",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 15,
+          "name": "Washington Capitals",
+          "link": "/api/v1/teams/15",
+          "triCode": "WSH"
+        },
+        "primaryPosition": {
+          "code": "L",
+          "name": "Left Wing",
+          "type": "Forward",
+          "abbreviation": "LW"
+        }
+      },
+      "ID8475343": {
+        "id": 8475343,
+        "fullName": "Nic Dowd",
+        "link": "/api/v1/people/8475343",
+        "firstName": "Nic",
+        "lastName": "Dowd",
+        "primaryNumber": "26",
+        "birthDate": "1990-05-27",
+        "currentAge": 29,
+        "birthCity": "Huntsville",
+        "birthStateProvince": "AL",
+        "birthCountry": "USA",
+        "nationality": "USA",
+        "height": "6' 1\"",
+        "weight": 195,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "R",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 15,
+          "name": "Washington Capitals",
+          "link": "/api/v1/teams/15",
+          "triCode": "WSH"
+        },
+        "primaryPosition": {
+          "code": "C",
+          "name": "Center",
+          "type": "Forward",
+          "abbreviation": "C"
+        }
+      },
+      "ID8477941": {
+        "id": 8477941,
+        "fullName": "Nick Ritchie",
+        "link": "/api/v1/people/8477941",
+        "firstName": "Nick",
+        "lastName": "Ritchie",
+        "primaryNumber": "37",
+        "birthDate": "1995-12-05",
+        "currentAge": 23,
+        "birthCity": "Orangeville",
+        "birthStateProvince": "ON",
+        "birthCountry": "CAN",
+        "nationality": "CAN",
+        "height": "6' 2\"",
+        "weight": 230,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "L",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 24,
+          "name": "Anaheim Ducks",
+          "link": "/api/v1/teams/24",
+          "triCode": "ANA"
+        },
+        "primaryPosition": {
+          "code": "L",
+          "name": "Left Wing",
+          "type": "Forward",
+          "abbreviation": "LW"
+        }
+      },
+      "ID8479368": {
+        "id": 8479368,
+        "fullName": "Max Jones",
+        "link": "/api/v1/people/8479368",
+        "firstName": "Max",
+        "lastName": "Jones",
+        "primaryNumber": "49",
+        "birthDate": "1998-02-17",
+        "currentAge": 21,
+        "birthCity": "Rochester",
+        "birthStateProvince": "MI",
+        "birthCountry": "USA",
+        "nationality": "USA",
+        "height": "6' 1\"",
+        "weight": 220,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "L",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 24,
+          "name": "Anaheim Ducks",
+          "link": "/api/v1/teams/24",
+          "triCode": "ANA"
+        },
+        "primaryPosition": {
+          "code": "L",
+          "name": "Left Wing",
+          "type": "Forward",
+          "abbreviation": "LW"
+        }
+      },
+      "ID8474651": {
+        "id": 8474651,
+        "fullName": "Braden Holtby",
+        "link": "/api/v1/people/8474651",
+        "firstName": "Braden",
+        "lastName": "Holtby",
+        "primaryNumber": "70",
+        "birthDate": "1989-09-16",
+        "currentAge": 30,
+        "birthCity": "Lloydminster",
+        "birthStateProvince": "SK",
+        "birthCountry": "CAN",
+        "nationality": "CAN",
+        "height": "6' 2\"",
+        "weight": 214,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "L",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 15,
+          "name": "Washington Capitals",
+          "link": "/api/v1/teams/15",
+          "triCode": "WSH"
+        },
+        "primaryPosition": {
+          "code": "G",
+          "name": "Goalie",
+          "type": "Goalie",
+          "abbreviation": "G"
+        }
+      },
+      "ID8476434": {
+        "id": 8476434,
+        "fullName": "John Gibson",
+        "link": "/api/v1/people/8476434",
+        "firstName": "John",
+        "lastName": "Gibson",
+        "primaryNumber": "36",
+        "birthDate": "1993-07-14",
+        "currentAge": 26,
+        "birthCity": "Pittsburgh",
+        "birthStateProvince": "PA",
+        "birthCountry": "USA",
+        "nationality": "USA",
+        "height": "6' 2\"",
+        "weight": 207,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "L",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 24,
+          "name": "Anaheim Ducks",
+          "link": "/api/v1/teams/24",
+          "triCode": "ANA"
+        },
+        "primaryPosition": {
+          "code": "G",
+          "name": "Goalie",
+          "type": "Goalie",
+          "abbreviation": "G"
+        }
+      },
+      "ID8473563": {
+        "id": 8473563,
+        "fullName": "Nicklas Backstrom",
+        "link": "/api/v1/people/8473563",
+        "firstName": "Nicklas",
+        "lastName": "Backstrom",
+        "primaryNumber": "19",
+        "birthDate": "1987-11-23",
+        "currentAge": 31,
+        "birthCity": "Gävle",
+        "birthCountry": "SWE",
+        "nationality": "SWE",
+        "height": "6' 1\"",
+        "weight": 206,
+        "active": true,
+        "alternateCaptain": true,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "L",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 15,
+          "name": "Washington Capitals",
+          "link": "/api/v1/teams/15",
+          "triCode": "WSH"
+        },
+        "primaryPosition": {
+          "code": "C",
+          "name": "Center",
+          "type": "Forward",
+          "abbreviation": "C"
+        }
+      },
+      "ID8474590": {
+        "id": 8474590,
+        "fullName": "John Carlson",
+        "link": "/api/v1/people/8474590",
+        "firstName": "John",
+        "lastName": "Carlson",
+        "primaryNumber": "74",
+        "birthDate": "1990-01-10",
+        "currentAge": 29,
+        "birthCity": "Natick",
+        "birthStateProvince": "MA",
+        "birthCountry": "USA",
+        "nationality": "USA",
+        "height": "6' 3\"",
+        "weight": 217,
+        "active": true,
+        "alternateCaptain": true,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "R",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 15,
+          "name": "Washington Capitals",
+          "link": "/api/v1/teams/15",
+          "triCode": "WSH"
+        },
+        "primaryPosition": {
+          "code": "D",
+          "name": "Defenseman",
+          "type": "Defenseman",
+          "abbreviation": "D"
+        }
+      },
+      "ID8475164": {
+        "id": 8475164,
+        "fullName": "Jakob Silfverberg",
+        "link": "/api/v1/people/8475164",
+        "firstName": "Jakob",
+        "lastName": "Silfverberg",
+        "primaryNumber": "33",
+        "birthDate": "1990-10-13",
+        "currentAge": 29,
+        "birthCity": "Gävle",
+        "birthCountry": "SWE",
+        "nationality": "SWE",
+        "height": "6' 0\"",
+        "weight": 208,
+        "active": true,
+        "alternateCaptain": true,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "R",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 24,
+          "name": "Anaheim Ducks",
+          "link": "/api/v1/teams/24",
+          "triCode": "ANA"
+        },
+        "primaryPosition": {
+          "code": "R",
+          "name": "Right Wing",
+          "type": "Forward",
+          "abbreviation": "RW"
+        }
+      },
+      "ID8478399": {
+        "id": 8478399,
+        "fullName": "Jonas Siegenthaler",
+        "link": "/api/v1/people/8478399",
+        "firstName": "Jonas",
+        "lastName": "Siegenthaler",
+        "primaryNumber": "34",
+        "birthDate": "1997-05-06",
+        "currentAge": 22,
+        "birthCity": "Zurich",
+        "birthCountry": "CHE",
+        "nationality": "CHE",
+        "height": "6' 3\"",
+        "weight": 210,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "L",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 15,
+          "name": "Washington Capitals",
+          "link": "/api/v1/teams/15",
+          "triCode": "WSH"
+        },
+        "primaryPosition": {
+          "code": "D",
+          "name": "Defenseman",
+          "type": "Defenseman",
+          "abbreviation": "D"
+        }
+      },
+      "ID8473560": {
+        "id": 8473560,
+        "fullName": "Korbinian Holzer",
+        "link": "/api/v1/people/8473560",
+        "firstName": "Korbinian",
+        "lastName": "Holzer",
+        "primaryNumber": "5",
+        "birthDate": "1988-02-16",
+        "currentAge": 31,
+        "birthCity": "Munich",
+        "birthCountry": "DEU",
+        "nationality": "DEU",
+        "height": "6' 3\"",
+        "weight": 213,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "R",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 24,
+          "name": "Anaheim Ducks",
+          "link": "/api/v1/teams/24",
+          "triCode": "ANA"
+        },
+        "primaryPosition": {
+          "code": "D",
+          "name": "Defenseman",
+          "type": "Defenseman",
+          "abbreviation": "D"
+        }
+      },
+      "ID8475462": {
+        "id": 8475462,
+        "fullName": "Radko Gudas",
+        "link": "/api/v1/people/8475462",
+        "firstName": "Radko",
+        "lastName": "Gudas",
+        "primaryNumber": "33",
+        "birthDate": "1990-06-05",
+        "currentAge": 29,
+        "birthCity": "Prague",
+        "birthCountry": "CZE",
+        "nationality": "CZE",
+        "height": "6' 0\"",
+        "weight": 205,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "R",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 15,
+          "name": "Washington Capitals",
+          "link": "/api/v1/teams/15",
+          "triCode": "WSH"
+        },
+        "primaryPosition": {
+          "code": "D",
+          "name": "Defenseman",
+          "type": "Defenseman",
+          "abbreviation": "D"
+        }
+      },
+      "ID8474176": {
+        "id": 8474176,
+        "fullName": "Carl Hagelin",
+        "link": "/api/v1/people/8474176",
+        "firstName": "Carl",
+        "lastName": "Hagelin",
+        "primaryNumber": "62",
+        "birthDate": "1988-08-23",
+        "currentAge": 31,
+        "birthCity": "Sodertalje",
+        "birthCountry": "SWE",
+        "nationality": "SWE",
+        "height": "6' 0\"",
+        "weight": 185,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "L",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 15,
+          "name": "Washington Capitals",
+          "link": "/api/v1/teams/15",
+          "triCode": "WSH"
+        },
+        "primaryPosition": {
+          "code": "L",
+          "name": "Left Wing",
+          "type": "Forward",
+          "abbreviation": "LW"
+        }
+      },
+      "ID8478491": {
+        "id": 8478491,
+        "fullName": "Jacob Larsson",
+        "link": "/api/v1/people/8478491",
+        "firstName": "Jacob",
+        "lastName": "Larsson",
+        "primaryNumber": "32",
+        "birthDate": "1997-04-29",
+        "currentAge": 22,
+        "birthCity": "Ljungby",
+        "birthCountry": "SWE",
+        "nationality": "SWE",
+        "height": "6' 2\"",
+        "weight": 190,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "L",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 24,
+          "name": "Anaheim Ducks",
+          "link": "/api/v1/teams/24",
+          "triCode": "ANA"
+        },
+        "primaryPosition": {
+          "code": "D",
+          "name": "Defenseman",
+          "type": "Defenseman",
+          "abbreviation": "D"
+        }
+      },
+      "ID8477240": {
+        "id": 8477240,
+        "fullName": "Carter Rowney",
+        "link": "/api/v1/people/8477240",
+        "firstName": "Carter",
+        "lastName": "Rowney",
+        "primaryNumber": "24",
+        "birthDate": "1989-05-10",
+        "currentAge": 30,
+        "birthCity": "Grand Prairie",
+        "birthStateProvince": "AB",
+        "birthCountry": "CAN",
+        "nationality": "CAN",
+        "height": "6' 1\"",
+        "weight": 208,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "R",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 24,
+          "name": "Anaheim Ducks",
+          "link": "/api/v1/teams/24",
+          "triCode": "ANA"
+        },
+        "primaryPosition": {
+          "code": "R",
+          "name": "Right Wing",
+          "type": "Forward",
+          "abbreviation": "RW"
+        }
+      },
+      "ID8478131": {
+        "id": 8478131,
+        "fullName": "Ondrej Kase",
+        "link": "/api/v1/people/8478131",
+        "firstName": "Ondrej",
+        "lastName": "Kase",
+        "primaryNumber": "25",
+        "birthDate": "1995-11-08",
+        "currentAge": 24,
+        "birthCity": "Kadan",
+        "birthCountry": "CZE",
+        "nationality": "CZE",
+        "height": "6' 0\"",
+        "weight": 190,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "R",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 24,
+          "name": "Anaheim Ducks",
+          "link": "/api/v1/teams/24",
+          "triCode": "ANA"
+        },
+        "primaryPosition": {
+          "code": "R",
+          "name": "Right Wing",
+          "type": "Forward",
+          "abbreviation": "RW"
+        }
+      },
+      "ID8479482": {
+        "id": 8479482,
+        "fullName": "Michal Kempny",
+        "link": "/api/v1/people/8479482",
+        "firstName": "Michal",
+        "lastName": "Kempny",
+        "primaryNumber": "6",
+        "birthDate": "1990-09-08",
+        "currentAge": 29,
+        "birthCity": "Hodonin",
+        "birthCountry": "CZE",
+        "nationality": "CZE",
+        "height": "6' 1\"",
+        "weight": 195,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "L",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 15,
+          "name": "Washington Capitals",
+          "link": "/api/v1/teams/15",
+          "triCode": "WSH"
+        },
+        "primaryPosition": {
+          "code": "D",
+          "name": "Defenseman",
+          "type": "Defenseman",
+          "abbreviation": "D"
+        }
+      },
+      "ID8468011": {
+        "id": 8468011,
+        "fullName": "Ryan Miller",
+        "link": "/api/v1/people/8468011",
+        "firstName": "Ryan",
+        "lastName": "Miller",
+        "primaryNumber": "30",
+        "birthDate": "1980-07-17",
+        "currentAge": 39,
+        "birthCity": "East Lansing",
+        "birthStateProvince": "MI",
+        "birthCountry": "USA",
+        "nationality": "USA",
+        "height": "6' 2\"",
+        "weight": 170,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "L",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 24,
+          "name": "Anaheim Ducks",
+          "link": "/api/v1/teams/24",
+          "triCode": "ANA"
+        },
+        "primaryPosition": {
+          "code": "G",
+          "name": "Goalie",
+          "type": "Goalie",
+          "abbreviation": "G"
+        }
+      },
+      "ID8477903": {
+        "id": 8477903,
+        "fullName": "Garnet Hathaway",
+        "link": "/api/v1/people/8477903",
+        "firstName": "Garnet",
+        "lastName": "Hathaway",
+        "primaryNumber": "21",
+        "birthDate": "1991-11-23",
+        "currentAge": 27,
+        "birthCity": "Kennebunkport",
+        "birthStateProvince": "ME",
+        "birthCountry": "USA",
+        "nationality": "USA",
+        "height": "6' 3\"",
+        "weight": 210,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "R",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 15,
+          "name": "Washington Capitals",
+          "link": "/api/v1/teams/15",
+          "triCode": "WSH"
+        },
+        "primaryPosition": {
+          "code": "R",
+          "name": "Right Wing",
+          "type": "Forward",
+          "abbreviation": "RW"
+        }
+      },
+      "ID8476913": {
+        "id": 8476913,
+        "fullName": "Devin Shore",
+        "link": "/api/v1/people/8476913",
+        "firstName": "Devin",
+        "lastName": "Shore",
+        "primaryNumber": "29",
+        "birthDate": "1994-07-19",
+        "currentAge": 25,
+        "birthCity": "Ajax",
+        "birthStateProvince": "ON",
+        "birthCountry": "CAN",
+        "nationality": "CAN",
+        "height": "6' 1\"",
+        "weight": 206,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "L",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 24,
+          "name": "Anaheim Ducks",
+          "link": "/api/v1/teams/24",
+          "triCode": "ANA"
+        },
+        "primaryPosition": {
+          "code": "C",
+          "name": "Center",
+          "type": "Forward",
+          "abbreviation": "C"
+        }
+      },
+      "ID8475209": {
+        "id": 8475209,
+        "fullName": "Richard Panik",
+        "link": "/api/v1/people/8475209",
+        "firstName": "Richard",
+        "lastName": "Panik",
+        "primaryNumber": "14",
+        "birthDate": "1991-02-07",
+        "currentAge": 28,
+        "birthCity": "Martin",
+        "birthCountry": "SVK",
+        "nationality": "SVK",
+        "height": "6' 2\"",
+        "weight": 202,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "L",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 15,
+          "name": "Washington Capitals",
+          "link": "/api/v1/teams/15",
+          "triCode": "WSH"
+        },
+        "primaryPosition": {
+          "code": "R",
+          "name": "Right Wing",
+          "type": "Forward",
+          "abbreviation": "RW"
+        }
+      },
+      "ID8475764": {
+        "id": 8475764,
+        "fullName": "Cam Fowler",
+        "link": "/api/v1/people/8475764",
+        "firstName": "Cam",
+        "lastName": "Fowler",
+        "primaryNumber": "4",
+        "birthDate": "1991-12-05",
+        "currentAge": 27,
+        "birthCity": "Windsor",
+        "birthStateProvince": "ON",
+        "birthCountry": "CAN",
+        "nationality": "USA",
+        "height": "6' 1\"",
+        "weight": 207,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "L",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 24,
+          "name": "Anaheim Ducks",
+          "link": "/api/v1/teams/24",
+          "triCode": "ANA"
+        },
+        "primaryPosition": {
+          "code": "D",
+          "name": "Defenseman",
+          "type": "Defenseman",
+          "abbreviation": "D"
+        }
+      },
+      "ID8475324": {
+        "id": 8475324,
+        "fullName": "Nick Jensen",
+        "link": "/api/v1/people/8475324",
+        "firstName": "Nick",
+        "lastName": "Jensen",
+        "primaryNumber": "3",
+        "birthDate": "1990-09-21",
+        "currentAge": 29,
+        "birthCity": "Rogers",
+        "birthStateProvince": "MN",
+        "birthCountry": "USA",
+        "nationality": "USA",
+        "height": "6' 1\"",
+        "weight": 196,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "R",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 15,
+          "name": "Washington Capitals",
+          "link": "/api/v1/teams/15",
+          "triCode": "WSH"
+        },
+        "primaryPosition": {
+          "code": "D",
+          "name": "Defenseman",
+          "type": "Defenseman",
+          "abbreviation": "D"
+        }
+      },
+      "ID8470612": {
+        "id": 8470612,
+        "fullName": "Ryan Getzlaf",
+        "link": "/api/v1/people/8470612",
+        "firstName": "Ryan",
+        "lastName": "Getzlaf",
+        "primaryNumber": "15",
+        "birthDate": "1985-05-10",
+        "currentAge": 34,
+        "birthCity": "Regina",
+        "birthStateProvince": "SK",
+        "birthCountry": "CAN",
+        "nationality": "CAN",
+        "height": "6' 3\"",
+        "weight": 228,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": true,
+        "rookie": false,
+        "shootsCatches": "R",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 24,
+          "name": "Anaheim Ducks",
+          "link": "/api/v1/teams/24",
+          "triCode": "ANA"
+        },
+        "primaryPosition": {
+          "code": "C",
+          "name": "Center",
+          "type": "Forward",
+          "abbreviation": "C"
+        }
+      },
+      "ID8475744": {
+        "id": 8475744,
+        "fullName": "Evgeny Kuznetsov",
+        "link": "/api/v1/people/8475744",
+        "firstName": "Evgeny",
+        "lastName": "Kuznetsov",
+        "primaryNumber": "92",
+        "birthDate": "1992-05-19",
+        "currentAge": 27,
+        "birthCity": "Chelyabinsk",
+        "birthCountry": "RUS",
+        "nationality": "RUS",
+        "height": "6' 2\"",
+        "weight": 197,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "L",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 15,
+          "name": "Washington Capitals",
+          "link": "/api/v1/teams/15",
+          "triCode": "WSH"
+        },
+        "primaryPosition": {
+          "code": "C",
+          "name": "Center",
+          "type": "Forward",
+          "abbreviation": "C"
+        }
+      },
+      "ID8477944": {
+        "id": 8477944,
+        "fullName": "Jakub Vrana",
+        "link": "/api/v1/people/8477944",
+        "firstName": "Jakub",
+        "lastName": "Vrana",
+        "primaryNumber": "13",
+        "birthDate": "1996-02-28",
+        "currentAge": 23,
+        "birthCity": "Prague",
+        "birthCountry": "CZE",
+        "nationality": "CZE",
+        "height": "6' 0\"",
+        "weight": 195,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "L",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 15,
+          "name": "Washington Capitals",
+          "link": "/api/v1/teams/15",
+          "triCode": "WSH"
+        },
+        "primaryPosition": {
+          "code": "L",
+          "name": "Left Wing",
+          "type": "Forward",
+          "abbreviation": "LW"
+        }
+      },
+      "ID8474683": {
+        "id": 8474683,
+        "fullName": "Derek Grant",
+        "link": "/api/v1/people/8474683",
+        "firstName": "Derek",
+        "lastName": "Grant",
+        "primaryNumber": "38",
+        "birthDate": "1990-04-20",
+        "currentAge": 29,
+        "birthCity": "Abbotsford",
+        "birthStateProvince": "BC",
+        "birthCountry": "CAN",
+        "nationality": "CAN",
+        "height": "6' 3\"",
+        "weight": 206,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "L",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 24,
+          "name": "Anaheim Ducks",
+          "link": "/api/v1/teams/24",
+          "triCode": "ANA"
+        },
+        "primaryPosition": {
+          "code": "C",
+          "name": "Center",
+          "type": "Forward",
+          "abbreviation": "C"
+        }
+      },
+      "ID8474584": {
+        "id": 8474584,
+        "fullName": "Michael Del Zotto",
+        "link": "/api/v1/people/8474584",
+        "firstName": "Michael",
+        "lastName": "Del Zotto",
+        "primaryNumber": "44",
+        "birthDate": "1990-06-24",
+        "currentAge": 29,
+        "birthCity": "Stouffville",
+        "birthStateProvince": "ON",
+        "birthCountry": "CAN",
+        "nationality": "CAN",
+        "height": "6' 0\"",
+        "weight": 195,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "L",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 24,
+          "name": "Anaheim Ducks",
+          "link": "/api/v1/teams/24",
+          "triCode": "ANA"
+        },
+        "primaryPosition": {
+          "code": "D",
+          "name": "Defenseman",
+          "type": "Defenseman",
+          "abbreviation": "D"
+        }
+      },
+      "ID8478425": {
+        "id": 8478425,
+        "fullName": "Brendan Guhle",
+        "link": "/api/v1/people/8478425",
+        "firstName": "Brendan",
+        "lastName": "Guhle",
+        "primaryNumber": "2",
+        "birthDate": "1997-07-29",
+        "currentAge": 22,
+        "birthCity": "Edmonton",
+        "birthStateProvince": "AB",
+        "birthCountry": "CAN",
+        "nationality": "CAN",
+        "height": "6' 2\"",
+        "weight": 197,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "L",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 24,
+          "name": "Anaheim Ducks",
+          "link": "/api/v1/teams/24",
+          "triCode": "ANA"
+        },
+        "primaryPosition": {
+          "code": "D",
+          "name": "Defenseman",
+          "type": "Defenseman",
+          "abbreviation": "D"
+        }
+      },
+      "ID8474641": {
+        "id": 8474641,
+        "fullName": "Adam Henrique",
+        "link": "/api/v1/people/8474641",
+        "firstName": "Adam",
+        "lastName": "Henrique",
+        "primaryNumber": "14",
+        "birthDate": "1990-02-06",
+        "currentAge": 29,
+        "birthCity": "Brantford",
+        "birthStateProvince": "ON",
+        "birthCountry": "CAN",
+        "nationality": "CAN",
+        "height": "6' 0\"",
+        "weight": 188,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "L",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 24,
+          "name": "Anaheim Ducks",
+          "link": "/api/v1/teams/24",
+          "triCode": "ANA"
+        },
+        "primaryPosition": {
+          "code": "C",
+          "name": "Center",
+          "type": "Forward",
+          "abbreviation": "C"
+        }
+      },
+      "ID8475235": {
+        "id": 8475235,
+        "fullName": "Nicolas Deslauriers",
+        "link": "/api/v1/people/8475235",
+        "firstName": "Nicolas",
+        "lastName": "Deslauriers",
+        "primaryNumber": "20",
+        "birthDate": "1991-02-22",
+        "currentAge": 28,
+        "birthCity": "LaSalle",
+        "birthStateProvince": "QC",
+        "birthCountry": "CAN",
+        "nationality": "CAN",
+        "height": "6' 3\"",
+        "weight": 219,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "L",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 24,
+          "name": "Anaheim Ducks",
+          "link": "/api/v1/teams/24",
+          "triCode": "ANA"
+        },
+        "primaryPosition": {
+          "code": "L",
+          "name": "Left Wing",
+          "type": "Forward",
+          "abbreviation": "LW"
+        }
+      },
+      "ID8475790": {
+        "id": 8475790,
+        "fullName": "Erik Gudbranson",
+        "link": "/api/v1/people/8475790",
+        "firstName": "Erik",
+        "lastName": "Gudbranson",
+        "primaryNumber": "6",
+        "birthDate": "1992-01-07",
+        "currentAge": 27,
+        "birthCity": "Ottawa",
+        "birthStateProvince": "ON",
+        "birthCountry": "CAN",
+        "nationality": "CAN",
+        "height": "6' 5\"",
+        "weight": 217,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "R",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 24,
+          "name": "Anaheim Ducks",
+          "link": "/api/v1/teams/24",
+          "triCode": "ANA"
+        },
+        "primaryPosition": {
+          "code": "D",
+          "name": "Defenseman",
+          "type": "Defenseman",
+          "abbreviation": "D"
+        }
+      },
+      "ID8476483": {
+        "id": 8476483,
+        "fullName": "Rickard Rakell",
+        "link": "/api/v1/people/8476483",
+        "firstName": "Rickard",
+        "lastName": "Rakell",
+        "primaryNumber": "67",
+        "birthDate": "1993-05-05",
+        "currentAge": 26,
+        "birthCity": "Sundbyberg",
+        "birthCountry": "SWE",
+        "nationality": "SWE",
+        "height": "6' 0\"",
+        "weight": 196,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "R",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 24,
+          "name": "Anaheim Ducks",
+          "link": "/api/v1/teams/24",
+          "triCode": "ANA"
+        },
+        "primaryPosition": {
+          "code": "R",
+          "name": "Right Wing",
+          "type": "Forward",
+          "abbreviation": "RW"
+        }
+      },
+      "ID8474189": {
+        "id": 8474189,
+        "fullName": "Lars Eller",
+        "link": "/api/v1/people/8474189",
+        "firstName": "Lars",
+        "lastName": "Eller",
+        "primaryNumber": "20",
+        "birthDate": "1989-05-08",
+        "currentAge": 30,
+        "birthCity": "Rodovre",
+        "birthCountry": "DNK",
+        "nationality": "DNK",
+        "height": "6' 2\"",
+        "weight": 205,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "L",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 15,
+          "name": "Washington Capitals",
+          "link": "/api/v1/teams/15",
+          "triCode": "WSH"
+        },
+        "primaryPosition": {
+          "code": "C",
+          "name": "Center",
+          "type": "Forward",
+          "abbreviation": "C"
+        }
+      },
+      "ID8476880": {
+        "id": 8476880,
+        "fullName": "Tom Wilson",
+        "link": "/api/v1/people/8476880",
+        "firstName": "Tom",
+        "lastName": "Wilson",
+        "primaryNumber": "43",
+        "birthDate": "1994-03-29",
+        "currentAge": 25,
+        "birthCity": "Toronto",
+        "birthStateProvince": "ON",
+        "birthCountry": "CAN",
+        "nationality": "CAN",
+        "height": "6' 4\"",
+        "weight": 220,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": false,
+        "shootsCatches": "R",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 15,
+          "name": "Washington Capitals",
+          "link": "/api/v1/teams/15",
+          "triCode": "WSH"
+        },
+        "primaryPosition": {
+          "code": "R",
+          "name": "Right Wing",
+          "type": "Forward",
+          "abbreviation": "RW"
+        }
+      },
+      "ID8477970": {
+        "id": 8477970,
+        "fullName": "Vitek Vanecek",
+        "link": "/api/v1/people/8477970",
+        "firstName": "Vitek",
+        "lastName": "Vanecek",
+        "primaryNumber": "41",
+        "birthDate": "1996-01-09",
+        "currentAge": 23,
+        "birthCity": "Havlickuv Brod",
+        "birthCountry": "CZE",
+        "nationality": "CZE",
+        "height": "6' 2\"",
+        "weight": 187,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": true,
+        "shootsCatches": "L",
+        "rosterStatus": "N",
+        "currentTeam": {
+          "id": 15,
+          "name": "Washington Capitals",
+          "link": "/api/v1/teams/15",
+          "triCode": "WSH"
+        },
+        "primaryPosition": {
+          "code": "G",
+          "name": "Goalie",
+          "type": "Goalie",
+          "abbreviation": "G"
+        }
+      },
+      "ID8479351": {
+        "id": 8479351,
+        "fullName": "Sam Steel",
+        "link": "/api/v1/people/8479351",
+        "firstName": "Sam",
+        "lastName": "Steel",
+        "primaryNumber": "34",
+        "birthDate": "1998-02-03",
+        "currentAge": 21,
+        "birthCity": "Ardrossan",
+        "birthStateProvince": "AB",
+        "birthCountry": "CAN",
+        "nationality": "CAN",
+        "height": "5' 11\"",
+        "weight": 189,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": true,
+        "shootsCatches": "L",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 24,
+          "name": "Anaheim Ducks",
+          "link": "/api/v1/teams/24",
+          "triCode": "ANA"
+        },
+        "primaryPosition": {
+          "code": "C",
+          "name": "Center",
+          "type": "Forward",
+          "abbreviation": "C"
+        }
+      },
+      "ID8479372": {
+        "id": 8479372,
+        "fullName": "Josh Mahura",
+        "link": "/api/v1/people/8479372",
+        "firstName": "Josh",
+        "lastName": "Mahura",
+        "primaryNumber": "76",
+        "birthDate": "1998-05-05",
+        "currentAge": 21,
+        "birthCity": "St. Albert",
+        "birthStateProvince": "AB",
+        "birthCountry": "CAN",
+        "nationality": "CAN",
+        "height": "6' 0\"",
+        "weight": 186,
+        "active": true,
+        "alternateCaptain": false,
+        "captain": false,
+        "rookie": true,
+        "shootsCatches": "L",
+        "rosterStatus": "Y",
+        "currentTeam": {
+          "id": 24,
+          "name": "Anaheim Ducks",
+          "link": "/api/v1/teams/24",
+          "triCode": "ANA"
+        },
+        "primaryPosition": {
+          "code": "D",
+          "name": "Defenseman",
+          "type": "Defenseman",
+          "abbreviation": "D"
+        }
+      }
+    },
+    "venue": {
+      "id": 5094,
+      "name": "Capital One Arena",
+      "link": "/api/v1/venues/5094"
+    }
+  },
+  "liveData": {
+    "plays": {
+      "allPlays": [
+        {
+          "result": {
+            "event": "Game Scheduled",
+            "eventCode": "WSH1",
+            "eventTypeId": "GAME_SCHEDULED",
+            "description": "Game Scheduled"
+          },
+          "about": {
+            "eventIdx": 0,
+            "eventId": 1,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "00:00",
+            "periodTimeRemaining": "20:00",
+            "dateTime": "2019-11-18T23:10:20Z",
+            "goals": {
+              "away": 0,
+              "home": 0
+            }
+          },
+          "coordinates": {}
+        },
+        {
+          "result": {
+            "event": "Period Ready",
+            "eventCode": "WSH5",
+            "eventTypeId": "PERIOD_READY",
+            "description": "Period Ready"
+          },
+          "about": {
+            "eventIdx": 1,
+            "eventId": 5,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "00:00",
+            "periodTimeRemaining": "20:00",
+            "dateTime": "2019-11-19T00:07:36Z",
+            "goals": {
+              "away": 0,
+              "home": 0
+            }
+          },
+          "coordinates": {}
+        },
+        {
+          "result": {
+            "event": "Period Start",
+            "eventCode": "WSH8",
+            "eventTypeId": "PERIOD_START",
+            "description": "Period Start"
+          },
+          "about": {
+            "eventIdx": 2,
+            "eventId": 8,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "00:00",
+            "periodTimeRemaining": "20:00",
+            "dateTime": "2019-11-19T00:08:04Z",
+            "goals": {
+              "away": 0,
+              "home": 0
+            }
+          },
+          "coordinates": {}
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8474189,
+                "fullName": "Lars Eller",
+                "link": "/api/v1/people/8474189"
+              },
+              "playerType": "Winner"
+            },
+            {
+              "player": {
+                "id": 8474683,
+                "fullName": "Derek Grant",
+                "link": "/api/v1/people/8474683"
+              },
+              "playerType": "Loser"
+            }
+          ],
+          "result": {
+            "event": "Faceoff",
+            "eventCode": "WSH9",
+            "eventTypeId": "FACEOFF",
+            "description": "Lars Eller faceoff won against Derek Grant"
+          },
+          "about": {
+            "eventIdx": 3,
+            "eventId": 9,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "00:00",
+            "periodTimeRemaining": "20:00",
+            "dateTime": "2019-11-19T00:08:04Z",
+            "goals": {
+              "away": 0,
+              "home": 0
+            }
+          },
+          "coordinates": {
+            "x": 0,
+            "y": 0
+          },
+          "team": {
+            "id": 15,
+            "name": "Washington Capitals",
+            "link": "/api/v1/teams/15",
+            "triCode": "WSH"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8474189,
+                "fullName": "Lars Eller",
+                "link": "/api/v1/people/8474189"
+              },
+              "playerType": "Shooter"
+            },
+            {
+              "player": {
+                "id": 8476434,
+                "fullName": "John Gibson",
+                "link": "/api/v1/people/8476434"
+              },
+              "playerType": "Goalie"
+            }
+          ],
+          "result": {
+            "event": "Shot",
+            "eventCode": "WSH10",
+            "eventTypeId": "SHOT",
+            "description": "Lars Eller Wrist Shot saved by John Gibson",
+            "secondaryType": "Wrist Shot"
+          },
+          "about": {
+            "eventIdx": 4,
+            "eventId": 10,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "00:11",
+            "periodTimeRemaining": "19:49",
+            "dateTime": "2019-11-19T00:08:55Z",
+            "goals": {
+              "away": 0,
+              "home": 0
+            }
+          },
+          "coordinates": {
+            "x": -77,
+            "y": 14
+          },
+          "team": {
+            "id": 15,
+            "name": "Washington Capitals",
+            "link": "/api/v1/teams/15",
+            "triCode": "WSH"
+          }
+        },
+        {
+          "result": {
+            "event": "Stoppage",
+            "eventCode": "WSH51",
+            "eventTypeId": "STOP",
+            "description": "High Stick"
+          },
+          "about": {
+            "eventIdx": 5,
+            "eventId": 51,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "00:14",
+            "periodTimeRemaining": "19:46",
+            "dateTime": "2019-11-19T00:09:10Z",
+            "goals": {
+              "away": 0,
+              "home": 0
+            }
+          },
+          "coordinates": {}
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8474683,
+                "fullName": "Derek Grant",
+                "link": "/api/v1/people/8474683"
+              },
+              "playerType": "Winner"
+            },
+            {
+              "player": {
+                "id": 8474189,
+                "fullName": "Lars Eller",
+                "link": "/api/v1/people/8474189"
+              },
+              "playerType": "Loser"
+            }
+          ],
+          "result": {
+            "event": "Faceoff",
+            "eventCode": "WSH12",
+            "eventTypeId": "FACEOFF",
+            "description": "Derek Grant faceoff won against Lars Eller"
+          },
+          "about": {
+            "eventIdx": 6,
+            "eventId": 12,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "00:14",
+            "periodTimeRemaining": "19:46",
+            "dateTime": "2019-11-19T00:09:15Z",
+            "goals": {
+              "away": 0,
+              "home": 0
+            }
+          },
+          "coordinates": {
+            "x": -20,
+            "y": -22
+          },
+          "team": {
+            "id": 24,
+            "name": "Anaheim Ducks",
+            "link": "/api/v1/teams/24",
+            "triCode": "ANA"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8475462,
+                "fullName": "Radko Gudas",
+                "link": "/api/v1/people/8475462"
+              },
+              "playerType": "Shooter"
+            },
+            {
+              "player": {
+                "id": 8476434,
+                "fullName": "John Gibson",
+                "link": "/api/v1/people/8476434"
+              },
+              "playerType": "Goalie"
+            }
+          ],
+          "result": {
+            "event": "Shot",
+            "eventCode": "WSH13",
+            "eventTypeId": "SHOT",
+            "description": "Radko Gudas Wrist Shot saved by John Gibson",
+            "secondaryType": "Wrist Shot"
+          },
+          "about": {
+            "eventIdx": 7,
+            "eventId": 13,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "00:40",
+            "periodTimeRemaining": "19:20",
+            "dateTime": "2019-11-19T00:09:48Z",
+            "goals": {
+              "away": 0,
+              "home": 0
+            }
+          },
+          "coordinates": {
+            "x": -34,
+            "y": 28
+          },
+          "team": {
+            "id": 15,
+            "name": "Washington Capitals",
+            "link": "/api/v1/teams/15",
+            "triCode": "WSH"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8476329,
+                "fullName": "Travis Boyd",
+                "link": "/api/v1/people/8476329"
+              },
+              "playerType": "Shooter"
+            },
+            {
+              "player": {
+                "id": 8476434,
+                "fullName": "John Gibson",
+                "link": "/api/v1/people/8476434"
+              },
+              "playerType": "Goalie"
+            }
+          ],
+          "result": {
+            "event": "Shot",
+            "eventCode": "WSH14",
+            "eventTypeId": "SHOT",
+            "description": "Travis Boyd Wrist Shot saved by John Gibson",
+            "secondaryType": "Wrist Shot"
+          },
+          "about": {
+            "eventIdx": 8,
+            "eventId": 14,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "00:45",
+            "periodTimeRemaining": "19:15",
+            "dateTime": "2019-11-19T00:09:53Z",
+            "goals": {
+              "away": 0,
+              "home": 0
+            }
+          },
+          "coordinates": {
+            "x": -81,
+            "y": 13
+          },
+          "team": {
+            "id": 15,
+            "name": "Washington Capitals",
+            "link": "/api/v1/teams/15",
+            "triCode": "WSH"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8475209,
+                "fullName": "Richard Panik",
+                "link": "/api/v1/people/8475209"
+              },
+              "playerType": "Scorer",
+              "seasonTotal": 1
+            },
+            {
+              "player": {
+                "id": 8476329,
+                "fullName": "Travis Boyd",
+                "link": "/api/v1/people/8476329"
+              },
+              "playerType": "Assist",
+              "seasonTotal": 5
+            },
+            {
+              "player": {
+                "id": 8474189,
+                "fullName": "Lars Eller",
+                "link": "/api/v1/people/8474189"
+              },
+              "playerType": "Assist",
+              "seasonTotal": 7
+            },
+            {
+              "player": {
+                "id": 8476434,
+                "fullName": "John Gibson",
+                "link": "/api/v1/people/8476434"
+              },
+              "playerType": "Goalie"
+            }
+          ],
+          "result": {
+            "event": "Goal",
+            "eventCode": "WSH15",
+            "eventTypeId": "GOAL",
+            "description": "Richard Panik (1) Wrist Shot, assists: Travis Boyd (5), Lars Eller (7)",
+            "secondaryType": "Wrist Shot",
+            "strength": {
+              "code": "EVEN",
+              "name": "Even"
+            },
+            "emptyNet": false
+          },
+          "about": {
+            "eventIdx": 9,
+            "eventId": 15,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "00:50",
+            "periodTimeRemaining": "19:10",
+            "dateTime": "2019-11-19T00:10:01Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": -70,
+            "y": -21
+          },
+          "team": {
+            "id": 15,
+            "name": "Washington Capitals",
+            "link": "/api/v1/teams/15",
+            "triCode": "WSH"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8470612,
+                "fullName": "Ryan Getzlaf",
+                "link": "/api/v1/people/8470612"
+              },
+              "playerType": "Winner"
+            },
+            {
+              "player": {
+                "id": 8475744,
+                "fullName": "Evgeny Kuznetsov",
+                "link": "/api/v1/people/8475744"
+              },
+              "playerType": "Loser"
+            }
+          ],
+          "result": {
+            "event": "Faceoff",
+            "eventCode": "WSH52",
+            "eventTypeId": "FACEOFF",
+            "description": "Ryan Getzlaf faceoff won against Evgeny Kuznetsov"
+          },
+          "about": {
+            "eventIdx": 10,
+            "eventId": 52,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "00:50",
+            "periodTimeRemaining": "19:10",
+            "dateTime": "2019-11-19T00:10:42Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": 0,
+            "y": 0
+          },
+          "team": {
+            "id": 24,
+            "name": "Anaheim Ducks",
+            "link": "/api/v1/teams/24",
+            "triCode": "ANA"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8475744,
+                "fullName": "Evgeny Kuznetsov",
+                "link": "/api/v1/people/8475744"
+              },
+              "playerType": "Blocker"
+            },
+            {
+              "player": {
+                "id": 8478425,
+                "fullName": "Brendan Guhle",
+                "link": "/api/v1/people/8478425"
+              },
+              "playerType": "Shooter"
+            }
+          ],
+          "result": {
+            "event": "Blocked Shot",
+            "eventCode": "WSH16",
+            "eventTypeId": "BLOCKED_SHOT",
+            "description": "Brendan Guhle shot blocked shot by Evgeny Kuznetsov"
+          },
+          "about": {
+            "eventIdx": 11,
+            "eventId": 16,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "01:08",
+            "periodTimeRemaining": "18:52",
+            "dateTime": "2019-11-19T00:11:00Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": 72,
+            "y": 10
+          },
+          "team": {
+            "id": 15,
+            "name": "Washington Capitals",
+            "link": "/api/v1/teams/15",
+            "triCode": "WSH"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8471214,
+                "fullName": "Alex Ovechkin",
+                "link": "/api/v1/people/8471214"
+              },
+              "playerType": "Hitter"
+            },
+            {
+              "player": {
+                "id": 8478425,
+                "fullName": "Brendan Guhle",
+                "link": "/api/v1/people/8478425"
+              },
+              "playerType": "Hittee"
+            }
+          ],
+          "result": {
+            "event": "Hit",
+            "eventCode": "WSH53",
+            "eventTypeId": "HIT",
+            "description": "Alex Ovechkin hit Brendan Guhle"
+          },
+          "about": {
+            "eventIdx": 12,
+            "eventId": 53,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "01:22",
+            "periodTimeRemaining": "18:38",
+            "dateTime": "2019-11-19T00:11:14Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": -30,
+            "y": 39
+          },
+          "team": {
+            "id": 15,
+            "name": "Washington Capitals",
+            "link": "/api/v1/teams/15",
+            "triCode": "WSH"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8478399,
+                "fullName": "Jonas Siegenthaler",
+                "link": "/api/v1/people/8478399"
+              },
+              "playerType": "Hitter"
+            },
+            {
+              "player": {
+                "id": 8477941,
+                "fullName": "Nick Ritchie",
+                "link": "/api/v1/people/8477941"
+              },
+              "playerType": "Hittee"
+            }
+          ],
+          "result": {
+            "event": "Hit",
+            "eventCode": "WSH54",
+            "eventTypeId": "HIT",
+            "description": "Jonas Siegenthaler hit Nick Ritchie"
+          },
+          "about": {
+            "eventIdx": 13,
+            "eventId": 54,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "01:45",
+            "periodTimeRemaining": "18:15",
+            "dateTime": "2019-11-19T00:11:39Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": 19,
+            "y": -27
+          },
+          "team": {
+            "id": 15,
+            "name": "Washington Capitals",
+            "link": "/api/v1/teams/15",
+            "triCode": "WSH"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8475324,
+                "fullName": "Nick Jensen",
+                "link": "/api/v1/people/8475324"
+              },
+              "playerType": "Blocker"
+            },
+            {
+              "player": {
+                "id": 8475164,
+                "fullName": "Jakob Silfverberg",
+                "link": "/api/v1/people/8475164"
+              },
+              "playerType": "Shooter"
+            }
+          ],
+          "result": {
+            "event": "Blocked Shot",
+            "eventCode": "WSH17",
+            "eventTypeId": "BLOCKED_SHOT",
+            "description": "Jakob Silfverberg shot blocked shot by Nick Jensen"
+          },
+          "about": {
+            "eventIdx": 14,
+            "eventId": 17,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "01:47",
+            "periodTimeRemaining": "18:13",
+            "dateTime": "2019-11-19T00:11:39Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": 72,
+            "y": -9
+          },
+          "team": {
+            "id": 15,
+            "name": "Washington Capitals",
+            "link": "/api/v1/teams/15",
+            "triCode": "WSH"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8475790,
+                "fullName": "Erik Gudbranson",
+                "link": "/api/v1/people/8475790"
+              },
+              "playerType": "Shooter"
+            },
+            {
+              "player": {
+                "id": 8474651,
+                "fullName": "Braden Holtby",
+                "link": "/api/v1/people/8474651"
+              },
+              "playerType": "Goalie"
+            }
+          ],
+          "result": {
+            "event": "Shot",
+            "eventCode": "WSH18",
+            "eventTypeId": "SHOT",
+            "description": "Erik Gudbranson Slap Shot saved by Braden Holtby",
+            "secondaryType": "Slap Shot"
+          },
+          "about": {
+            "eventIdx": 15,
+            "eventId": 18,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "01:49",
+            "periodTimeRemaining": "18:11",
+            "dateTime": "2019-11-19T00:11:53Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": 34,
+            "y": -22
+          },
+          "team": {
+            "id": 24,
+            "name": "Anaheim Ducks",
+            "link": "/api/v1/teams/24",
+            "triCode": "ANA"
+          }
+        },
+        {
+          "result": {
+            "event": "Stoppage",
+            "eventCode": "WSH55",
+            "eventTypeId": "STOP",
+            "description": "Puck in Netting"
+          },
+          "about": {
+            "eventIdx": 16,
+            "eventId": 55,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "01:50",
+            "periodTimeRemaining": "18:10",
+            "dateTime": "2019-11-19T00:11:56Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {}
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8474641,
+                "fullName": "Adam Henrique",
+                "link": "/api/v1/people/8474641"
+              },
+              "playerType": "Winner"
+            },
+            {
+              "player": {
+                "id": 8473563,
+                "fullName": "Nicklas Backstrom",
+                "link": "/api/v1/people/8473563"
+              },
+              "playerType": "Loser"
+            }
+          ],
+          "result": {
+            "event": "Faceoff",
+            "eventCode": "WSH19",
+            "eventTypeId": "FACEOFF",
+            "description": "Adam Henrique faceoff won against Nicklas Backstrom"
+          },
+          "about": {
+            "eventIdx": 17,
+            "eventId": 19,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "01:50",
+            "periodTimeRemaining": "18:10",
+            "dateTime": "2019-11-19T00:12:16Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": 69,
+            "y": -22
+          },
+          "team": {
+            "id": 24,
+            "name": "Anaheim Ducks",
+            "link": "/api/v1/teams/24",
+            "triCode": "ANA"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8475462,
+                "fullName": "Radko Gudas",
+                "link": "/api/v1/people/8475462"
+              },
+              "playerType": "Blocker"
+            },
+            {
+              "player": {
+                "id": 8475790,
+                "fullName": "Erik Gudbranson",
+                "link": "/api/v1/people/8475790"
+              },
+              "playerType": "Shooter"
+            }
+          ],
+          "result": {
+            "event": "Blocked Shot",
+            "eventCode": "WSH20",
+            "eventTypeId": "BLOCKED_SHOT",
+            "description": "Erik Gudbranson shot blocked shot by Radko Gudas"
+          },
+          "about": {
+            "eventIdx": 18,
+            "eventId": 20,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "01:54",
+            "periodTimeRemaining": "18:06",
+            "dateTime": "2019-11-19T00:12:15Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": 75,
+            "y": -4
+          },
+          "team": {
+            "id": 15,
+            "name": "Washington Capitals",
+            "link": "/api/v1/teams/15",
+            "triCode": "WSH"
+          }
+        },
+        {
+          "result": {
+            "event": "Stoppage",
+            "eventCode": "WSH56",
+            "eventTypeId": "STOP",
+            "description": "Puck Frozen"
+          },
+          "about": {
+            "eventIdx": 19,
+            "eventId": 56,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "01:55",
+            "periodTimeRemaining": "18:05",
+            "dateTime": "2019-11-19T00:12:20Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {}
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8473563,
+                "fullName": "Nicklas Backstrom",
+                "link": "/api/v1/people/8473563"
+              },
+              "playerType": "Winner"
+            },
+            {
+              "player": {
+                "id": 8474641,
+                "fullName": "Adam Henrique",
+                "link": "/api/v1/people/8474641"
+              },
+              "playerType": "Loser"
+            }
+          ],
+          "result": {
+            "event": "Faceoff",
+            "eventCode": "WSH21",
+            "eventTypeId": "FACEOFF",
+            "description": "Nicklas Backstrom faceoff won against Adam Henrique"
+          },
+          "about": {
+            "eventIdx": 20,
+            "eventId": 21,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "01:55",
+            "periodTimeRemaining": "18:05",
+            "dateTime": "2019-11-19T00:12:29Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": 69,
+            "y": -22
+          },
+          "team": {
+            "id": 15,
+            "name": "Washington Capitals",
+            "link": "/api/v1/teams/15",
+            "triCode": "WSH"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8473563,
+                "fullName": "Nicklas Backstrom",
+                "link": "/api/v1/people/8473563"
+              },
+              "playerType": "PlayerID"
+            }
+          ],
+          "result": {
+            "event": "Takeaway",
+            "eventCode": "WSH57",
+            "eventTypeId": "TAKEAWAY",
+            "description": "Takeaway by Nicklas Backstrom"
+          },
+          "about": {
+            "eventIdx": 21,
+            "eventId": 57,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "02:11",
+            "periodTimeRemaining": "17:49",
+            "dateTime": "2019-11-19T00:12:54Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": 95,
+            "y": -14
+          },
+          "team": {
+            "id": 15,
+            "name": "Washington Capitals",
+            "link": "/api/v1/teams/15",
+            "triCode": "WSH"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8475200,
+                "fullName": "Dmitry Orlov",
+                "link": "/api/v1/people/8475200"
+              },
+              "playerType": "Blocker"
+            },
+            {
+              "player": {
+                "id": 8478131,
+                "fullName": "Ondrej Kase",
+                "link": "/api/v1/people/8478131"
+              },
+              "playerType": "Shooter"
+            }
+          ],
+          "result": {
+            "event": "Blocked Shot",
+            "eventCode": "WSH22",
+            "eventTypeId": "BLOCKED_SHOT",
+            "description": "Ondrej Kase shot blocked shot by Dmitry Orlov"
+          },
+          "about": {
+            "eventIdx": 22,
+            "eventId": 22,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "02:32",
+            "periodTimeRemaining": "17:28",
+            "dateTime": "2019-11-19T00:13:14Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": 72,
+            "y": 4
+          },
+          "team": {
+            "id": 15,
+            "name": "Washington Capitals",
+            "link": "/api/v1/teams/15",
+            "triCode": "WSH"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8479351,
+                "fullName": "Sam Steel",
+                "link": "/api/v1/people/8479351"
+              },
+              "playerType": "Shooter"
+            },
+            {
+              "player": {
+                "id": 8474651,
+                "fullName": "Braden Holtby",
+                "link": "/api/v1/people/8474651"
+              },
+              "playerType": "Goalie"
+            }
+          ],
+          "result": {
+            "event": "Shot",
+            "eventCode": "WSH23",
+            "eventTypeId": "SHOT",
+            "description": "Sam Steel Snap Shot saved by Braden Holtby",
+            "secondaryType": "Snap Shot"
+          },
+          "about": {
+            "eventIdx": 23,
+            "eventId": 23,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "03:07",
+            "periodTimeRemaining": "16:53",
+            "dateTime": "2019-11-19T00:13:51Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": 46,
+            "y": -13
+          },
+          "team": {
+            "id": 24,
+            "name": "Anaheim Ducks",
+            "link": "/api/v1/teams/24",
+            "triCode": "ANA"
+          }
+        },
+        {
+          "result": {
+            "event": "Stoppage",
+            "eventCode": "WSH58",
+            "eventTypeId": "STOP",
+            "description": "Goalie Stopped"
+          },
+          "about": {
+            "eventIdx": 24,
+            "eventId": 58,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "03:08",
+            "periodTimeRemaining": "16:52",
+            "dateTime": "2019-11-19T00:13:53Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {}
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8470612,
+                "fullName": "Ryan Getzlaf",
+                "link": "/api/v1/people/8470612"
+              },
+              "playerType": "Winner"
+            },
+            {
+              "player": {
+                "id": 8476894,
+                "fullName": "Brendan Leipsic",
+                "link": "/api/v1/people/8476894"
+              },
+              "playerType": "Loser"
+            }
+          ],
+          "result": {
+            "event": "Faceoff",
+            "eventCode": "WSH24",
+            "eventTypeId": "FACEOFF",
+            "description": "Ryan Getzlaf faceoff won against Brendan Leipsic"
+          },
+          "about": {
+            "eventIdx": 25,
+            "eventId": 24,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "03:08",
+            "periodTimeRemaining": "16:52",
+            "dateTime": "2019-11-19T00:14:13Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": 69,
+            "y": -22
+          },
+          "team": {
+            "id": 24,
+            "name": "Anaheim Ducks",
+            "link": "/api/v1/teams/24",
+            "triCode": "ANA"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8473560,
+                "fullName": "Korbinian Holzer",
+                "link": "/api/v1/people/8473560"
+              },
+              "playerType": "Shooter"
+            }
+          ],
+          "result": {
+            "event": "Missed Shot",
+            "eventCode": "WSH25",
+            "eventTypeId": "MISSED_SHOT",
+            "description": "Korbinian Holzer Wide of Net"
+          },
+          "about": {
+            "eventIdx": 26,
+            "eventId": 25,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "03:15",
+            "periodTimeRemaining": "16:45",
+            "dateTime": "2019-11-19T00:14:37Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": 31,
+            "y": -26
+          },
+          "team": {
+            "id": 24,
+            "name": "Anaheim Ducks",
+            "link": "/api/v1/teams/24",
+            "triCode": "ANA"
+          }
+        },
+        {
+          "result": {
+            "event": "Stoppage",
+            "eventCode": "WSH59",
+            "eventTypeId": "STOP",
+            "description": "Icing"
+          },
+          "about": {
+            "eventIdx": 27,
+            "eventId": 59,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "03:21",
+            "periodTimeRemaining": "16:39",
+            "dateTime": "2019-11-19T00:14:45Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {}
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8476905,
+                "fullName": "Chandler Stephenson",
+                "link": "/api/v1/people/8476905"
+              },
+              "playerType": "Winner"
+            },
+            {
+              "player": {
+                "id": 8479351,
+                "fullName": "Sam Steel",
+                "link": "/api/v1/people/8479351"
+              },
+              "playerType": "Loser"
+            }
+          ],
+          "result": {
+            "event": "Faceoff",
+            "eventCode": "WSH26",
+            "eventTypeId": "FACEOFF",
+            "description": "Chandler Stephenson faceoff won against Sam Steel"
+          },
+          "about": {
+            "eventIdx": 28,
+            "eventId": 26,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "03:21",
+            "periodTimeRemaining": "16:39",
+            "dateTime": "2019-11-19T00:15:08Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": 69,
+            "y": 22
+          },
+          "team": {
+            "id": 15,
+            "name": "Washington Capitals",
+            "link": "/api/v1/teams/15",
+            "triCode": "WSH"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8477903,
+                "fullName": "Garnet Hathaway",
+                "link": "/api/v1/people/8477903"
+              },
+              "playerType": "PlayerID"
+            }
+          ],
+          "result": {
+            "event": "Takeaway",
+            "eventCode": "WSH60",
+            "eventTypeId": "TAKEAWAY",
+            "description": "Takeaway by Garnet Hathaway"
+          },
+          "about": {
+            "eventIdx": 29,
+            "eventId": 60,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "03:38",
+            "periodTimeRemaining": "16:22",
+            "dateTime": "2019-11-19T00:15:28Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": -11,
+            "y": 7
+          },
+          "team": {
+            "id": 15,
+            "name": "Washington Capitals",
+            "link": "/api/v1/teams/15",
+            "triCode": "WSH"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8475764,
+                "fullName": "Cam Fowler",
+                "link": "/api/v1/people/8475764"
+              },
+              "playerType": "Blocker"
+            },
+            {
+              "player": {
+                "id": 8474590,
+                "fullName": "John Carlson",
+                "link": "/api/v1/people/8474590"
+              },
+              "playerType": "Shooter"
+            }
+          ],
+          "result": {
+            "event": "Blocked Shot",
+            "eventCode": "WSH27",
+            "eventTypeId": "BLOCKED_SHOT",
+            "description": "John Carlson shot blocked shot by Cam Fowler"
+          },
+          "about": {
+            "eventIdx": 30,
+            "eventId": 27,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "03:49",
+            "periodTimeRemaining": "16:11",
+            "dateTime": "2019-11-19T00:15:38Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": -74,
+            "y": 5
+          },
+          "team": {
+            "id": 24,
+            "name": "Anaheim Ducks",
+            "link": "/api/v1/teams/24",
+            "triCode": "ANA"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8477240,
+                "fullName": "Carter Rowney",
+                "link": "/api/v1/people/8477240"
+              },
+              "playerType": "Hitter"
+            },
+            {
+              "player": {
+                "id": 8475324,
+                "fullName": "Nick Jensen",
+                "link": "/api/v1/people/8475324"
+              },
+              "playerType": "Hittee"
+            }
+          ],
+          "result": {
+            "event": "Hit",
+            "eventCode": "WSH61",
+            "eventTypeId": "HIT",
+            "description": "Carter Rowney hit Nick Jensen"
+          },
+          "about": {
+            "eventIdx": 31,
+            "eventId": 61,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "04:30",
+            "periodTimeRemaining": "15:30",
+            "dateTime": "2019-11-19T00:16:20Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": 90,
+            "y": 32
+          },
+          "team": {
+            "id": 24,
+            "name": "Anaheim Ducks",
+            "link": "/api/v1/teams/24",
+            "triCode": "ANA"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8475790,
+                "fullName": "Erik Gudbranson",
+                "link": "/api/v1/people/8475790"
+              },
+              "playerType": "PlayerID"
+            }
+          ],
+          "result": {
+            "event": "Giveaway",
+            "eventCode": "WSH62",
+            "eventTypeId": "GIVEAWAY",
+            "description": "Giveaway by Erik Gudbranson"
+          },
+          "about": {
+            "eventIdx": 32,
+            "eventId": 62,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "04:37",
+            "periodTimeRemaining": "15:23",
+            "dateTime": "2019-11-19T00:16:27Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": -40,
+            "y": -31
+          },
+          "team": {
+            "id": 24,
+            "name": "Anaheim Ducks",
+            "link": "/api/v1/teams/24",
+            "triCode": "ANA"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8477240,
+                "fullName": "Carter Rowney",
+                "link": "/api/v1/people/8477240"
+              },
+              "playerType": "PlayerID"
+            }
+          ],
+          "result": {
+            "event": "Takeaway",
+            "eventCode": "WSH63",
+            "eventTypeId": "TAKEAWAY",
+            "description": "Takeaway by Carter Rowney"
+          },
+          "about": {
+            "eventIdx": 33,
+            "eventId": 63,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "04:43",
+            "periodTimeRemaining": "15:17",
+            "dateTime": "2019-11-19T00:16:33Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": -69,
+            "y": 32
+          },
+          "team": {
+            "id": 24,
+            "name": "Anaheim Ducks",
+            "link": "/api/v1/teams/24",
+            "triCode": "ANA"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8475235,
+                "fullName": "Nicolas Deslauriers",
+                "link": "/api/v1/people/8475235"
+              },
+              "playerType": "Blocker"
+            },
+            {
+              "player": {
+                "id": 8478399,
+                "fullName": "Jonas Siegenthaler",
+                "link": "/api/v1/people/8478399"
+              },
+              "playerType": "Shooter"
+            }
+          ],
+          "result": {
+            "event": "Blocked Shot",
+            "eventCode": "WSH28",
+            "eventTypeId": "BLOCKED_SHOT",
+            "description": "Jonas Siegenthaler shot blocked shot by Nicolas Deslauriers"
+          },
+          "about": {
+            "eventIdx": 34,
+            "eventId": 28,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "04:49",
+            "periodTimeRemaining": "15:11",
+            "dateTime": "2019-11-19T00:16:38Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": -61,
+            "y": 5
+          },
+          "team": {
+            "id": 24,
+            "name": "Anaheim Ducks",
+            "link": "/api/v1/teams/24",
+            "triCode": "ANA"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8474641,
+                "fullName": "Adam Henrique",
+                "link": "/api/v1/people/8474641"
+              },
+              "playerType": "PlayerID"
+            }
+          ],
+          "result": {
+            "event": "Takeaway",
+            "eventCode": "WSH64",
+            "eventTypeId": "TAKEAWAY",
+            "description": "Takeaway by Adam Henrique"
+          },
+          "about": {
+            "eventIdx": 35,
+            "eventId": 64,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "05:10",
+            "periodTimeRemaining": "14:50",
+            "dateTime": "2019-11-19T00:17:00Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": -32,
+            "y": 35
+          },
+          "team": {
+            "id": 24,
+            "name": "Anaheim Ducks",
+            "link": "/api/v1/teams/24",
+            "triCode": "ANA"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8475744,
+                "fullName": "Evgeny Kuznetsov",
+                "link": "/api/v1/people/8475744"
+              },
+              "playerType": "PlayerID"
+            }
+          ],
+          "result": {
+            "event": "Giveaway",
+            "eventCode": "WSH65",
+            "eventTypeId": "GIVEAWAY",
+            "description": "Giveaway by Evgeny Kuznetsov"
+          },
+          "about": {
+            "eventIdx": 36,
+            "eventId": 65,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "05:18",
+            "periodTimeRemaining": "14:42",
+            "dateTime": "2019-11-19T00:17:09Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": 42,
+            "y": 0
+          },
+          "team": {
+            "id": 15,
+            "name": "Washington Capitals",
+            "link": "/api/v1/teams/15",
+            "triCode": "WSH"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8474584,
+                "fullName": "Michael Del Zotto",
+                "link": "/api/v1/people/8474584"
+              },
+              "playerType": "Shooter"
+            }
+          ],
+          "result": {
+            "event": "Missed Shot",
+            "eventCode": "WSH29",
+            "eventTypeId": "MISSED_SHOT",
+            "description": "Michael Del Zotto Wide of Net"
+          },
+          "about": {
+            "eventIdx": 37,
+            "eventId": 29,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "05:45",
+            "periodTimeRemaining": "14:15",
+            "dateTime": "2019-11-19T00:17:34Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": 35,
+            "y": 33
+          },
+          "team": {
+            "id": 24,
+            "name": "Anaheim Ducks",
+            "link": "/api/v1/teams/24",
+            "triCode": "ANA"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8479368,
+                "fullName": "Max Jones",
+                "link": "/api/v1/people/8479368"
+              },
+              "playerType": "PlayerID"
+            }
+          ],
+          "result": {
+            "event": "Giveaway",
+            "eventCode": "WSH66",
+            "eventTypeId": "GIVEAWAY",
+            "description": "Giveaway by Max Jones"
+          },
+          "about": {
+            "eventIdx": 38,
+            "eventId": 66,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "06:03",
+            "periodTimeRemaining": "13:57",
+            "dateTime": "2019-11-19T00:17:54Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": 65,
+            "y": -13
+          },
+          "team": {
+            "id": 24,
+            "name": "Anaheim Ducks",
+            "link": "/api/v1/teams/24",
+            "triCode": "ANA"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8476483,
+                "fullName": "Rickard Rakell",
+                "link": "/api/v1/people/8476483"
+              },
+              "playerType": "Shooter"
+            },
+            {
+              "player": {
+                "id": 8474651,
+                "fullName": "Braden Holtby",
+                "link": "/api/v1/people/8474651"
+              },
+              "playerType": "Goalie"
+            }
+          ],
+          "result": {
+            "event": "Shot",
+            "eventCode": "WSH30",
+            "eventTypeId": "SHOT",
+            "description": "Rickard Rakell Slap Shot saved by Braden Holtby",
+            "secondaryType": "Slap Shot"
+          },
+          "about": {
+            "eventIdx": 39,
+            "eventId": 30,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "06:36",
+            "periodTimeRemaining": "13:24",
+            "dateTime": "2019-11-19T00:18:26Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": 77,
+            "y": -26
+          },
+          "team": {
+            "id": 24,
+            "name": "Anaheim Ducks",
+            "link": "/api/v1/teams/24",
+            "triCode": "ANA"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8475790,
+                "fullName": "Erik Gudbranson",
+                "link": "/api/v1/people/8475790"
+              },
+              "playerType": "Hitter"
+            },
+            {
+              "player": {
+                "id": 8477944,
+                "fullName": "Jakub Vrana",
+                "link": "/api/v1/people/8477944"
+              },
+              "playerType": "Hittee"
+            }
+          ],
+          "result": {
+            "event": "Hit",
+            "eventCode": "WSH67",
+            "eventTypeId": "HIT",
+            "description": "Erik Gudbranson hit Jakub Vrana"
+          },
+          "about": {
+            "eventIdx": 40,
+            "eventId": 67,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "07:02",
+            "periodTimeRemaining": "12:58",
+            "dateTime": "2019-11-19T00:18:52Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": -67,
+            "y": -38
+          },
+          "team": {
+            "id": 24,
+            "name": "Anaheim Ducks",
+            "link": "/api/v1/teams/24",
+            "triCode": "ANA"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8479351,
+                "fullName": "Sam Steel",
+                "link": "/api/v1/people/8479351"
+              },
+              "playerType": "Shooter"
+            },
+            {
+              "player": {
+                "id": 8474651,
+                "fullName": "Braden Holtby",
+                "link": "/api/v1/people/8474651"
+              },
+              "playerType": "Goalie"
+            }
+          ],
+          "result": {
+            "event": "Shot",
+            "eventCode": "WSH31",
+            "eventTypeId": "SHOT",
+            "description": "Sam Steel Wrist Shot saved by Braden Holtby",
+            "secondaryType": "Wrist Shot"
+          },
+          "about": {
+            "eventIdx": 41,
+            "eventId": 31,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "07:11",
+            "periodTimeRemaining": "12:49",
+            "dateTime": "2019-11-19T00:19:00Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": 84,
+            "y": 5
+          },
+          "team": {
+            "id": 24,
+            "name": "Anaheim Ducks",
+            "link": "/api/v1/teams/24",
+            "triCode": "ANA"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8476905,
+                "fullName": "Chandler Stephenson",
+                "link": "/api/v1/people/8476905"
+              },
+              "playerType": "Shooter"
+            }
+          ],
+          "result": {
+            "event": "Missed Shot",
+            "eventCode": "WSH32",
+            "eventTypeId": "MISSED_SHOT",
+            "description": "Chandler Stephenson Wide of Net"
+          },
+          "about": {
+            "eventIdx": 42,
+            "eventId": 32,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "07:31",
+            "periodTimeRemaining": "12:29",
+            "dateTime": "2019-11-19T00:19:20Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": -83,
+            "y": 15
+          },
+          "team": {
+            "id": 15,
+            "name": "Washington Capitals",
+            "link": "/api/v1/teams/15",
+            "triCode": "WSH"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8473560,
+                "fullName": "Korbinian Holzer",
+                "link": "/api/v1/people/8473560"
+              },
+              "playerType": "Blocker"
+            },
+            {
+              "player": {
+                "id": 8476894,
+                "fullName": "Brendan Leipsic",
+                "link": "/api/v1/people/8476894"
+              },
+              "playerType": "Shooter"
+            }
+          ],
+          "result": {
+            "event": "Blocked Shot",
+            "eventCode": "WSH33",
+            "eventTypeId": "BLOCKED_SHOT",
+            "description": "Brendan Leipsic shot blocked shot by Korbinian Holzer"
+          },
+          "about": {
+            "eventIdx": 43,
+            "eventId": 33,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "07:39",
+            "periodTimeRemaining": "12:21",
+            "dateTime": "2019-11-19T00:19:28Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": -72,
+            "y": 0
+          },
+          "team": {
+            "id": 24,
+            "name": "Anaheim Ducks",
+            "link": "/api/v1/teams/24",
+            "triCode": "ANA"
+          }
+        },
+        {
+          "players": [
+            {
+              "player": {
+                "id": 8475324,
+                "fullName": "Nick Jensen",
+                "link": "/api/v1/people/8475324"
+              },
+              "playerType": "Shooter"
+            }
+          ],
+          "result": {
+            "event": "Missed Shot",
+            "eventCode": "WSH34",
+            "eventTypeId": "MISSED_SHOT",
+            "description": "Nick Jensen Wide of Net"
+          },
+          "about": {
+            "eventIdx": 44,
+            "eventId": 34,
+            "period": 1,
+            "periodType": "REGULAR",
+            "ordinalNum": "1st",
+            "periodTime": "07:54",
+            "periodTimeRemaining": "12:06",
+            "dateTime": "2019-11-19T00:19:44Z",
+            "goals": {
+              "away": 0,
+              "home": 1
+            }
+          },
+          "coordinates": {
+            "x": -36,
+            "y": 23
+          },
+          "team": {
+            "id": 15,
+            "name": "Washington Capitals",
+            "link": "/api/v1/teams/15",
+            "triCode": "WSH"
+          }
+        }
+      ],
+      "scoringPlays": [9],
+      "penaltyPlays": [],
+      "playsByPeriod": [
+        {
+          "startIndex": 0,
+          "plays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44
+          ],
+          "endIndex": 44
+        }
+      ],
+      "currentPlay": {
+        "players": [
+          {
+            "player": {
+              "id": 8475324,
+              "fullName": "Nick Jensen",
+              "link": "/api/v1/people/8475324"
+            },
+            "playerType": "Shooter"
+          }
+        ],
+        "result": {
+          "event": "Missed Shot",
+          "eventCode": "WSH34",
+          "eventTypeId": "MISSED_SHOT",
+          "description": "Nick Jensen Wide of Net"
+        },
+        "about": {
+          "eventIdx": 44,
+          "eventId": 34,
+          "period": 1,
+          "periodType": "REGULAR",
+          "ordinalNum": "1st",
+          "periodTime": "07:54",
+          "periodTimeRemaining": "12:06",
+          "dateTime": "2019-11-19T00:19:44Z",
+          "goals": {
+            "away": 0,
+            "home": 1
+          }
+        },
+        "coordinates": {
+          "x": -36,
+          "y": 23
+        },
+        "team": {
+          "id": 15,
+          "name": "Washington Capitals",
+          "link": "/api/v1/teams/15",
+          "triCode": "WSH"
+        }
+      }
+    },
+    "linescore": {
+      "currentPeriod": 1,
+      "currentPeriodOrdinal": "1st",
+      "currentPeriodTimeRemaining": "12:06",
+      "periods": [
+        {
+          "periodType": "REGULAR",
+          "startTime": "2019-11-19T00:08:04Z",
+          "num": 1,
+          "ordinalNum": "1st",
+          "home": {
+            "goals": 1,
+            "shotsOnGoal": 4,
+            "rinkSide": "right"
+          },
+          "away": {
+            "goals": 0,
+            "shotsOnGoal": 4,
+            "rinkSide": "left"
+          }
+        }
+      ],
+      "shootoutInfo": {
+        "away": {
+          "scores": 0,
+          "attempts": 0
+        },
+        "home": {
+          "scores": 0,
+          "attempts": 0
+        }
+      },
+      "teams": {
+        "home": {
+          "team": {
+            "id": 15,
+            "name": "Washington Capitals",
+            "link": "/api/v1/teams/15",
+            "abbreviation": "WSH",
+            "triCode": "WSH"
+          },
+          "goals": 1,
+          "shotsOnGoal": 4,
+          "goaliePulled": false,
+          "numSkaters": 5,
+          "powerPlay": false
+        },
+        "away": {
+          "team": {
+            "id": 24,
+            "name": "Anaheim Ducks",
+            "link": "/api/v1/teams/24",
+            "abbreviation": "ANA",
+            "triCode": "ANA"
+          },
+          "goals": 0,
+          "shotsOnGoal": 4,
+          "goaliePulled": false,
+          "numSkaters": 5,
+          "powerPlay": false
+        }
+      },
+      "powerPlayStrength": "Even",
+      "hasShootout": false,
+      "intermissionInfo": {
+        "intermissionTimeRemaining": 0,
+        "intermissionTimeElapsed": 0,
+        "inIntermission": false
+      },
+      "powerPlayInfo": {
+        "situationTimeRemaining": 726,
+        "situationTimeElapsed": 474,
+        "inSituation": false
+      }
+    },
+    "boxscore": {
+      "teams": {
+        "away": {
+          "team": {
+            "id": 24,
+            "name": "Anaheim Ducks",
+            "link": "/api/v1/teams/24",
+            "abbreviation": "ANA",
+            "triCode": "ANA"
+          },
+          "teamStats": {
+            "teamSkaterStats": {
+              "goals": 0,
+              "pim": 0,
+              "shots": 4,
+              "powerPlayPercentage": "0.0",
+              "powerPlayGoals": 0,
+              "powerPlayOpportunities": 0,
+              "faceOffWinPercentage": "57.1",
+              "blocked": 2,
+              "takeaways": 2,
+              "giveaways": 2,
+              "hits": 2
+            }
+          },
+          "players": {
+            "ID8468011": {
+              "person": {
+                "id": 8468011,
+                "fullName": "Ryan Miller",
+                "link": "/api/v1/people/8468011",
+                "shootsCatches": "L",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "30",
+              "position": {
+                "code": "G",
+                "name": "Goalie",
+                "type": "Goalie",
+                "abbreviation": "G"
+              },
+              "stats": {
+                "goalieStats": {
+                  "timeOnIce": "0:00",
+                  "assists": 0,
+                  "goals": 0,
+                  "pim": 0,
+                  "shots": 0,
+                  "saves": 0,
+                  "powerPlaySaves": 0,
+                  "shortHandedSaves": 0,
+                  "evenSaves": 0,
+                  "shortHandedShotsAgainst": 0,
+                  "evenShotsAgainst": 0,
+                  "powerPlayShotsAgainst": 0
+                }
+              }
+            },
+            "ID8476913": {
+              "person": {
+                "id": 8476913,
+                "fullName": "Devin Shore",
+                "link": "/api/v1/people/8476913",
+                "shootsCatches": "L",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "29",
+              "position": {
+                "code": "C",
+                "name": "Center",
+                "type": "Forward",
+                "abbreviation": "C"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:05",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 0,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": 0,
+                  "evenTimeOnIce": "1:05",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8475764": {
+              "person": {
+                "id": 8475764,
+                "fullName": "Cam Fowler",
+                "link": "/api/v1/people/8475764",
+                "shootsCatches": "L",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "4",
+              "position": {
+                "code": "D",
+                "name": "Defenseman",
+                "type": "Defenseman",
+                "abbreviation": "D"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "3:05",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 0,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 1,
+                  "plusMinus": -1,
+                  "evenTimeOnIce": "3:05",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8470612": {
+              "person": {
+                "id": 8470612,
+                "fullName": "Ryan Getzlaf",
+                "link": "/api/v1/people/8470612",
+                "shootsCatches": "R",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "15",
+              "position": {
+                "code": "C",
+                "name": "Center",
+                "type": "Forward",
+                "abbreviation": "C"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:47",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffPct": 100,
+                  "faceOffWins": 2,
+                  "faceoffTaken": 2,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": 0,
+                  "evenTimeOnIce": "1:47",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8474683": {
+              "person": {
+                "id": 8474683,
+                "fullName": "Derek Grant",
+                "link": "/api/v1/people/8474683",
+                "shootsCatches": "L",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "38",
+              "position": {
+                "code": "C",
+                "name": "Center",
+                "type": "Forward",
+                "abbreviation": "C"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:56",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffPct": 50,
+                  "faceOffWins": 1,
+                  "faceoffTaken": 2,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": -1,
+                  "evenTimeOnIce": "1:56",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8474584": {
+              "person": {
+                "id": 8474584,
+                "fullName": "Michael Del Zotto",
+                "link": "/api/v1/people/8474584",
+                "shootsCatches": "L",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "44",
+              "position": {
+                "code": "D",
+                "name": "Defenseman",
+                "type": "Defenseman",
+                "abbreviation": "D"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "2:56",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 0,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": -1,
+                  "evenTimeOnIce": "2:56",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8478873": {
+              "person": {
+                "id": 8478873,
+                "fullName": "Troy Terry",
+                "link": "/api/v1/people/8478873",
+                "shootsCatches": "R",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "61",
+              "position": {
+                "code": "N/A",
+                "name": "Unknown",
+                "type": "Unknown",
+                "abbreviation": "N/A"
+              },
+              "stats": {}
+            },
+            "ID8478425": {
+              "person": {
+                "id": 8478425,
+                "fullName": "Brendan Guhle",
+                "link": "/api/v1/people/8478425",
+                "shootsCatches": "L",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "2",
+              "position": {
+                "code": "D",
+                "name": "Defenseman",
+                "type": "Defenseman",
+                "abbreviation": "D"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:38",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 0,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": 0,
+                  "evenTimeOnIce": "1:38",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8477941": {
+              "person": {
+                "id": 8477941,
+                "fullName": "Nick Ritchie",
+                "link": "/api/v1/people/8477941",
+                "shootsCatches": "L",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "37",
+              "position": {
+                "code": "L",
+                "name": "Left Wing",
+                "type": "Forward",
+                "abbreviation": "LW"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:41",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 0,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": 0,
+                  "evenTimeOnIce": "1:41",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8479368": {
+              "person": {
+                "id": 8479368,
+                "fullName": "Max Jones",
+                "link": "/api/v1/people/8479368",
+                "shootsCatches": "L",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "49",
+              "position": {
+                "code": "L",
+                "name": "Left Wing",
+                "type": "Forward",
+                "abbreviation": "LW"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:54",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 0,
+                  "takeaways": 0,
+                  "giveaways": 1,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": 0,
+                  "evenTimeOnIce": "1:54",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8474641": {
+              "person": {
+                "id": 8474641,
+                "fullName": "Adam Henrique",
+                "link": "/api/v1/people/8474641",
+                "shootsCatches": "L",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "14",
+              "position": {
+                "code": "C",
+                "name": "Center",
+                "type": "Forward",
+                "abbreviation": "C"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:39",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffPct": 50,
+                  "faceOffWins": 1,
+                  "faceoffTaken": 2,
+                  "takeaways": 1,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": 0,
+                  "evenTimeOnIce": "1:39",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8475235": {
+              "person": {
+                "id": 8475235,
+                "fullName": "Nicolas Deslauriers",
+                "link": "/api/v1/people/8475235",
+                "shootsCatches": "L",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "20",
+              "position": {
+                "code": "L",
+                "name": "Left Wing",
+                "type": "Forward",
+                "abbreviation": "LW"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:56",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 0,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 1,
+                  "plusMinus": -1,
+                  "evenTimeOnIce": "1:56",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8476434": {
+              "person": {
+                "id": 8476434,
+                "fullName": "John Gibson",
+                "link": "/api/v1/people/8476434",
+                "shootsCatches": "L",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "36",
+              "position": {
+                "code": "G",
+                "name": "Goalie",
+                "type": "Goalie",
+                "abbreviation": "G"
+              },
+              "stats": {
+                "goalieStats": {
+                  "timeOnIce": "6:36",
+                  "assists": 0,
+                  "goals": 0,
+                  "pim": 0,
+                  "shots": 4,
+                  "saves": 3,
+                  "powerPlaySaves": 0,
+                  "shortHandedSaves": 0,
+                  "evenSaves": 3,
+                  "shortHandedShotsAgainst": 0,
+                  "evenShotsAgainst": 4,
+                  "powerPlayShotsAgainst": 0,
+                  "savePercentage": 75,
+                  "evenStrengthSavePercentage": 75
+                }
+              }
+            },
+            "ID8475790": {
+              "person": {
+                "id": 8475790,
+                "fullName": "Erik Gudbranson",
+                "link": "/api/v1/people/8475790",
+                "shootsCatches": "R",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "6",
+              "position": {
+                "code": "D",
+                "name": "Defenseman",
+                "type": "Defenseman",
+                "abbreviation": "D"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:53",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 1,
+                  "hits": 1,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 0,
+                  "takeaways": 0,
+                  "giveaways": 1,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": 0,
+                  "evenTimeOnIce": "1:53",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8476483": {
+              "person": {
+                "id": 8476483,
+                "fullName": "Rickard Rakell",
+                "link": "/api/v1/people/8476483",
+                "shootsCatches": "R",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "67",
+              "position": {
+                "code": "R",
+                "name": "Right Wing",
+                "type": "Forward",
+                "abbreviation": "RW"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:38",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 1,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 0,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": 0,
+                  "evenTimeOnIce": "1:38",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8475164": {
+              "person": {
+                "id": 8475164,
+                "fullName": "Jakob Silfverberg",
+                "link": "/api/v1/people/8475164",
+                "shootsCatches": "R",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "33",
+              "position": {
+                "code": "R",
+                "name": "Right Wing",
+                "type": "Forward",
+                "abbreviation": "RW"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:42",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 0,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": 0,
+                  "evenTimeOnIce": "1:42",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8473560": {
+              "person": {
+                "id": 8473560,
+                "fullName": "Korbinian Holzer",
+                "link": "/api/v1/people/8473560",
+                "shootsCatches": "R",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "5",
+              "position": {
+                "code": "D",
+                "name": "Defenseman",
+                "type": "Defenseman",
+                "abbreviation": "D"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:38",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 0,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": 0,
+                  "evenTimeOnIce": "1:38",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8479351": {
+              "person": {
+                "id": 8479351,
+                "fullName": "Sam Steel",
+                "link": "/api/v1/people/8479351",
+                "shootsCatches": "L",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "34",
+              "position": {
+                "code": "C",
+                "name": "Center",
+                "type": "Forward",
+                "abbreviation": "C"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:14",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 2,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffPct": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 1,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": 0,
+                  "evenTimeOnIce": "1:14",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8478491": {
+              "person": {
+                "id": 8478491,
+                "fullName": "Jacob Larsson",
+                "link": "/api/v1/people/8478491",
+                "shootsCatches": "L",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "32",
+              "position": {
+                "code": "D",
+                "name": "Defenseman",
+                "type": "Defenseman",
+                "abbreviation": "D"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "2:02",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 0,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": 0,
+                  "evenTimeOnIce": "2:02",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8477240": {
+              "person": {
+                "id": 8477240,
+                "fullName": "Carter Rowney",
+                "link": "/api/v1/people/8477240",
+                "shootsCatches": "R",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "24",
+              "position": {
+                "code": "R",
+                "name": "Right Wing",
+                "type": "Forward",
+                "abbreviation": "RW"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:58",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 1,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 0,
+                  "takeaways": 1,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": -1,
+                  "evenTimeOnIce": "1:58",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8478131": {
+              "person": {
+                "id": 8478131,
+                "fullName": "Ondrej Kase",
+                "link": "/api/v1/people/8478131",
+                "shootsCatches": "R",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "25",
+              "position": {
+                "code": "R",
+                "name": "Right Wing",
+                "type": "Forward",
+                "abbreviation": "RW"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:18",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 0,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": 0,
+                  "evenTimeOnIce": "1:18",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8479372": {
+              "person": {
+                "id": 8479372,
+                "fullName": "Josh Mahura",
+                "link": "/api/v1/people/8479372",
+                "shootsCatches": "L",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "76",
+              "position": {
+                "code": "N/A",
+                "name": "Unknown",
+                "type": "Unknown",
+                "abbreviation": "N/A"
+              },
+              "stats": {}
+            }
+          },
+          "goalies": [8468011, 8476434],
+          "skaters": [
+            8478425,
+            8475764,
+            8473560,
+            8475790,
+            8474641,
+            8470612,
+            8475235,
+            8477240,
+            8478131,
+            8476913,
+            8478491,
+            8475164,
+            8479351,
+            8477941,
+            8474683,
+            8474584,
+            8479368,
+            8476483,
+            8478873,
+            8479372
+          ],
+          "onIce": [8473560, 8476434, 8476913, 8478131, 8478425, 8479351],
+          "onIcePlus": [
+            {
+              "playerId": 8473560,
+              "shiftDuration": 46,
+              "stamina": 66
+            },
+            {
+              "playerId": 8476434,
+              "shiftDuration": 474,
+              "stamina": 33
+            },
+            {
+              "playerId": 8476913,
+              "shiftDuration": 78,
+              "stamina": 33
+            },
+            {
+              "playerId": 8478131,
+              "shiftDuration": 59,
+              "stamina": 66
+            },
+            {
+              "playerId": 8478425,
+              "shiftDuration": 46,
+              "stamina": 66
+            },
+            {
+              "playerId": 8479351,
+              "shiftDuration": 54,
+              "stamina": 66
+            }
+          ],
+          "scratches": [8478873, 8479372],
+          "penaltyBox": [],
+          "coaches": [
+            {
+              "person": {
+                "fullName": "Dallas Eakins",
+                "link": "/api/v1/people/null"
+              },
+              "position": {
+                "code": "HC",
+                "name": "Head Coach",
+                "type": "Head Coach",
+                "abbreviation": "Head Coach"
+              }
+            }
+          ]
+        },
+        "home": {
+          "team": {
+            "id": 15,
+            "name": "Washington Capitals",
+            "link": "/api/v1/teams/15",
+            "abbreviation": "WSH",
+            "triCode": "WSH"
+          },
+          "teamStats": {
+            "teamSkaterStats": {
+              "goals": 1,
+              "pim": 0,
+              "shots": 4,
+              "powerPlayPercentage": "0.0",
+              "powerPlayGoals": 0,
+              "powerPlayOpportunities": 0,
+              "faceOffWinPercentage": "42.9",
+              "blocked": 4,
+              "takeaways": 2,
+              "giveaways": 1,
+              "hits": 2
+            }
+          },
+          "players": {
+            "ID8476905": {
+              "person": {
+                "id": 8476905,
+                "fullName": "Chandler Stephenson",
+                "link": "/api/v1/people/8476905",
+                "shootsCatches": "L",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "18",
+              "position": {
+                "code": "C",
+                "name": "Center",
+                "type": "Forward",
+                "abbreviation": "C"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:11",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffPct": 100,
+                  "faceOffWins": 1,
+                  "faceoffTaken": 1,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": 0,
+                  "evenTimeOnIce": "1:11",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8477903": {
+              "person": {
+                "id": 8477903,
+                "fullName": "Garnet Hathaway",
+                "link": "/api/v1/people/8477903",
+                "shootsCatches": "R",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "21",
+              "position": {
+                "code": "R",
+                "name": "Right Wing",
+                "type": "Forward",
+                "abbreviation": "RW"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:05",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 0,
+                  "takeaways": 1,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": 0,
+                  "evenTimeOnIce": "1:05",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8476329": {
+              "person": {
+                "id": 8476329,
+                "fullName": "Travis Boyd",
+                "link": "/api/v1/people/8476329",
+                "shootsCatches": "R",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "72",
+              "position": {
+                "code": "C",
+                "name": "Center",
+                "type": "Forward",
+                "abbreviation": "C"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:53",
+                  "assists": 1,
+                  "goals": 0,
+                  "shots": 1,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 0,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": 1,
+                  "evenTimeOnIce": "1:53",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8475209": {
+              "person": {
+                "id": 8475209,
+                "fullName": "Richard Panik",
+                "link": "/api/v1/people/8475209",
+                "shootsCatches": "L",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "14",
+              "position": {
+                "code": "R",
+                "name": "Right Wing",
+                "type": "Forward",
+                "abbreviation": "RW"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:55",
+                  "assists": 0,
+                  "goals": 1,
+                  "shots": 1,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 0,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": 1,
+                  "evenTimeOnIce": "1:55",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8475324": {
+              "person": {
+                "id": 8475324,
+                "fullName": "Nick Jensen",
+                "link": "/api/v1/people/8475324",
+                "shootsCatches": "R",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "3",
+              "position": {
+                "code": "D",
+                "name": "Defenseman",
+                "type": "Defenseman",
+                "abbreviation": "D"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:41",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 0,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 1,
+                  "plusMinus": 0,
+                  "evenTimeOnIce": "1:41",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8471214": {
+              "person": {
+                "id": 8471214,
+                "fullName": "Alex Ovechkin",
+                "link": "/api/v1/people/8471214",
+                "shootsCatches": "R",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "8",
+              "position": {
+                "code": "L",
+                "name": "Left Wing",
+                "type": "Forward",
+                "abbreviation": "LW"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:35",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 1,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 0,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": 0,
+                  "evenTimeOnIce": "1:35",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8471698": {
+              "person": {
+                "id": 8471698,
+                "fullName": "T.J. Oshie",
+                "link": "/api/v1/people/8471698",
+                "shootsCatches": "R",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "77",
+              "position": {
+                "code": "R",
+                "name": "Right Wing",
+                "type": "Forward",
+                "abbreviation": "RW"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "2:05",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 0,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": 0,
+                  "evenTimeOnIce": "2:05",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8475744": {
+              "person": {
+                "id": 8475744,
+                "fullName": "Evgeny Kuznetsov",
+                "link": "/api/v1/people/8475744",
+                "shootsCatches": "L",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "92",
+              "position": {
+                "code": "C",
+                "name": "Center",
+                "type": "Forward",
+                "abbreviation": "C"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:48",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffPct": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 1,
+                  "takeaways": 0,
+                  "giveaways": 1,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 1,
+                  "plusMinus": 0,
+                  "evenTimeOnIce": "1:48",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8477944": {
+              "person": {
+                "id": 8477944,
+                "fullName": "Jakub Vrana",
+                "link": "/api/v1/people/8477944",
+                "shootsCatches": "L",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "13",
+              "position": {
+                "code": "L",
+                "name": "Left Wing",
+                "type": "Forward",
+                "abbreviation": "LW"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "2:01",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 0,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": 0,
+                  "evenTimeOnIce": "2:01",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8475200": {
+              "person": {
+                "id": 8475200,
+                "fullName": "Dmitry Orlov",
+                "link": "/api/v1/people/8475200",
+                "shootsCatches": "L",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "9",
+              "position": {
+                "code": "D",
+                "name": "Defenseman",
+                "type": "Defenseman",
+                "abbreviation": "D"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "2:54",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 0,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 1,
+                  "plusMinus": 1,
+                  "evenTimeOnIce": "2:54",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8476894": {
+              "person": {
+                "id": 8476894,
+                "fullName": "Brendan Leipsic",
+                "link": "/api/v1/people/8476894",
+                "shootsCatches": "L",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "28",
+              "position": {
+                "code": "L",
+                "name": "Left Wing",
+                "type": "Forward",
+                "abbreviation": "LW"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:05",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffPct": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 1,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": 0,
+                  "evenTimeOnIce": "1:05",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8475343": {
+              "person": {
+                "id": 8475343,
+                "fullName": "Nic Dowd",
+                "link": "/api/v1/people/8475343",
+                "shootsCatches": "R",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "26",
+              "position": {
+                "code": "N/A",
+                "name": "Unknown",
+                "type": "Unknown",
+                "abbreviation": "N/A"
+              },
+              "stats": {}
+            },
+            "ID8474651": {
+              "person": {
+                "id": 8474651,
+                "fullName": "Braden Holtby",
+                "link": "/api/v1/people/8474651",
+                "shootsCatches": "L",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "70",
+              "position": {
+                "code": "G",
+                "name": "Goalie",
+                "type": "Goalie",
+                "abbreviation": "G"
+              },
+              "stats": {
+                "goalieStats": {
+                  "timeOnIce": "6:36",
+                  "assists": 0,
+                  "goals": 0,
+                  "pim": 0,
+                  "shots": 4,
+                  "saves": 4,
+                  "powerPlaySaves": 0,
+                  "shortHandedSaves": 0,
+                  "evenSaves": 2,
+                  "shortHandedShotsAgainst": 0,
+                  "evenShotsAgainst": 2,
+                  "powerPlayShotsAgainst": 0,
+                  "savePercentage": 100,
+                  "evenStrengthSavePercentage": 100
+                }
+              }
+            },
+            "ID8473563": {
+              "person": {
+                "id": 8473563,
+                "fullName": "Nicklas Backstrom",
+                "link": "/api/v1/people/8473563",
+                "shootsCatches": "L",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "19",
+              "position": {
+                "code": "C",
+                "name": "Center",
+                "type": "Forward",
+                "abbreviation": "C"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:42",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffPct": 50,
+                  "faceOffWins": 1,
+                  "faceoffTaken": 2,
+                  "takeaways": 1,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": 0,
+                  "evenTimeOnIce": "1:42",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8474590": {
+              "person": {
+                "id": 8474590,
+                "fullName": "John Carlson",
+                "link": "/api/v1/people/8474590",
+                "shootsCatches": "R",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "74",
+              "position": {
+                "code": "D",
+                "name": "Defenseman",
+                "type": "Defenseman",
+                "abbreviation": "D"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:57",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 0,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": 0,
+                  "evenTimeOnIce": "1:57",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8474189": {
+              "person": {
+                "id": 8474189,
+                "fullName": "Lars Eller",
+                "link": "/api/v1/people/8474189",
+                "shootsCatches": "L",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "20",
+              "position": {
+                "code": "C",
+                "name": "Center",
+                "type": "Forward",
+                "abbreviation": "C"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:55",
+                  "assists": 1,
+                  "goals": 0,
+                  "shots": 1,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffPct": 50,
+                  "faceOffWins": 1,
+                  "faceoffTaken": 2,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": 1,
+                  "evenTimeOnIce": "1:55",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8478399": {
+              "person": {
+                "id": 8478399,
+                "fullName": "Jonas Siegenthaler",
+                "link": "/api/v1/people/8478399",
+                "shootsCatches": "L",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "34",
+              "position": {
+                "code": "D",
+                "name": "Defenseman",
+                "type": "Defenseman",
+                "abbreviation": "D"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:41",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 1,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 0,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": 0,
+                  "evenTimeOnIce": "1:41",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8476880": {
+              "person": {
+                "id": 8476880,
+                "fullName": "Tom Wilson",
+                "link": "/api/v1/people/8476880",
+                "shootsCatches": "R",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "43",
+              "position": {
+                "code": "R",
+                "name": "Right Wing",
+                "type": "Forward",
+                "abbreviation": "RW"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "1:33",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 0,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": 0,
+                  "evenTimeOnIce": "1:33",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8477970": {
+              "person": {
+                "id": 8477970,
+                "fullName": "Vitek Vanecek",
+                "link": "/api/v1/people/8477970",
+                "shootsCatches": "L",
+                "rosterStatus": "N"
+              },
+              "jerseyNumber": "41",
+              "position": {
+                "code": "G",
+                "name": "Goalie",
+                "type": "Goalie",
+                "abbreviation": "G"
+              },
+              "stats": {
+                "goalieStats": {
+                  "timeOnIce": "0:00",
+                  "assists": 0,
+                  "goals": 0,
+                  "pim": 0,
+                  "shots": 0,
+                  "saves": 0,
+                  "powerPlaySaves": 0,
+                  "shortHandedSaves": 0,
+                  "evenSaves": 0,
+                  "shortHandedShotsAgainst": 0,
+                  "evenShotsAgainst": 0,
+                  "powerPlayShotsAgainst": 0
+                }
+              }
+            },
+            "ID8475462": {
+              "person": {
+                "id": 8475462,
+                "fullName": "Radko Gudas",
+                "link": "/api/v1/people/8475462",
+                "shootsCatches": "R",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "33",
+              "position": {
+                "code": "D",
+                "name": "Defenseman",
+                "type": "Defenseman",
+                "abbreviation": "D"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "2:58",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 1,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 0,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 1,
+                  "plusMinus": 1,
+                  "evenTimeOnIce": "2:58",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            },
+            "ID8474176": {
+              "person": {
+                "id": 8474176,
+                "fullName": "Carl Hagelin",
+                "link": "/api/v1/people/8474176",
+                "shootsCatches": "L",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "62",
+              "position": {
+                "code": "N/A",
+                "name": "Unknown",
+                "type": "Unknown",
+                "abbreviation": "N/A"
+              },
+              "stats": {}
+            },
+            "ID8479482": {
+              "person": {
+                "id": 8479482,
+                "fullName": "Michal Kempny",
+                "link": "/api/v1/people/8479482",
+                "shootsCatches": "L",
+                "rosterStatus": "Y"
+              },
+              "jerseyNumber": "6",
+              "position": {
+                "code": "D",
+                "name": "Defenseman",
+                "type": "Defenseman",
+                "abbreviation": "D"
+              },
+              "stats": {
+                "skaterStats": {
+                  "timeOnIce": "2:01",
+                  "assists": 0,
+                  "goals": 0,
+                  "shots": 0,
+                  "hits": 0,
+                  "powerPlayGoals": 0,
+                  "powerPlayAssists": 0,
+                  "penaltyMinutes": 0,
+                  "faceOffWins": 0,
+                  "faceoffTaken": 0,
+                  "takeaways": 0,
+                  "giveaways": 0,
+                  "shortHandedGoals": 0,
+                  "shortHandedAssists": 0,
+                  "blocked": 0,
+                  "plusMinus": 0,
+                  "evenTimeOnIce": "2:01",
+                  "powerPlayTimeOnIce": "0:00",
+                  "shortHandedTimeOnIce": "0:00"
+                }
+              }
+            }
+          },
+          "goalies": [8477970, 8474651],
+          "skaters": [
+            8475324,
+            8479482,
+            8471214,
+            8475200,
+            8477944,
+            8475209,
+            8476905,
+            8473563,
+            8474189,
+            8477903,
+            8476894,
+            8475462,
+            8478399,
+            8476880,
+            8476329,
+            8474590,
+            8471698,
+            8475744,
+            8475343,
+            8474176
+          ],
+          "onIce": [8474651, 8475324, 8476894, 8476905, 8477903, 8478399],
+          "onIcePlus": [
+            {
+              "playerId": 8474651,
+              "shiftDuration": 371,
+              "stamina": 33
+            },
+            {
+              "playerId": 8475324,
+              "shiftDuration": 40,
+              "stamina": 66
+            },
+            {
+              "playerId": 8476894,
+              "shiftDuration": 50,
+              "stamina": 66
+            },
+            {
+              "playerId": 8476905,
+              "shiftDuration": 59,
+              "stamina": 66
+            },
+            {
+              "playerId": 8477903,
+              "shiftDuration": 54,
+              "stamina": 66
+            },
+            {
+              "playerId": 8478399,
+              "shiftDuration": 40,
+              "stamina": 66
+            }
+          ],
+          "scratches": [8475343, 8474176],
+          "penaltyBox": [],
+          "coaches": [
+            {
+              "person": {
+                "fullName": "Todd Reirden",
+                "link": "/api/v1/people/null"
+              },
+              "position": {
+                "code": "HC",
+                "name": "Head Coach",
+                "type": "Head Coach",
+                "abbreviation": "Head Coach"
+              }
+            }
+          ]
+        }
+      },
+      "officials": [
+        {
+          "official": {
+            "id": 2332,
+            "fullName": "Wes McCauley",
+            "link": "/api/v1/people/2332"
+          },
+          "officialType": "Referee"
+        },
+        {
+          "official": {
+            "id": 6993,
+            "fullName": "Peter MacDougall",
+            "link": "/api/v1/people/6993"
+          },
+          "officialType": "Referee"
+        },
+        {
+          "official": {
+            "id": 4713,
+            "fullName": "Ryan Gibbons",
+            "link": "/api/v1/people/4713"
+          },
+          "officialType": "Linesman"
+        },
+        {
+          "official": {
+            "id": 6991,
+            "fullName": "Kory Nagy",
+            "link": "/api/v1/people/6991"
+          },
+          "officialType": "Linesman"
+        }
+      ]
+    },
+    "decisions": {}
+  }
+}

@@ -1,0 +1,42 @@
+.scorecards {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 800px;
+
+  .scorecard {
+    border: 1px solid;
+    cursor: pointer;
+    margin: 10px;
+    flex: 1 1 250px;
+
+    &:hover {
+      background-color: rgba($color: #dadada, $alpha: 0.5);
+    }
+
+    &-info {
+      border-bottom: 1px solid grey;
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 10px;
+
+      &-status {
+        font-weight: bold;
+      }
+    }
+
+    &-boxscore {
+      &-team {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 10px;
+
+        &-name {
+          font-size: 14px;
+        }
+        &-score {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
