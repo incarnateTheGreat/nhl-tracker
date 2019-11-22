@@ -1,3 +1,7 @@
+export interface IScheduleData {
+  games: Array<IScheduleGame>;
+}
+
 export interface IScheduleGame {
   content: object;
   gameDate: string;

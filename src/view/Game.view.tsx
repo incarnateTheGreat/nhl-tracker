@@ -8,17 +8,38 @@ const Game = () => {
   const [data, setData] = useState<IGame>();
   const { gameData, liveData } = data || {};
 
+  const getScoringPlays = () => {
+    let res = {};
+
+    if (liveData) {
+      res = liveData.plays.allPlays.filter(play =>
+        liveData.plays.scoringPlays.includes(play.about.eventIdx)
+      );
+    }
+
+    console.log(res);
+  };
+
   useEffect(() => {
-    const initGameData = async () => {
+    const collecGameData = async () => {
       const res = await getGameData(gamePk);
       setData(res);
     };
 
-    initGameData();
-  }, [gamePk]);
+    if (!gameData) {
+      collecGameData();
+    }
+
+    if (gameData && gameData.status.codedGameState !== "7") {
+      const interval = setInterval(() => {
+        collecGameData();
+      }, 15000);
+      return () => clearInterval(interval);
+    }
+  }, [gamePk, data]);
 
   if (gameData && liveData) {
-    console.log(gameData, liveData);
+    getScoringPlays();
   }
 
   return (
@@ -27,7 +48,8 @@ const Game = () => {
         <>
           <section className="Game-header">
             <div className="Game-header-status">
-              {liveData.linescore.currentPeriodTimeRemaining}
+              {liveData.linescore.currentPeriodTimeRemaining} -{" "}
+              {liveData.linescore.currentPeriodOrdinal}
             </div>
             <div className="Game-header-score">
               <div className="Game-header-score-team Game-header-score-team-away">
@@ -61,51 +83,55 @@ const Game = () => {
             </div>
             <div className="Game-header-location">{gameData.venue.name}</div>
           </section>
-          <section className="Game-boxscore">
-            <div className="Game-boxscore-periods Game-boxscore-header">
-              <div className="Game-boxscore-periods-period">&nbsp;</div>
+          <section className="Game-linescore">
+            <div className="Game-linescore-periods Game-linescore-header">
+              <div className="Game-linescore-periods-period">&nbsp;</div>
               {liveData.linescore.periods.map(period => (
                 <div
                   key={period.ordinalNum}
-                  className="Game-boxscore-periods-period"
+                  className="Game-linescore-periods-period"
                 >
                   {period.ordinalNum}
                 </div>
               ))}
-              <div className="Game-boxscore-periods-period">T</div>
+              <div className="Game-linescore-periods-period">T</div>
             </div>
-            <div className="Game-boxscore-periods">
-              <div className="Game-boxscore-periods-period Game-boxscore-periods-period-team">
+            <div className="Game-linescore-periods">
+              <div className="Game-linescore-periods-period Game-linescore-periods-period-team">
                 Away Team
               </div>
               {liveData.linescore.periods.map(period => (
                 <div
                   key={period.startTime}
-                  className="Game-boxscore-periods-period"
+                  className="Game-linescore-periods-period"
                 >
                   {period.away.goals}
                 </div>
               ))}
-              <div className="Game-boxscore-periods-period">
+              <div className="Game-linescore-periods-period">
                 {liveData.linescore.teams.away.goals}
               </div>
             </div>
-            <div className="Game-boxscore-periods">
-              <div className="Game-boxscore-periods-period Game-boxscore-periods-period-team">
+            <div className="Game-linescore-periods">
+              <div className="Game-linescore-periods-period Game-linescore-periods-period-team">
                 Home Team
               </div>
               {liveData.linescore.periods.map(period => (
                 <div
                   key={period.startTime}
-                  className="Game-boxscore-periods-period"
+                  className="Game-linescore-periods-period"
                 >
                   {period.home.goals}
                 </div>
               ))}
-              <div className="Game-boxscore-periods-period">
+              <div className="Game-linescore-periods-period">
                 {liveData.linescore.teams.home.goals}
               </div>
             </div>
+          </section>
+          <section className="Game-summary">
+            <section className="Game-summary-scoring"></section>
+            <section className="Game-summary-penalties"></section>
           </section>
         </>
       ) : (

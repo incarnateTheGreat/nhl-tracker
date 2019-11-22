@@ -8,9 +8,17 @@ interface IGameData {
   datetime: object;
   game: object;
   players: object;
-  status: object;
+  status: IGameStatus;
   teams: ITeams;
   venue: IVenue;
+}
+
+interface IGameStatus {
+  abstractGameState: string;
+  codedGameState: string;
+  detailedState: string;
+  startTimeTBD: boolean;
+  statusCode: string;
 }
 
 interface IVenue {
@@ -46,7 +54,36 @@ interface ILiveData {
   boxscore: object;
   decisions: object;
   linescore: ILineScore;
-  plays: object;
+  plays: IPlays;
+}
+
+interface IPlays {
+  allPlays: IAllPlays[];
+  scoringPlays: number[];
+}
+
+interface IAllPlays {
+  about: {
+    dateTime: string;
+    eventId: number;
+    eventIdx: number;
+    goals: {
+      away: number;
+      home: number;
+    };
+    ordinalNum: string;
+    period: number;
+    periodTime: string;
+    periodTimeRemaining: string;
+    periodType: string;
+  };
+  coordinates: {};
+  result: {
+    description: string;
+    event: string;
+    eventCode: string;
+    eventTypeId: string;
+  };
 }
 
 interface ILineScore {
