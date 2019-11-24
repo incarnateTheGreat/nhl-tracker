@@ -79,4 +79,30 @@
       }
     }
   }
+
+  &-summary {
+    border: 1px solid;
+
+    &-scoring {
+      &-period {
+        padding: 10px;
+
+        &-data {
+          padding: 0 0 2px 10px;
+        }
+      }
+
+      &-player {
+        padding: 0 10px 0 0;
+
+        &-scorer {
+          font-weight: bold;
+        }
+
+        &-assist {
+          font-style: italic;
+        }
+      }
+    }
+  }
 }

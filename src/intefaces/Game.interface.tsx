@@ -62,7 +62,7 @@ interface IPlays {
   scoringPlays: number[];
 }
 
-interface IAllPlays {
+export interface IAllPlays {
   about: {
     dateTime: string;
     eventId: number;
