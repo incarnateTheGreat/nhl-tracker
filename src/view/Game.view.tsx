@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { format, toDate } from "date-fns";
 import { getGameData } from "../services/api";
 import { IGame, IAllPlays } from "../intefaces/Game.interface";
 
@@ -40,26 +41,34 @@ const Game = () => {
   const statusInfo = () => {
     let statusStr = "";
 
-    if (liveData) {
+    if (liveData && gameData) {
       const {
         currentPeriodTimeRemaining,
         currentPeriodOrdinal
       } = liveData.linescore;
+      const { dateTime } = gameData.datetime;
+      const { statusCode } = gameData.status;
 
-      console.log(currentPeriodTimeRemaining, currentPeriodOrdinal);
-
-      if (
-        currentPeriodTimeRemaining === "Final" &&
-        (currentPeriodOrdinal === "SO" || currentPeriodOrdinal === "OT")
-      ) {
-        statusStr = `${currentPeriodTimeRemaining} (${currentPeriodOrdinal})`;
-      } else if (
-        currentPeriodTimeRemaining === "Final" &&
-        currentPeriodOrdinal === "3rd"
-      ) {
-        statusStr = currentPeriodTimeRemaining;
-      } else {
+      // "1" is for Preview, "3" and "5" are for Pregame and Live, and "7" is for Final.
+      if (statusCode === "1") {
+        statusStr = `${format(
+          toDate(new Date(dateTime)),
+          "MMM do, yyyy @ h:mm a"
+        )} EDT`;
+      } else if (statusCode === "3" || statusCode === "5") {
         statusStr = `${currentPeriodTimeRemaining} - ${currentPeriodOrdinal}`;
+      } else if (statusCode === "7") {
+        if (
+          currentPeriodTimeRemaining === "Final" &&
+          (currentPeriodOrdinal === "SO" || currentPeriodOrdinal === "OT")
+        ) {
+          statusStr = `${currentPeriodTimeRemaining} (${currentPeriodOrdinal})`;
+        } else if (
+          currentPeriodTimeRemaining === "Final" &&
+          currentPeriodOrdinal === "3rd"
+        ) {
+          statusStr = currentPeriodTimeRemaining;
+        }
       }
     }
 

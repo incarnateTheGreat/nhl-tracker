@@ -15,9 +15,7 @@ const Schedule = () => {
     setScheduleDate(date);
   };
 
-  // If Games are in 'Preview' or 'Live/In Progress' Mode, then they are considered 'Active'.
-  // If Games are all registered as 'Final', then they're not considered 'Active'.
-  const checkActiveGames = () => {
+  const getListOfGames = () => {
     let activeGames: object[] = [];
 
     if (scheduleGames && scheduleGames.games.length > 0) {
@@ -26,9 +24,30 @@ const Schedule = () => {
       });
     }
 
-    console.log("List of Active Games:", activeGames);
+    console.log("List of Scheduled/Active Games:", activeGames);
 
-    return activeGames.length > 0 ? true : false;
+    return activeGames;
+  };
+
+  const getActiveGames = listOfGames => {
+    // If Games are in 'Preview' or 'Live/In Progress' Mode, then they are considered 'Active'.
+    // If Games are all registered as 'Final', then they're not considered 'Active'.
+
+    // If all games have a Status "1", then set the Interval time to 1 minute.
+    // If AT LEAST one of the games have a Status of "3" (maybe "5"), then set the Interval time to 30 seconds.
+    const gameStatusList =
+      scheduleGames && scheduleGames.games.map(game => game.status.statusCode);
+    let intervalVal = 60000;
+
+    if (gameStatusList && listOfGames.length > 0) {
+      if (gameStatusList.includes("3") || gameStatusList.includes("5")) {
+        intervalVal = 30000;
+      } else {
+        intervalVal = 60000;
+      }
+    }
+
+    return intervalVal;
   };
 
   const callScheduleData = async () => {
@@ -47,14 +66,13 @@ const Schedule = () => {
   }, [scheduleDate]);
 
   useEffect(() => {
-    const runInterval = checkActiveGames();
+    const listOfGames = getListOfGames();
+    const activeGames = getActiveGames(listOfGames);
 
-    console.log("Run Interval:", runInterval);
-
-    if (runInterval) {
+    if (listOfGames.length > 0) {
       const interval = setInterval(() => {
         callScheduleData();
-      }, 15000);
+      }, activeGames);
       return () => clearInterval(interval);
     }
   }, [scheduleGames]);

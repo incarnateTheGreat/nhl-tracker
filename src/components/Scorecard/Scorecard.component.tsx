@@ -1,18 +1,32 @@
 import React from "react";
+import { format, toDate } from "date-fns";
 import { useHistory } from "react-router-dom";
 
 const Scorecard = ({ data }) => {
   const history = useHistory();
-  const { gamePk, status, teams, venue } = data;
+  const { gameDate, gamePk, status, teams, venue } = data;
+  const { statusCode } = status;
 
   const navToGame = () => {
     history.push(`/game/${gamePk}`);
   };
 
+  const formatDate = () => {
+    let dateStr = "";
+
+    if (statusCode === "1") {
+      dateStr = `${format(new Date(gameDate), "h:mm a")} EDT`;
+    } else {
+      dateStr = status.detailedState;
+    }
+
+    return dateStr;
+  };
+
   return (
     <div onClick={navToGame} className="scorecard" role="presentation">
       <div className="scorecard-info">
-        <span className="scorecard-info-status">{status.detailedState}</span>
+        <span className="scorecard-info-status">{formatDate()}</span>
         <span className="scorecard-info-venue">{venue.name}</span>
       </div>
       <div className="scorecard-boxscore">

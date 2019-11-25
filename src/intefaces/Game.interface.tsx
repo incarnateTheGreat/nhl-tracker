@@ -5,7 +5,9 @@ export interface IGame {
 }
 
 interface IGameData {
-  datetime: object;
+  datetime: {
+    dateTime: string;
+  };
   game: object;
   players: object;
   status: IGameStatus;
