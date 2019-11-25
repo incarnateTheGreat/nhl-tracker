@@ -53,8 +53,13 @@ const Game = () => {
         (currentPeriodOrdinal === "SO" || currentPeriodOrdinal === "OT")
       ) {
         statusStr = `${currentPeriodTimeRemaining} (${currentPeriodOrdinal})`;
-      } else {
+      } else if (
+        currentPeriodTimeRemaining === "Final" &&
+        currentPeriodOrdinal === "3rd"
+      ) {
         statusStr = currentPeriodTimeRemaining;
+      } else {
+        statusStr = `${currentPeriodTimeRemaining} - ${currentPeriodOrdinal}`;
       }
     }
 
