@@ -61,6 +61,7 @@ interface ILiveData {
 
 interface IPlays {
   allPlays: IAllPlays[];
+  penaltyPlays: number[];
   scoringPlays: number[];
 }
 

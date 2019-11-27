@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { format, toDate } from "date-fns";
+import Context from "../context/context";
+import Scoring from "../components/Scoring/Scoring.component";
+import Penalties from "../components/Penalties/Penalties.component";
 import { getGameData } from "../services/api";
 import { IGame, IAllPlays } from "../intefaces/Game.interface";
 
@@ -8,6 +11,7 @@ const Game = () => {
   const { gamePk } = useParams();
   const [data, setData] = useState<IGame>();
   const [goalsObjData, setGoalsObjData] = useState();
+  const [penaltiesObjData, setPenaltiesObjData] = useState();
   const { gameData, liveData } = data || {};
 
   const getScoringPlays = () => {
@@ -32,10 +36,30 @@ const Game = () => {
     }, []);
 
     setGoalsObjData(goalsObj);
+  };
 
-    console.log(gameData);
+  const getPenaltiesPlays = () => {
+    let penaltyPlays: Array<IAllPlays> = [];
 
-    console.log(liveData);
+    if (liveData) {
+      penaltyPlays = liveData.plays.allPlays.filter((play: IAllPlays) =>
+        liveData.plays.penaltyPlays.includes(play.about.eventIdx)
+      );
+    }
+
+    // Sort Penalties by Periods.
+    const penaltiesObj: Array<object> = penaltyPlays.reduce((acc, curr) => {
+      if (Array.isArray(acc[curr.about.ordinalNum])) {
+        acc[curr.about.ordinalNum].push(curr);
+      } else {
+        acc[curr.about.ordinalNum] = [];
+        acc[curr.about.ordinalNum].push(curr);
+      }
+
+      return acc;
+    }, []);
+
+    setPenaltiesObjData(penaltiesObj);
   };
 
   const statusInfo = () => {
@@ -95,141 +119,104 @@ const Game = () => {
 
   useEffect(() => {
     getScoringPlays();
+    getPenaltiesPlays();
   }, [liveData]);
 
   return (
-    <article className="Game">
-      {gameData && liveData ? (
-        <>
-          <section className="Game-header">
-            <div className="Game-header-status">{statusInfo()}</div>
-            <div className="Game-header-score">
-              <div className="Game-header-score-team Game-header-score-team-away">
-                <span className="Game-header-score-team-logo">Logo</span>
-                <span className="Game-header-score-team-info">
-                  <span className="Game-header-score-team-info-shortName">
-                    {gameData.teams.away.shortName}
+    <Context.Provider value={{ goalsObjData, penaltiesObjData }}>
+      <article className="Game">
+        {gameData && liveData ? (
+          <>
+            <section className="Game-header">
+              <div className="Game-header-status">{statusInfo()}</div>
+              <div className="Game-header-score">
+                <div className="Game-header-score-team Game-header-score-team-away">
+                  <span className="Game-header-score-team-logo">Logo</span>
+                  <span className="Game-header-score-team-info">
+                    <span className="Game-header-score-team-info-shortName">
+                      {gameData.teams.away.shortName}
+                    </span>
+                    <span className="Game-header-score-team-info-teamName">
+                      {gameData.teams.away.teamName}
+                    </span>
                   </span>
-                  <span className="Game-header-score-team-info-teamName">
-                    {gameData.teams.away.teamName}
+                  <span className="Game-header-score-team-score">
+                    {liveData.linescore.teams.away.goals}
                   </span>
-                </span>
-                <span className="Game-header-score-team-score">
-                  {liveData.linescore.teams.away.goals}
-                </span>
-              </div>
-              <div className="Game-header-score-team Game-header-score-team-home">
-                <span className="Game-header-score-team-score">
-                  {liveData.linescore.teams.home.goals}
-                </span>
-                <span className="Game-header-score-team-info">
-                  <span className="Game-header-score-team-info-shortName">
-                    {gameData.teams.home.shortName}
-                  </span>
-                  <span className="Game-header-score-team-info-teamName">
-                    {gameData.teams.home.teamName}
-                  </span>
-                </span>
-                <span className="Game-header-score-team-logo">Logo</span>
-              </div>
-            </div>
-            <div className="Game-header-location">{gameData.venue.name}</div>
-          </section>
-          <section className="Game-linescore">
-            <div className="Game-linescore-periods Game-linescore-header">
-              <div className="Game-linescore-periods-period">&nbsp;</div>
-              {liveData.linescore.periods.map(period => (
-                <div
-                  key={period.ordinalNum}
-                  className="Game-linescore-periods-period"
-                >
-                  {period.ordinalNum}
                 </div>
-              ))}
-              <div className="Game-linescore-periods-period">T</div>
-            </div>
-            <div className="Game-linescore-periods">
-              <div className="Game-linescore-periods-period Game-linescore-periods-period-team">
-                Away Team
-              </div>
-              {liveData.linescore.periods.map(period => (
-                <div
-                  key={period.startTime}
-                  className="Game-linescore-periods-period"
-                >
-                  {period.away.goals}
+                <div className="Game-header-score-team Game-header-score-team-home">
+                  <span className="Game-header-score-team-score">
+                    {liveData.linescore.teams.home.goals}
+                  </span>
+                  <span className="Game-header-score-team-info">
+                    <span className="Game-header-score-team-info-shortName">
+                      {gameData.teams.home.shortName}
+                    </span>
+                    <span className="Game-header-score-team-info-teamName">
+                      {gameData.teams.home.teamName}
+                    </span>
+                  </span>
+                  <span className="Game-header-score-team-logo">Logo</span>
                 </div>
-              ))}
-              <div className="Game-linescore-periods-period">
-                {liveData.linescore.teams.away.goals}
               </div>
-            </div>
-            <div className="Game-linescore-periods">
-              <div className="Game-linescore-periods-period Game-linescore-periods-period-team">
-                Home Team
-              </div>
-              {liveData.linescore.periods.map(period => (
-                <div
-                  key={period.startTime}
-                  className="Game-linescore-periods-period"
-                >
-                  {period.home.goals}
-                </div>
-              ))}
-              <div className="Game-linescore-periods-period">
-                {liveData.linescore.teams.home.goals}
-              </div>
-            </div>
-          </section>
-          <section className="Game-summary">
-            <section className="Game-summary-scoring">
-              {Object.keys(goalsObjData).map(period => {
-                return (
-                  <div className="Game-summary-scoring-period" key={period}>
-                    <div>{period}</div>
-                    {goalsObjData[period].map(goal => (
-                      <div
-                        className="Game-summary-scoring-period-data"
-                        key={goal.about.eventIdx}
-                      >
-                        {goal.players.map(playerObj => {
-                          const { player, playerType, seasonTotal } = playerObj;
-                          const { fullName, id, link } = player;
-
-                          if (playerType !== "Goalie") {
-                            return (
-                              <span
-                                key={id}
-                                className={`Game-summary-scoring-player ${
-                                  playerType === "Scorer"
-                                    ? "Game-summary-scoring-player-scorer"
-                                    : "Game-summary-scoring-player-assist"
-                                }`}
-                              >
-                                {playerType === "Scorer"
-                                  ? `(${goal.about.periodTime})`
-                                  : ""}
-                                {playerType === "Scorer"
-                                  ? ` (${goal.team.triCode}) `
-                                  : ""}
-                                {fullName}
-                              </span>
-                            );
-                          }
-                        })}
-                      </div>
-                    ))}
-                  </div>
-                );
-              })}
+              <div className="Game-header-location">{gameData.venue.name}</div>
             </section>
-            <section className="Game-summary-penalties"></section>
-          </section>
-        </>
-      ) : (
-        <div>No data.</div>
-      )}
-    </article>
+            <section className="Game-linescore">
+              <div className="Game-linescore-periods Game-linescore-header">
+                <div className="Game-linescore-periods-period">&nbsp;</div>
+                {liveData.linescore.periods.map(period => (
+                  <div
+                    key={period.ordinalNum}
+                    className="Game-linescore-periods-period"
+                  >
+                    {period.ordinalNum}
+                  </div>
+                ))}
+                <div className="Game-linescore-periods-period">T</div>
+              </div>
+              <div className="Game-linescore-periods">
+                <div className="Game-linescore-periods-period Game-linescore-periods-period-team">
+                  Away Team
+                </div>
+                {liveData.linescore.periods.map(period => (
+                  <div
+                    key={period.startTime}
+                    className="Game-linescore-periods-period"
+                  >
+                    {period.away.goals}
+                  </div>
+                ))}
+                <div className="Game-linescore-periods-period">
+                  {liveData.linescore.teams.away.goals}
+                </div>
+              </div>
+              <div className="Game-linescore-periods">
+                <div className="Game-linescore-periods-period Game-linescore-periods-period-team">
+                  Home Team
+                </div>
+                {liveData.linescore.periods.map(period => (
+                  <div
+                    key={period.startTime}
+                    className="Game-linescore-periods-period"
+                  >
+                    {period.home.goals}
+                  </div>
+                ))}
+                <div className="Game-linescore-periods-period">
+                  {liveData.linescore.teams.home.goals}
+                </div>
+              </div>
+            </section>
+            <section className="Game-summary">
+              <Scoring />
+              <Penalties />
+            </section>
+          </>
+        ) : (
+          <div>No data.</div>
+        )}
+      </article>
+    </Context.Provider>
   );
 };
 

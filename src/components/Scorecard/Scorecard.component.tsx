@@ -1,5 +1,5 @@
 import React from "react";
-import { format, toDate } from "date-fns";
+import { format } from "date-fns";
 import { useHistory } from "react-router-dom";
 
 const Scorecard = ({ data }) => {

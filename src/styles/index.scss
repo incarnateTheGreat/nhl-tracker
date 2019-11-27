@@ -5,3 +5,8 @@
 // Components
 @import "./component/Scorecard/Scorecard.component.scss";
 @import "./component/Datepicker/Datepicker.comopnent.scss";
+
+html {
+  margin: 0;
+  padding: 0;
+}
