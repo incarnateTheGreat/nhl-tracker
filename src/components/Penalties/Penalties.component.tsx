@@ -4,8 +4,6 @@ import Context from "../../context/context";
 const Scoring = () => {
   const { penaltiesObjData }: any = useContext(Context);
 
-  console.log(penaltiesObjData);
-
   return (
     <section className="Game-summary-penalties">
       <h3>Penalties</h3>

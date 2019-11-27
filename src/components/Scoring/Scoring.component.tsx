@@ -11,36 +11,55 @@ const Scoring = () => {
         return (
           <div className="Game-summary-scoring-period" key={period}>
             <div>{period}</div>
-            {goalsObjData[period].map(goal => (
-              <div
-                className="Game-summary-scoring-period-data"
-                key={goal.about.eventIdx}
-              >
-                {goal.players.map(playerObj => {
-                  const { player, playerType, seasonTotal } = playerObj;
-                  const { fullName, id, link } = player;
+            {goalsObjData[period].map((goal, index) => (
+              <div className="Game-summary-scoring-period-data" key={index}>
+                <div className="Game-summary-scoring-player-row">
+                  <ul className="Game-summary-scoring-player-row-players">
+                    {goal.players.map(playerObj => {
+                      const { player, playerType, seasonTotal } = playerObj;
+                      const { fullName, id, link } = player;
 
-                  if (playerType !== "Goalie") {
-                    return (
-                      <span
-                        key={id}
-                        className={`Game-summary-scoring-player ${
-                          playerType === "Scorer"
-                            ? "Game-summary-scoring-player-scorer"
-                            : "Game-summary-scoring-player-assist"
-                        }`}
-                      >
-                        {playerType === "Scorer"
-                          ? `(${goal.about.periodTime})`
-                          : ""}
-                        {playerType === "Scorer"
-                          ? ` (${goal.team.triCode}) `
-                          : ""}
-                        {fullName}
-                      </span>
-                    );
-                  }
-                })}
+                      if (playerType !== "Goalie" && playerType === "Scorer") {
+                        return (
+                          <li
+                            className="Game-summary-scoring-player-row-players-scorer"
+                            key={id}
+                            role="link"
+                          >
+                            {goal.about.periodTime} {goal.team.triCode}{" "}
+                            {fullName} ({seasonTotal}){" "}
+                            {goal.result.strength.code === "PPG" &&
+                              `(Power Play)`}
+                          </li>
+                        );
+                      } else if (
+                        playerType !== "Goalie" &&
+                        playerType === "Assist"
+                      ) {
+                        return (
+                          <li
+                            className="Game-summary-scoring-player-row-players-assist"
+                            key={id}
+                          >
+                            {fullName}
+                          </li>
+                        );
+                      }
+                    })}
+                  </ul>
+                  <div className="Game-summary-scoring-player-row-goalStatus">
+                    {Object.keys(goal.about.goals).map(team => {
+                      return (
+                        <span
+                          key={team}
+                          className="Game-summary-scoring-player-row-goalStatus-teams"
+                        >
+                          {goal.about.goals[team]}
+                        </span>
+                      );
+                    })}
+                  </div>
+                </div>
               </div>
             ))}
           </div>

@@ -1,7 +1,4 @@
 .Game {
-  margin: 0 auto;
-  max-width: 900px;
-
   &-header {
     display: flex;
     flex-direction: column;
@@ -95,12 +92,67 @@
       &-player {
         padding: 0 10px 0 0;
 
-        &-scorer {
-          font-weight: bold;
-        }
+        &-row {
+          display: flex;
+          justify-content: space-between;
 
-        &-assist {
-          font-style: italic;
+          &-players {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            list-style: none;
+            padding: 0;
+
+            &-scorer {
+              font-weight: bold;
+            }
+
+            &-assist {
+              font-style: italic;
+              margin: 0 0 0 10px;
+            }
+          }
+
+          &-goalStatus {
+            align-items: center;
+            display: flex;
+            flex-basis: 10%;
+            justify-content: center;
+
+            &-teams {
+              padding: 0 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 400px) {
+  .Game {
+    &-header {
+      &-score {
+        flex-direction: column;
+
+        &-team {
+          &-logo {
+            order: 1;
+          }
+
+          &-info {
+            order: 2;
+          }
+
+          &-score {
+            order: 3;
+          }
+
+          &-home {
+            .Game-header-score-team-info {
+              text-align: left;
+            }
+          }
         }
       }
     }

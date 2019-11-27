@@ -78,7 +78,7 @@ const Schedule = () => {
   }, [scheduleGames]);
 
   return (
-    <article className="schedule">
+    <article className="schedule container">
       <Datepicker callback={dateHandler} dateValue={scheduleDate} />
       <section className="scorecards">
         {scheduleGames &&

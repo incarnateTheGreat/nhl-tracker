@@ -1,4 +1,4 @@
-//Views
+// Views
 @import "./view/Schedule/Schedule.view.scss";
 @import "./view/Game/Game.view.scss";
 
@@ -6,7 +6,5 @@
 @import "./component/Scorecard/Scorecard.component.scss";
 @import "./component/Datepicker/Datepicker.comopnent.scss";
 
-html {
-  margin: 0;
-  padding: 0;
-}
+// Defaults
+@import "./defaults";
