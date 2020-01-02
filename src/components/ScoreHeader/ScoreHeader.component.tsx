@@ -1,5 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
 import { format, toDate } from "date-fns";
+import { createFileName } from "../../utils/utils";
 import Context from "../../context/context";
 
 const ScoreHeader = () => {
@@ -42,13 +43,6 @@ const ScoreHeader = () => {
     }
 
     return statusStr;
-  };
-
-  const createFileName = teamName => {
-    return teamName
-      .toLowerCase()
-      .replace(".", "")
-      .replace(/\s/g, "-");
   };
 
   // Get the Logos for the Home and Away Teams.

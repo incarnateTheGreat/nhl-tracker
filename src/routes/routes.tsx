@@ -1,4 +1,5 @@
 import Schedule from "../view/Schedule.view";
+import Standings from "../view/Standings.view";
 import Game from "../view/Game.view";
 
 const routes = [
@@ -6,6 +7,12 @@ const routes = [
     label: "Schedule",
     path: "/",
     component: Schedule,
+    exact: true
+  },
+  {
+    label: "Standings",
+    path: "/standings",
+    component: Standings,
     exact: true
   },
   {

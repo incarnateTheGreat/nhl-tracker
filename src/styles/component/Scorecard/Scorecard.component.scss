@@ -26,13 +26,27 @@
 
     &-boxscore {
       &-team {
+        align-items: center;
         display: flex;
-        justify-content: space-between;
         padding: 5px 10px;
 
+        &-logo {
+          flex: 0 1;
+          margin: 0 10px 0 0;
+          height: 45px;
+          width: 45px;
+
+          img {
+            height: inherit;
+            width: inherit;
+          }
+        }
+
         &-name {
+          flex: 1;
           font-size: 14px;
         }
+
         &-score {
           font-weight: bold;
         }

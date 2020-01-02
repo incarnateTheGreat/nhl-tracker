@@ -91,7 +91,7 @@ const Game = () => {
     <Context.Provider
       value={{ gameData, liveData, goalsObjData, penaltiesObjData }}
     >
-      <article className="Game container">
+      <article className="Game">
         {gameData && liveData ? (
           <>
             <ScoreHeader />

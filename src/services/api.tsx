@@ -9,3 +9,9 @@ export const getGameData = async gamePk => {
     `https://statsapi.web.nhl.com/api/v1/game/${gamePk}/feed/live`
   ).then(response => response.json());
 };
+
+export const getStandingsData = async () => {
+  return await fetch(
+    `https://statsapi.web.nhl.com/api/v1/standings?expand=standings.record`
+  ).then(response => response.json());
+};

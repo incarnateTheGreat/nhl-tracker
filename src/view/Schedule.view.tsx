@@ -24,8 +24,6 @@ const Schedule = () => {
       });
     }
 
-    console.log("List of Scheduled/Active Games:", activeGames);
-
     return activeGames;
   };
 
@@ -78,7 +76,7 @@ const Schedule = () => {
   }, [scheduleGames]);
 
   return (
-    <article className="schedule container">
+    <article className="schedule">
       <Datepicker callback={dateHandler} dateValue={scheduleDate} />
       <section className="scorecards">
         {scheduleGames &&
