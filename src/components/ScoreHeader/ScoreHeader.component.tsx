@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { format, toDate } from "date-fns";
 import Context from "../../context/context";
 
 const ScoreHeader = () => {
   const { gameData, liveData }: any = useContext(Context);
+  const [homeLogo, setHomeLogo] = useState("");
+  const [awayLogo, setAwayLogo] = useState("");
 
   const statusInfo = () => {
     let statusStr = "";
@@ -42,12 +44,41 @@ const ScoreHeader = () => {
     return statusStr;
   };
 
+  const createFileName = teamName => {
+    return teamName
+      .toLowerCase()
+      .replace(".", "")
+      .replace(/\s/g, "-");
+  };
+
+  // Get the Logos for the Home and Away Teams.
+  useEffect(() => {
+    async function renderLogos() {
+      const homeTeamName = createFileName(gameData.teams.home.name);
+      const awayTeamName = createFileName(gameData.teams.away.name);
+
+      const homeTeamLogo = await import(
+        `../../assets/images/${homeTeamName}-logo.svg`
+      );
+      const awayTeamLogo = await import(
+        `../../assets/images/${awayTeamName}-logo.svg`
+      );
+
+      setHomeLogo(homeTeamLogo.default);
+      setAwayLogo(awayTeamLogo.default);
+    }
+
+    renderLogos();
+  }, [gameData.teams.away, gameData.teams.home]);
+
   return (
     <section className="Game-header">
       <div className="Game-header-status">{statusInfo()}</div>
       <div className="Game-header-score">
         <div className="Game-header-score-team Game-header-score-team-away">
-          <span className="Game-header-score-team-logo">Logo</span>
+          <span className="Game-header-score-team-logo">
+            <img src={awayLogo} alt="The Team" />
+          </span>
           <span className="Game-header-score-team-info">
             <span className="Game-header-score-team-info-shortName">
               {gameData.teams.away.shortName}
@@ -72,7 +103,9 @@ const ScoreHeader = () => {
               {gameData.teams.home.teamName}
             </span>
           </span>
-          <span className="Game-header-score-team-logo">Logo</span>
+          <span className="Game-header-score-team-logo">
+            <img src={homeLogo} alt="The Team" />
+          </span>
         </div>
       </div>
       <div className="Game-header-location">{gameData.venue.name}</div>
