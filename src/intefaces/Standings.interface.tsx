@@ -8,7 +8,7 @@ export interface IStandings {
   regulationWins: number;
   goalsScored: number;
   goalsAgainst: number;
-  goalsDiff: number;
+  goalsDiff: string;
   streakCode: string;
   L10: string;
   SOW: string;

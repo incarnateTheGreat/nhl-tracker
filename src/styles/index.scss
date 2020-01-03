@@ -1,3 +1,6 @@
+// Defaults
+@import "./defaults";
+
 // Views
 @import "./view/Schedule/Schedule.view.scss";
 @import "./view/Standings/Standings.view.scss";
@@ -6,6 +9,3 @@
 // Components
 @import "./component/Scorecard/Scorecard.component.scss";
 @import "./component/Datepicker/Datepicker.comopnent.scss";
-
-// Defaults
-@import "./defaults";

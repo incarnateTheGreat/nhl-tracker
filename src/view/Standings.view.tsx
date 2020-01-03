@@ -26,6 +26,7 @@ const assembleRecord = teamData => {
       leagueRecord,
       points,
       regulationWins,
+      records,
       goalsScored,
       goalsAgainst,
       streak
@@ -44,14 +45,59 @@ const assembleRecord = teamData => {
       regulationWins,
       goalsScored,
       goalsAgainst,
-      goalsDiff: 0, // a function that assembles the Goal Diff with plus or minus
+      goalsDiff: calcGoalsDiff(goalsScored, goalsAgainst),
       streakCode,
-      L10: "1-1-1", // a function that assembles the Last Ten record
-      SOW: "1-1-1" // a function that assembles the Shootout record
+      L10: assembleL10Record(
+        records.overallRecords.find(record => record.type === "lastTen")
+      ),
+      SOW: assembleSOWRecord(
+        records.overallRecords.find(record => record.type === "shootOuts")
+      )
     };
 
     return r;
   }, {});
+};
+
+const calcGoalsDiff = (goalsScored, goalsAgainst) => {
+  const goalsDiff = goalsScored - goalsAgainst;
+
+  return goalsDiff > 0 ? `+${goalsDiff.toString()}` : `${goalsDiff.toString()}`;
+};
+
+const assembleL10Record = lastTen => {
+  const { wins, losses, ot } = lastTen;
+
+  return `${wins}-${losses}-${ot}`;
+};
+
+const assembleSOWRecord = lastTen => {
+  const { wins, losses } = lastTen;
+
+  return `${wins}-${losses}`;
+};
+
+const assembleStandingsView = (conference, division) => {
+  return (
+    <>
+      <thead>
+        {Object.keys(tableKey).map((title, key) => (
+          <th key={key}>{title === "name" ? division : tableKey[title]}</th>
+        ))}
+      </thead>
+      <tbody className="standings-conference-division-body">
+        {conference[division].map(team => {
+          return <tr>{assembleTeamRow(team)}</tr>;
+        })}
+      </tbody>
+    </>
+  );
+};
+
+const assembleTeamRow = team => {
+  return Object.values(team).map((data: any, key) => {
+    return <td key={key}>{data}</td>;
+  });
 };
 
 const sortTable = tableData => {
@@ -110,21 +156,28 @@ const Standings = () => {
   return (
     <article className="standings">
       {easternConference && westernConference && (
-        <section className="standings-conference">
-          <h3>Eastern Conference</h3>
-          <div className="standings-conference-division">
-            <div className="standings-conference-division-header">
-              {Object.keys(tableKey).map((title, key) => (
-                <div
-                  className="standings-conference-division-header-title"
-                  key={key}
-                >
-                  {tableKey[title]}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <>
+          <section className="standings-conference">
+            <h3>Eastern Conference</h3>
+            {Object.keys(easternConference).map(division => {
+              return (
+                <table className="standings-conference-division">
+                  {assembleStandingsView(easternConference, division)}
+                </table>
+              );
+            })}
+          </section>
+          <section className="standings-conference">
+            <h3>Western Conference</h3>
+            {Object.keys(westernConference).map(division => {
+              return (
+                <table className="standings-conference-division">
+                  {assembleStandingsView(westernConference, division)}
+                </table>
+              );
+            })}
+          </section>
+        </>
       )}
     </article>
   );
