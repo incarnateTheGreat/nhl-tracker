@@ -18,99 +18,134 @@ const tableKey = {
   SOW: "SOW"
 };
 
-const assembleRecord = teamData => {
-  return teamData.reduce((r, acc) => {
-    const {
-      team,
-      gamesPlayed,
-      leagueRecord,
-      points,
-      regulationWins,
-      records,
-      goalsScored,
-      goalsAgainst,
-      streak
-    } = acc;
-    const { name } = team;
-    const { wins, losses, ot } = leagueRecord;
-    const { streakCode } = streak;
-
-    r[acc.team.id] = {
-      name,
-      gamesPlayed,
-      wins,
-      losses,
-      ot,
-      points,
-      regulationWins,
-      goalsScored,
-      goalsAgainst,
-      goalsDiff: calcGoalsDiff(goalsScored, goalsAgainst),
-      streakCode,
-      L10: assembleL10Record(
-        records.overallRecords.find(record => record.type === "lastTen")
-      ),
-      SOW: assembleSOWRecord(
-        records.overallRecords.find(record => record.type === "shootOuts")
-      )
-    };
-
-    return r;
-  }, {});
-};
-
-const calcGoalsDiff = (goalsScored, goalsAgainst) => {
-  const goalsDiff = goalsScored - goalsAgainst;
-
-  return goalsDiff > 0 ? `+${goalsDiff.toString()}` : `${goalsDiff.toString()}`;
-};
-
-const assembleL10Record = lastTen => {
-  const { wins, losses, ot } = lastTen;
-
-  return `${wins}-${losses}-${ot}`;
-};
-
-const assembleSOWRecord = lastTen => {
-  const { wins, losses } = lastTen;
-
-  return `${wins}-${losses}`;
-};
-
-const assembleStandingsView = (conference, division) => {
-  return (
-    <>
-      <thead>
-        {Object.keys(tableKey).map((title, key) => (
-          <th key={key}>{title === "name" ? division : tableKey[title]}</th>
-        ))}
-      </thead>
-      <tbody className="standings-conference-division-body">
-        {conference[division].map(team => {
-          return <tr>{assembleTeamRow(team)}</tr>;
-        })}
-      </tbody>
-    </>
-  );
-};
-
-const assembleTeamRow = team => {
-  return Object.values(team).map((data: any, key) => {
-    return <td key={key}>{data}</td>;
-  });
-};
-
-const sortTable = tableData => {
-  const table = Object.values(tableData).sort(
-    (a: any, b: any) => b.points - a.points
-  );
-
-  return table;
-};
-
 const Standings = () => {
-  const [easternConference, setEasternConference] = useState<IStandings>();
-  const [westernConference, setWesternConference] = useState<IStandings>();
+  const [atlantic, setAtlantic] = useState<object>();
+  const [metropolitian, setMetropolitan] = useState<object>();
+  const [central, setCentral] = useState<object>();
+  const [pacific, setPacific] = useState<object>();
+  const [sortDirection, setSortDirection] = useState("ASC");
+
+  const assembleRecord = teamData => {
+    return teamData.reduce((r, acc) => {
+      const {
+        team,
+        gamesPlayed,
+        leagueRecord,
+        points,
+        regulationWins,
+        records,
+        goalsScored,
+        goalsAgainst,
+        streak
+      } = acc;
+      const { name } = team;
+      const { wins, losses, ot } = leagueRecord;
+      const { streakCode } = streak;
+
+      r[acc.team.id] = {
+        name,
+        gamesPlayed,
+        wins,
+        losses,
+        ot,
+        points,
+        regulationWins,
+        goalsScored,
+        goalsAgainst,
+        goalsDiff: calcGoalsDiff(goalsScored, goalsAgainst),
+        streakCode,
+        L10: assembleL10Record(
+          records.overallRecords.find(record => record.type === "lastTen")
+        ),
+        SOW: assembleSOWRecord(
+          records.overallRecords.find(record => record.type === "shootOuts")
+        )
+      };
+
+      return r;
+    }, {});
+  };
+
+  const calcGoalsDiff = (goalsScored, goalsAgainst) => {
+    const goalsDiff = goalsScored - goalsAgainst;
+
+    return goalsDiff > 0
+      ? `+${goalsDiff.toString()}`
+      : `${goalsDiff.toString()}`;
+  };
+
+  const assembleL10Record = lastTen => {
+    const { wins, losses, ot } = lastTen;
+
+    return `${wins}-${losses}-${ot}`;
+  };
+
+  const assembleSOWRecord = lastTen => {
+    const { wins, losses } = lastTen;
+
+    return `${wins}-${losses}`;
+  };
+
+  const assembleStandingsView = (divisionData, divisionName) => {
+    return (
+      <>
+        <thead>
+          <tr>
+            {Object.keys(tableKey).map((title, key) => (
+              <th
+                key={key}
+                onClick={() => sortTable(divisionData, title, divisionName)}
+              >
+                {title === "name" ? divisionName : tableKey[title]}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody className="standings-conference-division-body">
+          {divisionData.map((team, key) => {
+            return <tr key={key}>{assembleTeamRow(team)}</tr>;
+          })}
+        </tbody>
+      </>
+    );
+  };
+
+  const assembleTeamRow = team => {
+    return Object.values(team).map((data: any, key) => {
+      return <td key={key}>{data}</td>;
+    });
+  };
+
+  const sortTable = (tableData, column, divisionName) => {
+    const direction = sortDirection === "ASC" ? "DESC" : "ASC";
+
+    const table = Object.values(tableData).sort((a: any, b: any) => {
+      if (direction === "ASC") {
+        return a[column] - b[column];
+      }
+      return b[column] - a[column];
+    });
+
+    switch (divisionName) {
+      case "atlantic":
+        setAtlantic(table);
+        break;
+      case "metropolitan":
+        setMetropolitan(table);
+        break;
+      case "central":
+        setCentral(table);
+        break;
+      case "pacific":
+        setPacific(table);
+        break;
+      default:
+    }
+
+    setSortDirection(direction);
+
+    return table;
+  };
 
   useEffect(() => {
     async function standingsCall() {
@@ -135,47 +170,38 @@ const Standings = () => {
         }, []);
 
       // Sort the Tables by Points.
-      for (const division in western) {
-        western[division] = sortTable(western[division]);
-      }
-
-      for (const division in eastern) {
-        eastern[division] = sortTable(eastern[division]);
-      }
-
-      setEasternConference(eastern);
-      setWesternConference(western);
+      setAtlantic(sortTable(eastern["Atlantic"], "points", "atlantic"));
+      setMetropolitan(
+        sortTable(eastern["Metropolitan"], "points", "metropolitan")
+      );
+      setCentral(sortTable(western["Central"], "points", "central"));
+      setPacific(sortTable(western["Pacific"], "points", "pacific"));
     }
 
     standingsCall();
   }, []);
 
-  console.log(easternConference);
-  console.log(westernConference);
-
   return (
     <article className="standings">
-      {easternConference && westernConference && (
+      {atlantic && metropolitian && central && pacific && (
         <>
           <section className="standings-conference">
             <h3>Eastern Conference</h3>
-            {Object.keys(easternConference).map(division => {
-              return (
-                <table className="standings-conference-division">
-                  {assembleStandingsView(easternConference, division)}
-                </table>
-              );
-            })}
+            <table className="standings-conference-division">
+              {assembleStandingsView(atlantic, "atlantic")}
+            </table>
+            <table className="standings-conference-division">
+              {assembleStandingsView(metropolitian, "metropolitan")}
+            </table>
           </section>
           <section className="standings-conference">
             <h3>Western Conference</h3>
-            {Object.keys(westernConference).map(division => {
-              return (
-                <table className="standings-conference-division">
-                  {assembleStandingsView(westernConference, division)}
-                </table>
-              );
-            })}
+            <table className="standings-conference-division">
+              {assembleStandingsView(central, "central")}
+            </table>
+            <table className="standings-conference-division">
+              {assembleStandingsView(pacific, "pacific")}
+            </table>
           </section>
         </>
       )}

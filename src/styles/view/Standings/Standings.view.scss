@@ -7,10 +7,16 @@
 
       thead {
         th {
+          cursor: pointer;
+
           &:first-child {
             text-align: left;
             min-width: 180px;
             padding-left: 5px;
+          }
+
+          &:first-letter {
+            text-transform: uppercase;
           }
         }
       }
