@@ -1,12 +1,10 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useContext } from "react";
 import { format, toDate } from "date-fns";
-import { createFileName } from "../../utils/utils";
 import Context from "../../context/context";
+import Logo from "../Logo/Logo.component";
 
 const ScoreHeader = () => {
   const { gameData, liveData }: any = useContext(Context);
-  const [homeLogo, setHomeLogo] = useState("");
-  const [awayLogo, setAwayLogo] = useState("");
 
   const statusInfo = () => {
     let statusStr = "";
@@ -45,33 +43,13 @@ const ScoreHeader = () => {
     return statusStr;
   };
 
-  // Get the Logos for the Home and Away Teams.
-  useEffect(() => {
-    async function renderLogos() {
-      const homeTeamName = createFileName(gameData.teams.home.name);
-      const awayTeamName = createFileName(gameData.teams.away.name);
-
-      const homeTeamLogo = await import(
-        `../../assets/images/${homeTeamName}-logo.svg`
-      );
-      const awayTeamLogo = await import(
-        `../../assets/images/${awayTeamName}-logo.svg`
-      );
-
-      setHomeLogo(homeTeamLogo.default);
-      setAwayLogo(awayTeamLogo.default);
-    }
-
-    renderLogos();
-  }, [gameData.teams.away, gameData.teams.home]);
-
   return (
     <section className="Game-header">
       <div className="Game-header-status">{statusInfo()}</div>
       <div className="Game-header-score">
         <div className="Game-header-score-team Game-header-score-team-away">
           <span className="Game-header-score-team-logo">
-            <img src={awayLogo} alt="The Team" />
+            <Logo teamName={gameData.teams.away.name} />
           </span>
           <span className="Game-header-score-team-info">
             <span className="Game-header-score-team-info-shortName">
@@ -98,7 +76,7 @@ const ScoreHeader = () => {
             </span>
           </span>
           <span className="Game-header-score-team-logo">
-            <img src={homeLogo} alt="The Team" />
+            <Logo teamName={gameData.teams.home.name} />
           </span>
         </div>
       </div>

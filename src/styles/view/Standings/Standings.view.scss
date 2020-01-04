@@ -8,11 +8,12 @@
       thead {
         th {
           cursor: pointer;
+          padding: 0 0 5px;
 
           &:first-child {
             text-align: left;
-            min-width: 180px;
             padding-left: 5px;
+            width: 30%;
           }
 
           &:first-letter {
@@ -32,8 +33,16 @@
             padding: 8px;
 
             &:first-child {
+              align-items: center;
+              display: flex;
               text-align: left;
               padding-left: 5px;
+
+              img {
+                height: 25px;
+                padding: 0 10px 0 0;
+                width: 25px;
+              }
             }
           }
         }

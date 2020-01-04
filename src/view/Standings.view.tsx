@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getStandingsData } from "../services/api";
+import Logo from "../components/Logo/Logo.component";
 import { IStandings } from "../intefaces/Standings.interface";
 
 const tableKey = {
@@ -112,7 +113,18 @@ const Standings = () => {
 
   const assembleTeamRow = team => {
     return Object.values(team).map((data: any, key) => {
-      return <td key={key}>{data}</td>;
+      return (
+        <td key={key}>
+          {key === 0 ? (
+            <>
+              {" "}
+              <Logo teamName={team.name} /> {data}{" "}
+            </>
+          ) : (
+            data
+          )}
+        </td>
+      );
     });
   };
 

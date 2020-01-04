@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { format } from "date-fns";
 import { useHistory } from "react-router-dom";
-import { createFileName } from "../../utils/utils";
+import Logo from "../Logo/Logo.component";
 
 const Scorecard = ({ data }) => {
   const history = useHistory();
-  const [homeLogo, setHomeLogo] = useState("");
-  const [awayLogo, setAwayLogo] = useState("");
   const { gameDate, gamePk, status, teams, venue } = data;
   const { statusCode } = status;
 
@@ -26,26 +24,6 @@ const Scorecard = ({ data }) => {
     return dateStr;
   };
 
-  // Get the Logos for the Home and Away Teams.
-  useEffect(() => {
-    async function renderLogos() {
-      const homeTeamName = createFileName(teams.home.team.name);
-      const awayTeamName = createFileName(teams.away.team.name);
-
-      const homeTeamLogo = await import(
-        `../../assets/images/${homeTeamName}-logo.svg`
-      );
-      const awayTeamLogo = await import(
-        `../../assets/images/${awayTeamName}-logo.svg`
-      );
-
-      setHomeLogo(homeTeamLogo.default);
-      setAwayLogo(awayTeamLogo.default);
-    }
-
-    renderLogos();
-  }, [teams.home.team.name, teams.away.team.name]);
-
   return (
     <div onClick={navToGame} className="scorecard" role="presentation">
       <div className="scorecard-info">
@@ -55,7 +33,7 @@ const Scorecard = ({ data }) => {
       <div className="scorecard-boxscore">
         <div className="scorecard-boxscore-team">
           <span className="scorecard-boxscore-team-logo">
-            <img src={awayLogo} alt="The Team" />
+            <Logo teamName={teams.away.team.name} />
           </span>
           <span className="scorecard-boxscore-team-name">
             {teams.away.team.name}
@@ -66,7 +44,7 @@ const Scorecard = ({ data }) => {
         </div>
         <div className="scorecard-boxscore-team">
           <span className="scorecard-boxscore-team-logo">
-            <img src={homeLogo} alt="The Team" />
+            <Logo teamName={teams.home.team.name} />
           </span>
           <span className="scorecard-boxscore-team-name">
             {teams.home.team.name}
