@@ -130,6 +130,7 @@
                 align-items: center;
                 display: flex;
                 font-weight: bold;
+                font-size: $size-16;
               }
 
               &-assist {
@@ -184,7 +185,7 @@
   }
 }
 
-@media only screen and (min-width: 400px) {
+@media only screen and (min-width: 900px) {
   .Game {
     &-header {
       &-score {

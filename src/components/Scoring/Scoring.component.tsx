@@ -32,15 +32,15 @@ const Scoring = () => {
                           playerType === "Scorer"
                         ) {
                           return (
-                            <span
+                            <a
+                              href={`/player/${id}`}
                               className="Game-summary-scoring-player-row-players-data-scorer"
                               key={id}
-                              role="link"
                             >
                               {fullName} ({seasonTotal}){" "}
                               {goal.result.strength.code === "PPG" &&
                                 `(Power Play)`}
-                            </span>
+                            </a>
                           );
                         } else if (
                           playerType !== "Goalie" &&
