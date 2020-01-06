@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import Logo from "../Logo/Logo.component";
 import Context from "../../context/context";
 
 const Scoring = () => {
@@ -10,42 +11,52 @@ const Scoring = () => {
       {Object.keys(goalsObjData).map(period => {
         return (
           <div className="Game-summary-scoring-period" key={period}>
-            <div>{period}</div>
+            <h4>{period}</h4>
             {goalsObjData[period].map((goal, index) => (
               <div className="Game-summary-scoring-period-data" key={index}>
                 <div className="Game-summary-scoring-player-row">
                   <ul className="Game-summary-scoring-player-row-players">
-                    {goal.players.map(playerObj => {
-                      const { player, playerType, seasonTotal } = playerObj;
-                      const { fullName, id, link } = player;
+                    <li className="Game-summary-scoring-player-row-players-time">
+                      {goal.about.periodTime}
+                    </li>
+                    <li>
+                      <Logo teamName={goal.team.name} />
+                    </li>
+                    <li className="Game-summary-scoring-player-row-players-data">
+                      {goal.players.map(playerObj => {
+                        const { player, playerType, seasonTotal } = playerObj;
+                        const { fullName, id, link } = player;
 
-                      if (playerType !== "Goalie" && playerType === "Scorer") {
-                        return (
-                          <li
-                            className="Game-summary-scoring-player-row-players-scorer"
-                            key={id}
-                            role="link"
-                          >
-                            {goal.about.periodTime} {goal.team.triCode}{" "}
-                            {fullName} ({seasonTotal}){" "}
-                            {goal.result.strength.code === "PPG" &&
-                              `(Power Play)`}
-                          </li>
-                        );
-                      } else if (
-                        playerType !== "Goalie" &&
-                        playerType === "Assist"
-                      ) {
-                        return (
-                          <li
-                            className="Game-summary-scoring-player-row-players-assist"
-                            key={id}
-                          >
-                            {fullName}
-                          </li>
-                        );
-                      }
-                    })}
+                        if (
+                          playerType !== "Goalie" &&
+                          playerType === "Scorer"
+                        ) {
+                          return (
+                            <span
+                              className="Game-summary-scoring-player-row-players-data-scorer"
+                              key={id}
+                              role="link"
+                            >
+                              {fullName} ({seasonTotal}){" "}
+                              {goal.result.strength.code === "PPG" &&
+                                `(Power Play)`}
+                            </span>
+                          );
+                        } else if (
+                          playerType !== "Goalie" &&
+                          playerType === "Assist"
+                        ) {
+                          return (
+                            <span
+                              className="Game-summary-scoring-player-row-players-data-assist"
+                              key={id}
+                            >
+                              {fullName}
+                            </span>
+                          );
+                        }
+                      })}
+                    </li>
                   </ul>
                   <div className="Game-summary-scoring-player-row-goalStatus">
                     {Object.keys(goal.about.goals).map(team => {

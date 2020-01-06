@@ -17,7 +17,7 @@ const Logo = ({ teamName }) => {
     renderLogos();
   }, [teamName]);
 
-  return <img src={teamLogo} alt={teamName} />;
+  return <img className="logo" src={teamLogo} alt={teamName} />;
 };
 
 export default Logo;

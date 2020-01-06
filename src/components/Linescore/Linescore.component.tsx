@@ -3,6 +3,7 @@ import Context from "../../context/context";
 
 const Linescore = () => {
   const { liveData }: any = useContext(Context);
+  const { away, home } = liveData.linescore.teams;
 
   return (
     <section className="Game-linescore">
@@ -11,38 +12,36 @@ const Linescore = () => {
         {liveData.linescore.periods.map(period => (
           <div
             key={period.ordinalNum}
-            className="Game-linescore-periods-period"
+            className="Game-linescore-periods-period Game-linescore-periods-period-title"
           >
             {period.ordinalNum}
           </div>
         ))}
-        <div className="Game-linescore-periods-period">T</div>
+        <div className="Game-linescore-periods-period Game-linescore-periods-period-title">
+          T
+        </div>
       </div>
       <div className="Game-linescore-periods">
         <div className="Game-linescore-periods-period Game-linescore-periods-period-team">
-          {liveData.linescore.teams.away.team.abbreviation}
+          {away.team.abbreviation}
         </div>
         {liveData.linescore.periods.map(period => (
           <div key={period.startTime} className="Game-linescore-periods-period">
             {period.away.goals}
           </div>
         ))}
-        <div className="Game-linescore-periods-period">
-          {liveData.linescore.teams.away.goals}
-        </div>
+        <div className="Game-linescore-periods-period">{away.goals}</div>
       </div>
       <div className="Game-linescore-periods">
         <div className="Game-linescore-periods-period Game-linescore-periods-period-team">
-          {liveData.linescore.teams.home.team.abbreviation}
+          {home.team.abbreviation}
         </div>
         {liveData.linescore.periods.map(period => (
           <div key={period.startTime} className="Game-linescore-periods-period">
             {period.home.goals}
           </div>
         ))}
-        <div className="Game-linescore-periods-period">
-          {liveData.linescore.teams.home.goals}
-        </div>
+        <div className="Game-linescore-periods-period">{home.goals}</div>
       </div>
     </section>
   );
