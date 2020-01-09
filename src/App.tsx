@@ -5,6 +5,14 @@ import routes from "./routes/routes";
 
 const history = createBrowserHistory();
 
+const ignoreRoutes = (route, routesToIgnore) => {
+  const res = routesToIgnore.find(ignoreredRoute =>
+    route.path.includes(ignoreredRoute)
+  );
+
+  return res ? false : true;
+};
+
 const handleNavigation = () => {
   return (
     <nav className="siteNav">
@@ -12,7 +20,7 @@ const handleNavigation = () => {
         {routes.map((route, key) => {
           return (
             route.path !== history.location.pathname &&
-            !route.path.includes("/game") && (
+            ignoreRoutes(route, ["/game", "/player"]) && (
               <li key={key}>
                 <a href={route.path} title={route.label}>
                   {route.label}

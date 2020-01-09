@@ -19,7 +19,7 @@ export const getStandingsData = async () => {
 };
 
 export const getPlayerData = async playerID => {
-  return await fetch(`${baseUrl}/people/${playerID}`).then(response =>
-    response.json()
-  );
+  return await fetch(
+    `${baseUrl}/people/${playerID}?expand=person.stats&stats=yearByYear,careerRegularSeason&expand=stats.team&site=en_nhlCA`
+  ).then(response => response.json());
 };

@@ -14,10 +14,12 @@ const Player = () => {
     }
 
     collectPlayerData();
-  }, [playerID, data]);
+  }, []);
 
   if (data) {
     const {
+      id,
+      fullName,
       firstName,
       lastName,
       primaryNumber,
@@ -33,7 +35,13 @@ const Player = () => {
     return (
       data && (
         <section className="player">
-          {firstName} {lastName}
+          <img
+            src={`https://nhl.bamcontent.com/images/headshots/current/168x168/${id}.jpg`}
+            alt={fullName}
+          />
+          <span>
+            {firstName} {lastName}
+          </span>
         </section>
       )
     );
