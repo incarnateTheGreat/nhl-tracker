@@ -1,7 +1,6 @@
 .scorecards {
   display: flex;
   flex-wrap: wrap;
-  max-width: 800px;
 
   .scorecard {
     border: 1px solid;
@@ -16,8 +15,13 @@
     &-info {
       border-bottom: 1px solid grey;
       display: flex;
+      font-size: $size-14;
       justify-content: space-between;
       padding: 5px 10px;
+
+      &-venue {
+        white-space: nowrap;
+      }
 
       &-status {
         font-weight: bold;

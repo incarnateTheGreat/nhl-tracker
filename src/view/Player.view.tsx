@@ -29,19 +29,44 @@ const Player = () => {
       birthStateProvince,
       birthCountry,
       height,
-      weight
+      weight,
+      primaryPosition,
+      stats
     } = data;
+
+    console.log(data);
+
+    const getCurrentYearStats = () => {
+      const res = stats.find(
+        statType => statType.type.displayName === "yearByYear"
+      );
+
+      if (res) {
+        const {
+          timeOnIce,
+          assists,
+          goals,
+          pim,
+          shots,
+          games,
+          hits
+        } = res.splits[res.splits.length - 1].stat;
+
+        console.log(timeOnIce, assists, goals, pim, shots, games, hits);
+      }
+    };
 
     return (
       data && (
         <section className="player">
+          <h2>
+            {firstName} {lastName} | {primaryPosition.code}
+          </h2>
           <img
             src={`https://nhl.bamcontent.com/images/headshots/current/168x168/${id}.jpg`}
             alt={fullName}
           />
-          <span>
-            {firstName} {lastName}
-          </span>
+          {getCurrentYearStats()}
         </section>
       )
     );

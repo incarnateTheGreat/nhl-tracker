@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { format, parseISO } from "date-fns";
 import { getGamesOfDay } from "../services/api";
 import Datepicker from "../components/Datepicker/Datepicker.component";
 import Scorecard from "../components/Scorecard/Scorecard.component";
@@ -77,7 +78,11 @@ const Schedule = () => {
 
   return (
     <article className="schedule">
-      <Datepicker callback={dateHandler} dateValue={scheduleDate} />
+      <nav>
+        <Datepicker callback={dateHandler} dateValue={scheduleDate} />
+        <h3>{scheduleDate && format(parseISO(scheduleDate), "MMMM, do, Y")}</h3>
+      </nav>
+
       <section className="scorecards">
         {scheduleGames &&
           scheduleGames.games.length > 0 &&

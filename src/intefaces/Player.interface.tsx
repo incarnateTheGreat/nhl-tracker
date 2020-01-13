@@ -21,6 +21,7 @@ export interface IPlayer {
   rosterStatus: string;
   currentTeam: ICurrentTeam;
   primaryPosition: IPrimaryPosition;
+  stats: IStats[];
 }
 
 interface ICurrentTeam {
@@ -34,4 +35,41 @@ interface IPrimaryPosition {
   name: string;
   type: string;
   abbreviation: string;
+}
+
+interface IStats {
+  type: {
+    displayName: string;
+  };
+  splits: [
+    {
+      stat: IStat;
+    }
+  ];
+}
+
+interface IStat {
+  assists: number;
+  goals: number;
+  pim: number;
+  games: number;
+  penaltyMinutes: string;
+  plusMinus: number;
+  points: number;
+  timeOnIce: string;
+  shots: number;
+  hits: number;
+  powerPlayGoals: number;
+  powerPlayPoints: number;
+  powerPlayTimeOnIce: string;
+  evenTimeOnIce: string;
+  faceOffPct: number;
+  shotPct: number;
+  gameWinningGoals: number;
+  overTimeGoals: number;
+  shortHandedGoals: number;
+  shortHandedPoints: number;
+  shortHandedTimeOnIce: string;
+  blocked: number;
+  shifts: number;
 }
