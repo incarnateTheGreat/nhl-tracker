@@ -6,6 +6,12 @@ export const getGamesOfDay = async date => {
   );
 };
 
+export const getNextFewGamesData = async (startDate, endDate, teamID) => {
+  return await fetch(
+    `${baseUrl}/schedule?startDate=${startDate}&endDate=${endDate}&hydrate=team,linescore,broadcasts(all),tickets,game(content(media(epg)),seriesSummary),radioBroadcasts,metadata,seriesSummary(series)&site=en_nhlCA&teamId=${teamID}&gameType=&timecode=`
+  ).then(response => response.json());
+};
+
 export const getGameData = async gamePk => {
   return await fetch(`${baseUrl}/game/${gamePk}/feed/live`).then(response =>
     response.json()
@@ -20,6 +26,6 @@ export const getStandingsData = async () => {
 
 export const getPlayerData = async playerID => {
   return await fetch(
-    `${baseUrl}/people/${playerID}?expand=person.stats&stats=yearByYear,careerRegularSeason&expand=stats.team&site=en_nhlCA`
+    `${baseUrl}/people/${playerID}?expand=person.stats&stats=yearByYear&expand=stats.team&site=en_nhlCA`
   ).then(response => response.json());
 };

@@ -1,0 +1,42 @@
+.player {
+  &-header {
+    display: flex;
+
+    &-image {
+    }
+
+    &-details {
+    }
+  }
+
+  &-stats {
+    table {
+      border-collapse: collapse;
+      width: 100%;
+
+      thead {
+        tr {
+          background-color: #dadada;
+
+          th {
+            cursor: help;
+            padding: 5px;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          &:nth-child(even) {
+            background-color: #f7f7f7;
+          }
+
+          td {
+            text-align: center;
+            padding: 5px;
+          }
+        }
+      }
+    }
+  }
+}
