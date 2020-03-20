@@ -29,7 +29,7 @@ const Player = () => {
     }
 
     collectPlayerData();
-  }, []);
+  }, [playerID]);
 
   if (data) {
     console.log(nextGamesData);

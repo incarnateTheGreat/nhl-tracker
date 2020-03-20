@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Context from "../context/context";
 import ScoreHeader from "../components/ScoreHeader/ScoreHeader.component";
@@ -15,7 +15,7 @@ const Game = () => {
   const [penaltiesObjData, setPenaltiesObjData] = useState();
   const { gameData, liveData } = data || {};
 
-  const getScoringPlays = () => {
+  const getScoringPlays = useCallback(() => {
     let scoringPlays: Array<IAllPlays> = [];
 
     if (liveData) {
@@ -37,9 +37,9 @@ const Game = () => {
     }, []);
 
     setGoalsObjData(goalsObj);
-  };
+  }, [liveData]);
 
-  const getPenaltiesPlays = () => {
+  const getPenaltiesPlays = useCallback(() => {
     let penaltyPlays: Array<IAllPlays> = [];
 
     if (liveData) {
@@ -62,7 +62,7 @@ const Game = () => {
     }, []);
 
     setPenaltiesObjData(penaltiesObj);
-  };
+  }, [liveData]);
 
   useEffect(() => {
     const collecGameData = async () => {
@@ -80,12 +80,12 @@ const Game = () => {
       }, 30000);
       return () => clearInterval(interval);
     }
-  }, [gamePk, data]);
+  }, [gameData, gamePk, data]);
 
   useEffect(() => {
     getScoringPlays();
     getPenaltiesPlays();
-  }, [liveData]);
+  }, [getPenaltiesPlays, getScoringPlays, liveData]);
 
   return (
     <Context.Provider

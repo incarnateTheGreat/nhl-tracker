@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { format, parseISO } from "date-fns";
 import { getGamesOfDay } from "../services/api";
 import Datepicker from "../components/Datepicker/Datepicker.component";
@@ -16,7 +16,7 @@ const Schedule = () => {
     setScheduleDate(date);
   };
 
-  const getListOfGames = () => {
+  const getListOfGames = useCallback(() => {
     let activeGames: object[] = [];
 
     if (scheduleGames && scheduleGames.games.length > 0) {
@@ -26,43 +26,47 @@ const Schedule = () => {
     }
 
     return activeGames;
-  };
+  }, [scheduleGames]);
 
-  const getActiveGames = listOfGames => {
-    // If Games are in 'Preview' or 'Live/In Progress' Mode, then they are considered 'Active'.
-    // If Games are all registered as 'Final', then they're not considered 'Active'.
+  const getActiveGames = useCallback(
+    listOfGames => {
+      // If Games are in 'Preview' or 'Live/In Progress' Mode, then they are considered 'Active'.
+      // If Games are all registered as 'Final', then they're not considered 'Active'.
 
-    // If all games have a Status "1", then set the Interval time to 1 minute.
-    // If AT LEAST one of the games have a Status of "3" (maybe "5"), then set the Interval time to 30 seconds.
-    const gameStatusList =
-      scheduleGames && scheduleGames.games.map(game => game.status.statusCode);
-    let intervalVal = 60000;
+      // If all games have a Status "1", then set the Interval time to 1 minute.
+      // If AT LEAST one of the games have a Status of "3" (maybe "5"), then set the Interval time to 30 seconds.
+      const gameStatusList =
+        scheduleGames &&
+        scheduleGames.games.map(game => game.status.statusCode);
+      let intervalVal = 60000;
 
-    if (gameStatusList && listOfGames.length > 0) {
-      if (gameStatusList.includes("3") || gameStatusList.includes("5")) {
-        intervalVal = 30000;
-      } else {
-        intervalVal = 60000;
+      if (gameStatusList && listOfGames.length > 0) {
+        if (gameStatusList.includes("3") || gameStatusList.includes("5")) {
+          intervalVal = 30000;
+        } else {
+          intervalVal = 60000;
+        }
       }
-    }
 
-    return intervalVal;
-  };
+      return intervalVal;
+    },
+    [scheduleGames]
+  );
 
-  const callScheduleData = async () => {
+  const callScheduleData = useCallback(async () => {
     const res = await getGamesOfDay(scheduleDate);
 
     if (res.dates.length > 0) {
       setScheduleGames(res.dates[0]);
     }
-  };
+  }, [scheduleDate]);
 
   // Get Today's Scheduled Game Data every 15 seconds.
   useEffect(() => {
     if (scheduleDate) {
       callScheduleData();
     }
-  }, [scheduleDate]);
+  }, [callScheduleData, scheduleDate]);
 
   useEffect(() => {
     const listOfGames = getListOfGames();
@@ -74,7 +78,7 @@ const Schedule = () => {
       }, activeGames);
       return () => clearInterval(interval);
     }
-  }, [scheduleGames]);
+  }, [callScheduleData, getActiveGames, getListOfGames, scheduleGames]);
 
   return (
     <article className="schedule">

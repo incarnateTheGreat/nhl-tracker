@@ -33,10 +33,10 @@ const ignoreRoutes = (route, routesToIgnore) => {
   return res ? false : true;
 };
 
-const element = { index: 0, value: "foo" };
-const index = element.index ?? -1; //  0 :D
+// const element = { index: 0, value: "foo" };
+// const index = element.index ?? -1; //  0 :D
 
-console.log(index);
+// console.log(index);
 
 // Display the Navigation.
 const handleNavigation = t => {

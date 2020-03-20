@@ -25,7 +25,7 @@ const Scoring = () => {
                     <li className="Game-summary-scoring-player-row-players-data">
                       {goal.players.map(playerObj => {
                         const { player, playerType, seasonTotal } = playerObj;
-                        const { fullName, id, link } = player;
+                        const { fullName, id } = player;
 
                         if (
                           playerType !== "Goalie" &&
@@ -55,6 +55,8 @@ const Scoring = () => {
                             </span>
                           );
                         }
+
+                        return "N/A";
                       })}
                     </li>
                   </ul>
