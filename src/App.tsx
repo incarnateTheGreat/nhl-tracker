@@ -1,25 +1,10 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import i18next from "i18next";
 import { useTranslation, initReactI18next } from "react-i18next";
 import { Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import routes from "./routes/routes";
 import { resources } from "./utils/utils";
-
-// Initialze i18next.
-i18next.use(initReactI18next).init({
-  resources,
-  lng: "en",
-  fallbackLng: "en",
-
-  interpolation: {
-    escapeValue: false,
-    format: function(value, format, lng) {
-      if (format === "intlDate") return new Intl.DateTimeFormat().format(value); // -> "12/20/2012" if run in en-US locale with time zone America/Los_Angeles
-      return value;
-    }
-  }
-});
 
 // Initialize the History Browser History.
 const history = createBrowserHistory();
@@ -33,12 +18,27 @@ const ignoreRoutes = (route, routesToIgnore) => {
   return res ? false : true;
 };
 
-const element = { index: 0, value: "foo" };
+// Check Local Store Language value.
+const lang = () => {
+  return localStorage.lang
+    ? localStorage.lang
+    : localStorage.setItem("lang", "en");
+};
 
-const index = element.index ?? -1; //  0 :D
-// const index = element.index || -1; // -1 :(
+// Initialze i18next.
+i18next.use(initReactI18next).init({
+  resources,
+  lng: lang(),
+  fallbackLng: "en",
 
-console.log(index);
+  interpolation: {
+    escapeValue: false,
+    format: function(value, format, lng) {
+      if (format === "intlDate") return new Intl.DateTimeFormat().format(value); // -> "12/20/2012" if run in en-US locale with time zone America/Los_Angeles
+      return value;
+    }
+  }
+});
 
 // Display the Navigation.
 const handleNavigation = t => {
@@ -63,6 +63,12 @@ const handleNavigation = t => {
 };
 
 const App: React.FC = () => {
+  const langValue = useRef<HTMLSelectElement>(null);
+
+  useEffect(() => {
+    lang();
+  }, []);
+
   const { t } = useTranslation();
 
   return (
@@ -71,10 +77,13 @@ const App: React.FC = () => {
       <span>Date: {i18next.t("date", { now: new Date() })}</span>
       <div>
         <select
-          name=""
-          id=""
+          ref={langValue}
+          name="lang"
+          id="lang"
+          value={localStorage.lang}
           onChange={e => {
             i18next.changeLanguage(e.target.value);
+            localStorage.setItem("lang", e.target.value);
           }}
         >
           <option value="en">English</option>
