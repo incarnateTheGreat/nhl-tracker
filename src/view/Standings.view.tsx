@@ -129,12 +129,10 @@ const Standings = () => {
   };
 
   const sortTable = useCallback(
-    (tableData, column, divisionName) => {
-      console.log("sort.");
-
+    (tableData: IStandings, column, divisionName) => {
       const direction = sortDirection === "ASC" ? "DESC" : "ASC";
 
-      const table = Object.values(tableData).sort((a: any, b: any) => {
+      const table = Object.values(tableData).sort((a, b) => {
         if (direction === "ASC") {
           return a[column] - b[column];
         }
@@ -164,39 +162,39 @@ const Standings = () => {
     [sortDirection]
   );
 
-  const standingsCall = useCallback(async () => {
-    // Get the Standings data.
-    const standings = await getStandingsData();
-
-    // Filter out and Reduce the Eastern and Western Conference Standings based on the keys.
-    const eastern: IStandings = standings.records
-      .filter(table => table.conference.name === "Eastern")
-      .reduce((r, acc) => {
-        r[acc.division.name] = assembleRecord(acc.teamRecords);
-
-        return r;
-      }, []);
-
-    const western = standings.records
-      .filter(table => table.conference.name === "Western")
-      .reduce((r, acc) => {
-        r[acc.division.name] = assembleRecord(acc.teamRecords);
-
-        return r;
-      }, []);
-
-    // Sort the Tables by Points.
-    setAtlantic(sortTable(eastern["Atlantic"], "points", "atlantic"));
-    setMetropolitan(
-      sortTable(eastern["Metropolitan"], "points", "metropolitan")
-    );
-    setCentral(sortTable(western["Central"], "points", "central"));
-    setPacific(sortTable(western["Pacific"], "points", "pacific"));
-  }, []);
-
   useEffect(() => {
+    const standingsCall = async () => {
+      // Get the Standings data.
+      const standings = await getStandingsData();
+
+      // Filter out and Reduce the Eastern and Western Conference Standings based on the keys.
+      const eastern: IStandings = standings.records
+        .filter(table => table.conference.name === "Eastern")
+        .reduce((r, acc) => {
+          r[acc.division.name] = assembleRecord(acc.teamRecords);
+
+          return r;
+        }, []);
+
+      const western: IStandings = standings.records
+        .filter(table => table.conference.name === "Western")
+        .reduce((r, acc) => {
+          r[acc.division.name] = assembleRecord(acc.teamRecords);
+
+          return r;
+        }, []);
+
+      // Sort the Tables by Points.
+      setAtlantic(sortTable(eastern["Atlantic"], "points", "atlantic"));
+      setMetropolitan(
+        sortTable(eastern["Metropolitan"], "points", "metropolitan")
+      );
+      setCentral(sortTable(western["Central"], "points", "central"));
+      setPacific(sortTable(western["Pacific"], "points", "pacific"));
+    };
+
     standingsCall();
-  }, [standingsCall]);
+  }, [assembleRecord]);
 
   return (
     <article className="standings">
