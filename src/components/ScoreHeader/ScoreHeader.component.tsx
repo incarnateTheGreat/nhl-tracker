@@ -4,7 +4,14 @@ import Context from "../../context/context";
 import Logo from "../Logo/Logo.component";
 
 const ScoreHeader = () => {
-  const { gameData, liveData }: any = useContext(Context);
+  const { gameData, liveData, headToHeadData }: any = useContext(Context);
+
+  const homeTeam = headToHeadData?.teams.find(
+    (team) => team.id === gameData.teams.home.id
+  );
+  const awayTeam = headToHeadData?.teams.find(
+    (team) => team.id === gameData.teams.away.id
+  );
 
   const statusInfo = () => {
     let statusStr = "";
@@ -12,7 +19,7 @@ const ScoreHeader = () => {
     if (liveData && gameData) {
       const {
         currentPeriodTimeRemaining,
-        currentPeriodOrdinal
+        currentPeriodOrdinal,
       } = liveData.linescore;
       const { dateTime } = gameData.datetime;
       const { statusCode } = gameData.status;
@@ -58,6 +65,11 @@ const ScoreHeader = () => {
             <span className="Game-header-score-team-info-teamName">
               {gameData.teams.away.teamName}
             </span>
+            <span>
+              {awayTeam?.record.leagueRecord.wins}-
+              {awayTeam?.record.leagueRecord.losses}-
+              {awayTeam?.record.leagueRecord.ot}
+            </span>
           </span>
           <span className="Game-header-score-team-score">
             {liveData.linescore.teams.away.goals}
@@ -73,6 +85,11 @@ const ScoreHeader = () => {
             </span>
             <span className="Game-header-score-team-info-teamName">
               {gameData.teams.home.teamName}
+            </span>
+            <span>
+              {homeTeam?.record.leagueRecord.wins}-
+              {homeTeam?.record.leagueRecord.losses}-
+              {homeTeam?.record.leagueRecord.ot}
             </span>
           </span>
           <span className="Game-header-score-team-logo">

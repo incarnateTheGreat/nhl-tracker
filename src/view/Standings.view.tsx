@@ -16,17 +16,17 @@ const tableKey = {
   goalsDiff: "DIFF",
   streakCode: "STRK",
   L10: "L10",
-  SOW: "SOW"
+  SOW: "SOW",
 };
 
 const Standings = () => {
-  const [atlantic, setAtlantic] = useState<object>();
-  const [metropolitian, setMetropolitan] = useState<object>();
   const [central, setCentral] = useState<object>();
-  const [pacific, setPacific] = useState<object>();
+  const [western, setWestern] = useState<object>();
+  const [eastern, setEastern] = useState<object>();
+  const [northern, setNorthern] = useState<object>();
   const [sortDirection, setSortDirection] = useState("ASC");
 
-  const assembleRecord = useCallback(teamData => {
+  const assembleRecord = useCallback((teamData) => {
     return teamData.reduce((r, acc) => {
       const {
         team,
@@ -37,13 +37,13 @@ const Standings = () => {
         records,
         goalsScored,
         goalsAgainst,
-        streak
+        streak = {},
       } = acc;
       const { name } = team;
       const { wins, losses, ot } = leagueRecord;
       const { streakCode } = streak;
 
-      r[acc.team.id] = {
+      const res = {
         name,
         gamesPlayed,
         wins,
@@ -56,15 +56,17 @@ const Standings = () => {
         goalsDiff: calcGoalsDiff(goalsScored, goalsAgainst),
         streakCode,
         L10: assembleL10Record(
-          records.overallRecords.find(record => record.type === "lastTen")
+          records.overallRecords.find((record) => record.type === "lastTen")
         ),
         SOW: assembleSOWRecord(
-          records.overallRecords.find(record => record.type === "shootOuts")
-        )
+          records.overallRecords.find((record) => record.type === "shootOuts")
+        ),
       };
 
+      r.push(res);
+
       return r;
-    }, {});
+    }, []);
   }, []);
 
   const calcGoalsDiff = (goalsScored, goalsAgainst) => {
@@ -75,13 +77,13 @@ const Standings = () => {
       : `${goalsDiff.toString()}`;
   };
 
-  const assembleL10Record = lastTen => {
+  const assembleL10Record = (lastTen) => {
     const { wins, losses, ot } = lastTen;
 
     return `${wins}-${losses}-${ot}`;
   };
 
-  const assembleSOWRecord = lastTen => {
+  const assembleSOWRecord = (lastTen) => {
     const { wins, losses } = lastTen;
 
     return `${wins}-${losses}`;
@@ -111,46 +113,94 @@ const Standings = () => {
     );
   };
 
-  const assembleTeamRow = team => {
-    return Object.values(team).map((data: any, key) => {
+  const assembleTeamRow = (division) => {
+    return Object.keys(division).map((prop, key) => {
       return (
         <td key={key}>
           {key === 0 ? (
             <>
               {" "}
-              <Logo teamName={team.name} /> {data}{" "}
+              <Logo teamName={division["name"]} /> {division["name"]}{" "}
             </>
           ) : (
-            data
+            <>{division[prop]}</>
           )}
         </td>
       );
     });
   };
 
+  useEffect(() => {
+    const standingsCall = async () => {
+      // Get the Standings data.
+      const standings = await getStandingsData();
+
+      // Eastern Division
+      const eastern: IStandings =
+        standings.records.find((table) => table.division.id === 25)
+          .teamRecords ?? [];
+
+      // Central Division
+      const central: IStandings =
+        standings.records.find((table) => table.division.id === 26)
+          .teamRecords ?? [];
+
+      // Western Division
+      const western: IStandings =
+        standings.records.find((table) => table.division.id === 27)
+          .teamRecords ?? [];
+
+      // Northern (Canadian) Division
+      const northern: IStandings =
+        standings.records.find((table) => table.division.id === 28)
+          .teamRecords ?? [];
+
+      // Sort the Tables by Points.
+      setCentral(sortTable(assembleRecord(central), "points", "central"));
+      setEastern(sortTable(assembleRecord(eastern), "points", "eastern"));
+      setWestern(sortTable(assembleRecord(western), "points", "western"));
+      setNorthern(sortTable(assembleRecord(northern), "points", "northern"));
+    };
+
+    standingsCall();
+  }, [assembleRecord]);
+
   const sortTable = useCallback(
-    (tableData: IStandings, column, divisionName) => {
+    (tableData: IStandings[], column, divisionName) => {
       const direction = sortDirection === "ASC" ? "DESC" : "ASC";
 
-      const table = Object.values(tableData).sort((a, b) => {
-        if (direction === "ASC") {
-          return a[column] - b[column];
+      const table = tableData.sort((a, b) => {
+        // Sort content alphabetically.
+        if (column === "name") {
+          const nameA = a.name.toUpperCase();
+          const nameB = b.name.toUpperCase();
+
+          if (direction === "ASC") {
+            return nameA.localeCompare(nameB);
+          }
+
+          return nameB.localeCompare(nameA);
+        } else {
+          if (direction === "ASC") {
+            return a[column] - b[column];
+          }
+
+          return b[column] - a[column];
         }
-        return b[column] - a[column];
       });
 
       switch (divisionName) {
-        case "atlantic":
-          setAtlantic(table);
+        case "eastern":
+          setEastern(table);
           break;
-        case "metropolitan":
-          setMetropolitan(table);
+        case "western":
+          setWestern(table);
           break;
         case "central":
           setCentral(table);
           break;
-        case "pacific":
-          setPacific(table);
+        case "northern":
+          setNorthern(table);
           break;
         default:
       }
@@ -162,63 +212,23 @@ const Standings = () => {
     [sortDirection]
   );
 
-  useEffect(() => {
-    const standingsCall = async () => {
-      // Get the Standings data.
-      const standings = await getStandingsData();
-
-      // Filter out and Reduce the Eastern and Western Conference Standings based on the keys.
-      const eastern: IStandings = standings.records
-        .filter(table => table.conference.name === "Eastern")
-        .reduce((r, acc) => {
-          r[acc.division.name] = assembleRecord(acc.teamRecords);
-
-          return r;
-        }, []);
-
-      const western: IStandings = standings.records
-        .filter(table => table.conference.name === "Western")
-        .reduce((r, acc) => {
-          r[acc.division.name] = assembleRecord(acc.teamRecords);
-
-          return r;
-        }, []);
-
-      // Sort the Tables by Points.
-      setAtlantic(sortTable(eastern["Atlantic"], "points", "atlantic"));
-      setMetropolitan(
-        sortTable(eastern["Metropolitan"], "points", "metropolitan")
-      );
-      setCentral(sortTable(western["Central"], "points", "central"));
-      setPacific(sortTable(western["Pacific"], "points", "pacific"));
-    };
-
-    standingsCall();
-  }, [assembleRecord]);
-
   return (
     <article className="standings">
-      {atlantic && metropolitian && central && pacific && (
-        <>
-          <section className="standings-conference">
-            <h3>Eastern Conference</h3>
-            <table className="standings-conference-division">
-              {assembleStandingsView(atlantic, "atlantic")}
-            </table>
-            <table className="standings-conference-division">
-              {assembleStandingsView(metropolitian, "metropolitan")}
-            </table>
-          </section>
-          <section className="standings-conference">
-            <h3>Western Conference</h3>
-            <table className="standings-conference-division">
-              {assembleStandingsView(central, "central")}
-            </table>
-            <table className="standings-conference-division">
-              {assembleStandingsView(pacific, "pacific")}
-            </table>
-          </section>
-        </>
+      {central && eastern && western && northern && (
+        <section className="standings-conference">
+          <table className="standings-conference-division">
+            {assembleStandingsView(northern, "northern")}
+          </table>
+          <table className="standings-conference-division">
+            {assembleStandingsView(central, "central")}
+          </table>
+          <table className="standings-conference-division">
+            {assembleStandingsView(eastern, "eastern")}
+          </table>
+          <table className="standings-conference-division">
+            {assembleStandingsView(western, "western")}
+          </table>
+        </section>
       )}
     </article>
   );

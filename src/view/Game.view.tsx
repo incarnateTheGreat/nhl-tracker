@@ -5,14 +5,15 @@ import ScoreHeader from "../components/ScoreHeader/ScoreHeader.component";
 import Linescore from "../components/Linescore/Linescore.component";
 import Scoring from "../components/Scoring/Scoring.component";
 import Penalties from "../components/Penalties/Penalties.component";
-import { getGameData } from "../services/api";
+import { getGameData, getHeadtoHeadTeamData } from "../services/api";
 import { IGame, IAllPlays } from "../intefaces/Game.interface";
 
 const Game = () => {
   const { gamePk } = useParams();
   const [data, setData] = useState<IGame>();
-  const [goalsObjData, setGoalsObjData] = useState();
-  const [penaltiesObjData, setPenaltiesObjData] = useState();
+  const [headToHeadData, setHeadtoHeadData] = useState<IGame>();
+  const [goalsObjData, setGoalsObjData] = useState<Array<object>>();
+  const [penaltiesObjData, setPenaltiesObjData] = useState<Array<object>>();
   const { gameData, liveData } = data || {};
 
   const getScoringPlays = useCallback(() => {
@@ -67,7 +68,14 @@ const Game = () => {
   useEffect(() => {
     const collecGameData = async () => {
       const res = await getGameData(gamePk);
+
+      const headToHead = await getHeadtoHeadTeamData(
+        res.gameData.teams.home.id,
+        res.gameData.teams.away.id
+      );
+
       setData(res);
+      setHeadtoHeadData(headToHead);
     };
 
     if (!gameData) {
@@ -89,7 +97,13 @@ const Game = () => {
 
   return (
     <Context.Provider
-      value={{ gameData, liveData, goalsObjData, penaltiesObjData }}
+      value={{
+        gameData,
+        liveData,
+        goalsObjData,
+        penaltiesObjData,
+        headToHeadData,
+      }}
     >
       <article className="Game">
         {gameData && liveData ? (
