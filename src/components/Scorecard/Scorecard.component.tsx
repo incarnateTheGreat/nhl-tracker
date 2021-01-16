@@ -5,7 +5,7 @@ import Logo from "../Logo/Logo.component";
 
 const Scorecard = ({ data }) => {
   const history = useHistory();
-  const { gameDate, gamePk, status, teams, venue } = data;
+  const { gameDate, gamePk, status, teams, venue, linescore } = data;
   const { statusCode } = status;
 
   const navToGame = () => {
@@ -17,7 +17,9 @@ const Scorecard = ({ data }) => {
 
     if (statusCode === "1") {
       dateStr = `${format(new Date(gameDate), "h:mm a")} EDT`;
-    } else {
+    } else if (statusCode === "3" || statusCode === "5") {
+      dateStr = `${linescore.currentPeriodOrdinal} - ${linescore.currentPeriodTimeRemaining}`;
+    } else if (statusCode === "7") {
       dateStr = status.detailedState;
     }
 
@@ -27,7 +29,13 @@ const Scorecard = ({ data }) => {
   return (
     <div onClick={navToGame} className="scorecard" role="presentation">
       <div className="scorecard-info">
-        <span className="scorecard-info-status">{formatDate()}</span>
+        <div className="scorecard-info-status">
+          {(statusCode === "3" || statusCode === "5") && (
+            <div className="scorecard-info-status-live pulse" />
+          )}
+          <span className="scorecard-info-status-value">{formatDate()}</span>
+        </div>
+
         <span className="scorecard-info-venue">{venue.name}</span>
       </div>
       <div className="scorecard-boxscore">

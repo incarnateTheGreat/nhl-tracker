@@ -1,9 +1,9 @@
 const baseUrl = "https://statsapi.web.nhl.com/api/v1";
 
 export const getGamesOfDay = async (date) => {
-  return await fetch(`${baseUrl}/schedule?date=${date}`).then((response) =>
-    response.json()
-  );
+  return await fetch(
+    `${baseUrl}/schedule?date=${date}&hydrate=team,linescore,broadcasts(all),tickets,game(content(media(epg)),seriesSummary),radioBroadcasts,metadata,seriesSummary(series)&site=en_nhlCA&teamId=&gameType=&timecode=`
+  ).then((response) => response.json());
 };
 
 export const getNextFewGamesData = async (startDate, endDate, teamID) => {
