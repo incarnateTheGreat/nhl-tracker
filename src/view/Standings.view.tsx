@@ -39,12 +39,13 @@ const Standings = () => {
         goalsAgainst,
         streak = {},
       } = acc;
-      const { name } = team;
+      const { name, id } = team;
       const { wins, losses, ot } = leagueRecord;
       const { streakCode } = streak;
 
       const res = {
         name,
+        id,
         gamesPlayed,
         wins,
         losses,
@@ -113,18 +114,23 @@ const Standings = () => {
     );
   };
 
-  const assembleTeamRow = (division) => {
-    return Object.keys(division).map((prop, key) => {
+  const assembleTeamRow = (team) => {
+    return Object.keys(team).map((prop, key) => {
+      if (prop === "id") return;
+
       return (
         <td key={key}>
-          {key === 0 ? (
+          {key === 0 && (
             <>
               {" "}
-              <Logo teamName={division["name"]} /> {division["name"]}{" "}
+              <Logo teamName={team["name"]} />{" "}
+              <a href={`/team/${team["id"]}`} title={team["name"]}>
+                {team["name"]}
+              </a>
             </>
-          ) : (
-            <>{division[prop]}</>
           )}
+
+          {key !== 0 && prop !== "id" && <>{team[prop]}</>}
         </td>
       );
     });

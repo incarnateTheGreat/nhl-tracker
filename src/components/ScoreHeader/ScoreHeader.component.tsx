@@ -30,7 +30,11 @@ const ScoreHeader = () => {
           toDate(new Date(dateTime)),
           "MMM do, yyyy @ h:mm a"
         )} EDT`;
-      } else if (statusCode === "3" || statusCode === "5") {
+      } else if (
+        statusCode === "3" ||
+        statusCode === "4" ||
+        statusCode === "5"
+      ) {
         statusStr = `${currentPeriodTimeRemaining} - ${currentPeriodOrdinal}`;
       } else if (statusCode === "7") {
         if (

@@ -9,7 +9,7 @@ const Linescore = () => {
     <section className="Game-linescore">
       <div className="Game-linescore-periods Game-linescore-header">
         <div className="Game-linescore-periods-period">&nbsp;</div>
-        {liveData.linescore.periods.map(period => (
+        {liveData.linescore.periods.map((period) => (
           <div
             key={period.ordinalNum}
             className="Game-linescore-periods-period Game-linescore-periods-period-title"
@@ -25,8 +25,8 @@ const Linescore = () => {
         <div className="Game-linescore-periods-period Game-linescore-periods-period-team">
           {away.team.abbreviation}
         </div>
-        {liveData.linescore.periods.map(period => (
-          <div key={period.startTime} className="Game-linescore-periods-period">
+        {liveData.linescore.periods.map((period, key) => (
+          <div key={key} className="Game-linescore-periods-period">
             {period.away.goals}
           </div>
         ))}
@@ -36,8 +36,8 @@ const Linescore = () => {
         <div className="Game-linescore-periods-period Game-linescore-periods-period-team">
           {home.team.abbreviation}
         </div>
-        {liveData.linescore.periods.map(period => (
-          <div key={period.startTime} className="Game-linescore-periods-period">
+        {liveData.linescore.periods.map((period, key) => (
+          <div key={key} className="Game-linescore-periods-period">
             {period.home.goals}
           </div>
         ))}

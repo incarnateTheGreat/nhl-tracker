@@ -12,15 +12,28 @@ const Scorecard = ({ data }) => {
     history.push(`/game/${gamePk}`);
   };
 
+  const isLive = () => {
+    return statusCode === "3" || statusCode === "4" || statusCode === "5";
+  };
+
+  const isPowerPlay = (powerPlay) => {
+    return powerPlay && statusCode !== "7";
+  };
+
   const formatDate = () => {
     let dateStr = "";
 
     if (statusCode === "1") {
       dateStr = `${format(new Date(gameDate), "h:mm a")} EDT`;
-    } else if (statusCode === "3" || statusCode === "5") {
+    } else if (isLive()) {
       dateStr = `${linescore.currentPeriodOrdinal} - ${linescore.currentPeriodTimeRemaining}`;
-    } else if (statusCode === "7") {
-      dateStr = status.detailedState;
+    } else {
+      // if (statusCode === "7") {
+      dateStr = `${linescore.currentPeriodTimeRemaining}`;
+
+      if (linescore.currentPeriodOrdinal !== "3rd") {
+        dateStr += ` (${linescore.currentPeriodOrdinal})`;
+      }
     }
 
     return dateStr;
@@ -30,9 +43,7 @@ const Scorecard = ({ data }) => {
     <div onClick={navToGame} className="scorecard" role="presentation">
       <div className="scorecard-info">
         <div className="scorecard-info-status">
-          {(statusCode === "3" || statusCode === "5") && (
-            <div className="scorecard-info-status-live pulse" />
-          )}
+          {isLive() && <div className="scorecard-info-status-live pulse" />}
           <span className="scorecard-info-status-value">{formatDate()}</span>
         </div>
 
@@ -45,6 +56,9 @@ const Scorecard = ({ data }) => {
           </span>
           <span className="scorecard-boxscore-team-name">
             {teams.away.team.name}
+            {isPowerPlay(data.linescore.teams.away.powerPlay) && (
+              <span className="scorecard-boxscore-team-name-powerplay">PP</span>
+            )}
           </span>
           <span className="scorecard-boxscore-team-score">
             {teams.away.score}
@@ -55,10 +69,13 @@ const Scorecard = ({ data }) => {
             <Logo teamName={teams.home.team.name} />
           </span>
           <span className="scorecard-boxscore-team-name">
-            {teams.home.team.name}
+            {teams.home.team.name}{" "}
+            {isPowerPlay(data.linescore.teams.home.powerPlay) && (
+              <span className="scorecard-boxscore-team-name-powerplay">PP</span>
+            )}
           </span>
           <span className="scorecard-boxscore-team-score">
-            {teams.home.score}
+            {teams.home.score}{" "}
           </span>
         </div>
       </div>

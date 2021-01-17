@@ -1,6 +1,11 @@
 .scorecards {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+
+  &-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
   .scorecard {
     border: 1px solid;
@@ -60,6 +65,13 @@
         &-name {
           flex: 1;
           font-size: 14px;
+
+          &-powerplay {
+            color: rgb(255, 0, 0);
+            font-style: italic;
+            font-weight: bold;
+            margin: 0 0 0 2px;
+          }
         }
 
         &-score {
