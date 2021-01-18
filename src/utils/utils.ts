@@ -1,4 +1,4 @@
-export const createFileName = fileName => {
+export const createFileName = (fileName) => {
   return fileName
     .toLowerCase()
     .replace(".", "")
@@ -15,9 +15,18 @@ export const resources = {
         schedule: "Schedule",
         standings: "Standings",
         game: "Game",
-        player: "Player"
-      }
-    }
+        player: "Player",
+      },
+      team: {
+        schedule: {
+          date: "Date",
+          opponent: "Opponent",
+          time: "Time (EST)",
+          result: "Result",
+          record: "Record",
+        },
+      },
+    },
   },
   es: {
     translation: {
@@ -26,8 +35,17 @@ export const resources = {
         schedule: "Calendario",
         standings: "Clasificación",
         game: "Partido",
-        player: "Jugador"
-      }
-    }
-  }
+        player: "Jugador",
+      },
+      team: {
+        schedule: {
+          date: "Fecha",
+          opponent: "Adversaria",
+          time: "Hora (HNE)",
+          result: "Resultado",
+          record: "Record",
+        },
+      },
+    },
+  },
 };

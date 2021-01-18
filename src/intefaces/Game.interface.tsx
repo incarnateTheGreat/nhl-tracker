@@ -89,7 +89,7 @@ export interface IAllPlays {
   };
 }
 
-interface ILineScore {
+export interface ILineScore {
   currentPeriod: number;
   currentPeriodOrdinal: string;
   currentPeriodTimeRemaining: string;

@@ -1,3 +1,5 @@
+import { ILineScore } from "./Game.interface";
+
 export interface ITeamInfo {
   id: number;
   name: string;
@@ -35,6 +37,50 @@ export interface ITeamInfo {
   officialSiteUrl: string;
   franchiseId: number;
   active: true;
+  record: IRecord;
+}
+
+export interface IRecord {
+  team: {
+    id: number;
+    name: string;
+    link: string;
+  };
+  leagueRecord: {
+    wins: number;
+    losses: number;
+    ot: number;
+    type: string;
+  };
+  regulationWins: number;
+  goalsAgainst: number;
+  goalsScored: number;
+  points: number;
+  divisionRank: string;
+  divisionL10Rank: string;
+  divisionRoadRank: string;
+  divisionHomeRank: string;
+  conferenceRank: string;
+  conferenceL10Rank: string;
+  conferenceRoadRank: string;
+  conferenceHomeRank: string;
+  leagueRank: string;
+  leagueL10Rank: string;
+  leagueRoadRank: string;
+  leagueHomeRank: string;
+  wildCardRank: string;
+  row: number;
+  gamesPlayed: number;
+  streak: {
+    streakType: string;
+    streakNumber: number;
+    streakCode: string;
+  };
+  pointsPercentage: number;
+  ppDivisionRank: string;
+  ppConferenceRank: string;
+  ppLeagueRank: string;
+  lastUpdated: string;
 }
 
 export interface ITeam {
@@ -50,6 +96,7 @@ export interface ITeam {
       gameType: string;
       season: string;
       gameDate: string;
+      linescore: ILineScore;
       status: {
         abstractGameState: string;
         codedGameState: string;
