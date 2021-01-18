@@ -1,4 +1,13 @@
 .logo {
-  height: 45px;
-  width: 45px;
+  &-small {
+    width: 35px;
+  }
+
+  &-medium {
+    width: 45px;
+  }
+
+  &-large {
+    width: 85px;
+  }
 }

@@ -30,6 +30,12 @@ export const getPlayerData = async (playerID) => {
   ).then((response) => response.json());
 };
 
+export const getTeamData = async (teamID) => {
+  return await fetch(`${baseUrl}/teams/${teamID}`).then((response) =>
+    response.json()
+  );
+};
+
 export const getHeadtoHeadTeamData = async (homeTeamID, awayTeamID) => {
   return await fetch(
     `${baseUrl}/teams?site=en_nhl&teamId=${homeTeamID},${awayTeamID}&hydrate=previousSchedule(limit=10,linescore,team),record,coaches,roster(person(stats(splits=statsSingleSeason)))&gameType=R&season=20202021`
@@ -38,6 +44,6 @@ export const getHeadtoHeadTeamData = async (homeTeamID, awayTeamID) => {
 
 export const getTeamScheduleData = async (teamID) => {
   return await fetch(
-    `${baseUrl}/schedule?startDate=2021-01-17&endDate=2021-02-04&hydrate=team,broadcasts(all),game(content(media(epg)),seriesSummary),metadata,seriesSummary(series)&site=en_nhlCA&teamId=${teamID}&gameType=&timecode=`
+    `${baseUrl}/schedule?startDate=2021-01-13&endDate=2021-07-01&hydrate=team,broadcasts(all),game(content(media(epg)),seriesSummary),metadata,seriesSummary(series)&site=en_nhlCA&teamId=${teamID}&gameType=&timecode=`
   ).then((response) => response.json());
 };

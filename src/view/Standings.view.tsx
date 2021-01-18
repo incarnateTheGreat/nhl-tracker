@@ -123,7 +123,7 @@ const Standings = () => {
           {key === 0 && (
             <>
               {" "}
-              <Logo teamName={team["name"]} />{" "}
+              <Logo size="small" teamName={team["name"]} />{" "}
               <a href={`/team/${team["id"]}`} title={team["name"]}>
                 {team["name"]}
               </a>

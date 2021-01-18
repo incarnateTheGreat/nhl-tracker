@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { createFileName } from "../../utils/utils";
 
-const Logo = ({ teamName }) => {
+const Logo = ({ teamName, size = "medium" }) => {
   const [teamLogo, setTeamLogo] = useState("");
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const Logo = ({ teamName }) => {
     renderLogos();
   }, [teamName]);
 
-  return <img className="logo" src={teamLogo} alt={teamName} />;
+  return <img className={`logo logo-${size}`} src={teamLogo} alt={teamName} />;
 };
 
 export default Logo;
