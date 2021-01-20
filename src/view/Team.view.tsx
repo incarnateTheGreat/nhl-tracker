@@ -182,7 +182,7 @@ const Team = () => {
           </table>
 
           <h3>Scheduled</h3>
-          <table className="team-schedule">
+          <table className="team-schedule team-schedule-results">
             <thead>
               <tr>
                 <th title={t("team.schedule.date")}>

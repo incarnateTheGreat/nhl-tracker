@@ -2,19 +2,25 @@
   display: flex;
   flex-direction: column;
 
+  h3 {
+    border-bottom: 1px solid rgba(171, 157, 157, 0.5);
+  }
+
   &-container {
     display: flex;
     flex-wrap: wrap;
   }
 
   .scorecard {
-    border: 1px solid;
+    border: 1px solid rgba(171, 157, 157, 0.5);
     cursor: pointer;
-    margin: 10px;
-    flex: 1 1 250px;
+    flex: 1 0 23%;
+    margin: 8px 10px 8px 0;
+    transition: 50ms ease-in;
 
     &:hover {
       background-color: rgba($color: #dadada, $alpha: 0.5);
+      border: 1px solid black;
     }
 
     &-info {
@@ -35,7 +41,7 @@
         display: flex;
 
         &-live {
-          background-color: red;
+          // background-color: red;
           border-radius: 50%;
           box-shadow: 0px 0px 1px 1px #0000001a;
           height: 10px;
@@ -83,14 +89,17 @@
 }
 
 .pulse {
-  animation: pulse-animation 4s infinite;
+  animation: pulse-animation 2.5s infinite ease-in-out;
 }
 
 @keyframes pulse-animation {
   0% {
-    box-shadow: 0 0 0 0px rgba(255, 0, 0, 0.5);
+    background-color: red;
+  }
+  50% {
+    background-color: darkred;
   }
   100% {
-    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    background-color: red;
   }
 }

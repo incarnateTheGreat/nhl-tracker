@@ -61,6 +61,16 @@
       }
     }
 
+    &-results {
+      tbody {
+        tr {
+          td {
+            width: 33%;
+          }
+        }
+      }
+    }
+
     &-logo {
       align-items: center;
       display: flex;

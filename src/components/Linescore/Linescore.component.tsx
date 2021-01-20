@@ -6,42 +6,42 @@ const Linescore = () => {
   const { away, home } = liveData.linescore.teams;
 
   return (
-    <section className="Game-linescore">
-      <div className="Game-linescore-periods Game-linescore-header">
-        <div className="Game-linescore-periods-period">&nbsp;</div>
+    <section className="game-linescore">
+      <div className="game-linescore-periods game-linescore-header">
+        <div className="game-linescore-periods-period">&nbsp;</div>
         {liveData.linescore.periods.map((period) => (
           <div
             key={period.ordinalNum}
-            className="Game-linescore-periods-period Game-linescore-periods-period-title"
+            className="game-linescore-periods-period game-linescore-periods-period-title"
           >
             {period.ordinalNum}
           </div>
         ))}
-        <div className="Game-linescore-periods-period Game-linescore-periods-period-title">
+        <div className="game-linescore-periods-period game-linescore-periods-period-title">
           T
         </div>
       </div>
-      <div className="Game-linescore-periods">
-        <div className="Game-linescore-periods-period Game-linescore-periods-period-team">
+      <div className="game-linescore-periods">
+        <div className="game-linescore-periods-period game-linescore-periods-period-team">
           {away.team.abbreviation}
         </div>
         {liveData.linescore.periods.map((period, key) => (
-          <div key={key} className="Game-linescore-periods-period">
+          <div key={key} className="game-linescore-periods-period">
             {period.away.goals}
           </div>
         ))}
-        <div className="Game-linescore-periods-period">{away.goals}</div>
+        <div className="game-linescore-periods-period">{away.goals}</div>
       </div>
-      <div className="Game-linescore-periods">
-        <div className="Game-linescore-periods-period Game-linescore-periods-period-team">
+      <div className="game-linescore-periods">
+        <div className="game-linescore-periods-period game-linescore-periods-period-team">
           {home.team.abbreviation}
         </div>
         {liveData.linescore.periods.map((period, key) => (
-          <div key={key} className="Game-linescore-periods-period">
+          <div key={key} className="game-linescore-periods-period">
             {period.home.goals}
           </div>
         ))}
-        <div className="Game-linescore-periods-period">{home.goals}</div>
+        <div className="game-linescore-periods-period">{home.goals}</div>
       </div>
     </section>
   );

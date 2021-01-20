@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { format, toDate } from "date-fns";
 import Context from "../../context/context";
-import Logo from "../Logo/Logo.component";
+import { createImageLink } from "../../utils/utils";
 
 const ScoreHeader = () => {
   const { gameData, liveData, headToHeadData }: any = useContext(Context);
+  const [awayTeamLogo, setAwayTeamLogo] = useState<string>("");
+  const [homeTeamLogo, setHomeTeamLogo] = useState<string>("");
 
   const homeTeam = headToHeadData?.teams.find(
     (team) => team.id === gameData.teams.home.id
@@ -12,6 +14,18 @@ const ScoreHeader = () => {
   const awayTeam = headToHeadData?.teams.find(
     (team) => team.id === gameData.teams.away.id
   );
+
+  // Assign the Home and Away logos.
+  useEffect(() => {
+    const getLogo = async (logo, setMethod) => {
+      const res = await createImageLink(logo);
+
+      setMethod(res);
+    };
+
+    getLogo(gameData.teams.away.name, setAwayTeamLogo);
+    getLogo(gameData.teams.home.name, setHomeTeamLogo);
+  }, []);
 
   const statusInfo = () => {
     let statusStr = "";
@@ -54,19 +68,47 @@ const ScoreHeader = () => {
     return statusStr;
   };
 
+  const isGameOver = () => {
+    const {
+      currentPeriodTimeRemaining,
+      currentPeriodOrdinal,
+    } = liveData.linescore;
+
+    return (
+      (currentPeriodTimeRemaining === "Final" &&
+        (currentPeriodOrdinal === "SO" || currentPeriodOrdinal === "OT")) ||
+      (currentPeriodTimeRemaining === "Final" && currentPeriodOrdinal === "3rd")
+    );
+  };
+
+  const homeTeamWinner = () => {
+    return (
+      liveData.linescore.teams.home.goals > liveData.linescore.teams.away.goals
+    );
+  };
+
+  const awayTeamWinner = () => {
+    return (
+      liveData.linescore.teams.away.goals > liveData.linescore.teams.home.goals
+    );
+  };
+
   return (
-    <section className="Game-header">
-      <div className="Game-header-status">{statusInfo()}</div>
-      <div className="Game-header-score">
-        <div className="Game-header-score-team Game-header-score-team-away">
-          <span className="Game-header-score-team-logo">
-            <Logo teamName={gameData.teams.away.name} />
-          </span>
-          <span className="Game-header-score-team-info">
-            <span className="Game-header-score-team-info-shortName">
+    <section className="game-header">
+      <div className="game-header-status">{statusInfo()}</div>
+      <div className="game-header-score">
+        <div className="game-header-score-team game-header-score-team-away">
+          <span
+            className="game-header-score-team-logo"
+            style={{
+              backgroundImage: `url(${awayTeamLogo})`,
+            }}
+          ></span>
+          <span className="game-header-score-team-info">
+            <span className="game-header-score-team-info-shortName">
               {gameData.teams.away.shortName}
             </span>
-            <span className="Game-header-score-team-info-teamName">
+            <span className="game-header-score-team-info-teamName">
               {gameData.teams.away.teamName}
             </span>
             <span>
@@ -75,19 +117,31 @@ const ScoreHeader = () => {
               {awayTeam?.record.leagueRecord.ot}
             </span>
           </span>
-          <span className="Game-header-score-team-score">
+          <span
+            className={`game-header-score-team-score ${
+              isGameOver() &&
+              awayTeamWinner() &&
+              `game-header-score-team-score-winner`
+            }`}
+          >
             {liveData.linescore.teams.away.goals}
           </span>
         </div>
-        <div className="Game-header-score-team Game-header-score-team-home">
-          <span className="Game-header-score-team-score">
+        <div className="game-header-score-team game-header-score-team-home">
+          <span
+            className={`game-header-score-team-score ${
+              isGameOver() &&
+              homeTeamWinner() &&
+              `game-header-score-team-score-winner`
+            }`}
+          >
             {liveData.linescore.teams.home.goals}
           </span>
-          <span className="Game-header-score-team-info">
-            <span className="Game-header-score-team-info-shortName">
+          <span className="game-header-score-team-info">
+            <span className="game-header-score-team-info-shortName">
               {gameData.teams.home.shortName}
             </span>
-            <span className="Game-header-score-team-info-teamName">
+            <span className="game-header-score-team-info-teamName">
               {gameData.teams.home.teamName}
             </span>
             <span>
@@ -96,12 +150,15 @@ const ScoreHeader = () => {
               {homeTeam?.record.leagueRecord.ot}
             </span>
           </span>
-          <span className="Game-header-score-team-logo">
-            <Logo teamName={gameData.teams.home.name} />
-          </span>
+          <span
+            className="game-header-score-team-logo"
+            style={{
+              backgroundImage: `url(${homeTeamLogo})`,
+            }}
+          ></span>
         </div>
       </div>
-      <div className="Game-header-location">{gameData.venue.name}</div>
+      <div className="game-header-location">{gameData.venue.name}</div>
     </section>
   );
 };

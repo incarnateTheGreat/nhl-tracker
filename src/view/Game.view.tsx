@@ -105,14 +105,14 @@ const Game = () => {
         headToHeadData,
       }}
     >
-      <article className="Game">
+      <article className="game">
         {gameData && liveData ? (
           <>
             <ScoreHeader />
             <Linescore />
 
             {gameData.status.codedGameState !== "1" && (
-              <section className="Game-summary">
+              <section className="game-summary">
                 <Scoring />
                 <Penalties />
               </section>

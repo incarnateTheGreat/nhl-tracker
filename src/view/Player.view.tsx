@@ -49,14 +49,14 @@ const Player = () => {
       weight,
       primaryPosition,
       currentTeam,
-      stats
+      stats,
     } = data;
 
     console.log(data);
 
     const getCurrentYearStats = () => {
       const res = stats.find(
-        statType => statType.type.displayName === "yearByYear"
+        (statType) => statType.type.displayName === "yearByYear"
       );
 
       if (res) {
@@ -75,7 +75,7 @@ const Player = () => {
           overTimeGoals,
           shortHandedGoals,
           plusMinus,
-          points
+          points,
         } = res.splits[res.splits.length - 1].stat;
 
         return (
@@ -92,7 +92,7 @@ const Player = () => {
                 <th title="Shot Percentage">%</th>
                 <th title="Power Play Goals">PPG</th>
                 <th title="Short-handed Goals">SHG</th>
-                <th title="Game-winning Goals">GWG</th>
+                <th title="game-winning Goals">GWG</th>
                 <th title="Face-off Percentage">FO%</th>
                 <th title="Overtime Goals">OTG</th>
                 <th title="Time on Ice per Game">TOI/G</th>

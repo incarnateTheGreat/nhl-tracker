@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { createFileName } from "../../utils/utils";
+import { createImageLink } from "../../utils/utils";
 
 const Logo = ({ teamName, size = "medium" }) => {
   const [teamLogo, setTeamLogo] = useState("");
 
   useEffect(() => {
     async function renderLogos() {
-      const teamNameModified = createFileName(teamName);
-      const res = await import(
-        `../../assets/images/${teamNameModified}-logo.svg`
-      );
+      const res = await createImageLink(teamName);
 
-      setTeamLogo(res.default);
+      setTeamLogo(res);
     }
 
     renderLogos();

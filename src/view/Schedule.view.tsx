@@ -1,15 +1,16 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { format, parseISO } from "date-fns";
+import { format, isToday, parseISO } from "date-fns";
 import { getGamesOfDay } from "../services/api";
 import Datepicker from "../components/Datepicker/Datepicker.component";
 import Scorecard from "../components/Scorecard/Scorecard.component";
 import { IScheduleGame } from "../intefaces/ScheduleGame.interface";
 
 const Schedule = () => {
-  const [scheduledGames, setScheduledGames] = useState<IScheduleGame[]>([]);
   const [scheduleDate, setScheduleDate] = useState("");
+  const [scheduledGames, setScheduledGames] = useState<IScheduleGame[]>([]);
   const [activeGames, setActiveGames] = useState<IScheduleGame[]>([]);
   const [completedGames, setCompletedGames] = useState<IScheduleGame[]>([]);
+  const [totalGames, setTotalGames] = useState<IScheduleGame[]>([]);
 
   const dateHandler = (date) => {
     setScheduleDate(date);
@@ -76,6 +77,7 @@ const Schedule = () => {
       setScheduledGames(scheduledGamesData);
       setActiveGames(activeGamesData);
       setCompletedGames(completedGamesData);
+      setTotalGames(gamesData.games);
     }
   }, [scheduleDate]);
 
@@ -87,23 +89,31 @@ const Schedule = () => {
   }, [callScheduleData, scheduleDate]);
 
   useEffect(() => {
-    const listOfGames = getListOfGames();
-    const activeGames = getActiveGames(listOfGames);
-
-    if (listOfGames.length > 0) {
-      const interval = setInterval(() => {
-        callScheduleData();
-      }, activeGames);
+    if (totalGames.length > 0) {
+      const interval = setInterval(
+        () => {
+          callScheduleData();
+        },
+        activeGames.length > 0 ? 15000 : 60000
+      );
       return () => clearInterval(interval);
     }
-  }, [callScheduleData, getActiveGames, getListOfGames, scheduledGames]);
+  }, [
+    callScheduleData,
+    getActiveGames,
+    getListOfGames,
+    scheduledGames,
+    activeGames,
+    totalGames,
+  ]);
 
   return (
     <article className="schedule">
       <nav>
         <Datepicker callback={dateHandler} dateValue={scheduleDate} />
-        <h3>{scheduleDate && format(parseISO(scheduleDate), "MMMM do, Y")}</h3>
       </nav>
+
+      <h2>{scheduleDate && format(parseISO(scheduleDate), "MMMM do, Y")}</h2>
 
       {scheduledGames.length > 0 && (
         <section className="scorecards">
@@ -116,18 +126,20 @@ const Schedule = () => {
         </section>
       )}
 
-      <section className="scorecards">
-        <h3>Live</h3>
-        <div className="scorecards-container">
-          {activeGames.length > 0 ? (
-            activeGames.map((game) => (
-              <Scorecard key={game.gamePk} data={game} />
-            ))
-          ) : (
-            <div>There are currently no live games.</div>
-          )}
-        </div>
-      </section>
+      {isToday(new Date(scheduleDate.split("-").join(","))) && (
+        <section className="scorecards">
+          <h3>Live</h3>
+          <div className="scorecards-container">
+            {activeGames.length > 0 ? (
+              activeGames.map((game) => (
+                <Scorecard key={game.gamePk} data={game} />
+              ))
+            ) : (
+              <div>There are currently no live games.</div>
+            )}
+          </div>
+        </section>
+      )}
 
       <section className="scorecards">
         <h3>Completed</h3>

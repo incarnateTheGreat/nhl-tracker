@@ -1,13 +1,13 @@
 @import "./variables";
 
 html {
-  font-family: Tahoma, Geneva, sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 html,
 body {
   background-color: #fff;
-  background-image: linear-gradient(#00b8ff14, #fff);
+  background-image: linear-gradient(rgba(0, 184, 255, 0.05), #fff);
   background-repeat: no-repeat;
   margin: 0;
   padding: 0;
@@ -32,11 +32,11 @@ a {
 
 .container {
   padding: 20px;
-  width: 900px;
+  width: 85%;
 }
 
 .siteNav {
-  margin: 0 10px 10px;
+  margin: 0 0 10px;
 
   ul {
     list-style: none;
@@ -48,5 +48,11 @@ a {
         text-decoration: none;
       }
     }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .container {
+    width: 100%;
   }
 }

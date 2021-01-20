@@ -7,6 +7,13 @@ export const createFileName = (fileName) => {
     .replace(/\s/g, "-");
 };
 
+export const createImageLink = async (teamName) => {
+  const teamNameModified = createFileName(teamName);
+  const res = await import(`../assets/images/${teamNameModified}-logo.svg`);
+
+  return res.default;
+};
+
 export const resources = {
   en: {
     translation: {
