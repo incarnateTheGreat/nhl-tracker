@@ -204,3 +204,10 @@
     }
   }
 }
+
+@media only screen and (max-width: 900px) {
+  .game {
+    margin: 0;
+    width: auto;
+  }
+}

@@ -1,11 +1,13 @@
 .team {
-  border: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: none;
   border-radius: 5px;
   background-color: rgba(250, 250, 250, 0.5);
   box-shadow: 1px 1px 2px 0 #ccc;
   display: flex;
   flex-direction: column;
-  margin: 10px auto 0;
+  margin: 0 auto 40px;
   width: 900px;
 
   h2 {
@@ -97,5 +99,12 @@
 
   .--loss {
     color: red;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .team {
+    margin: 0 20px 20px;
+    padding: 0;
   }
 }

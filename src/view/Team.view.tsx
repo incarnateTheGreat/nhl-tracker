@@ -65,7 +65,7 @@ const Team = () => {
   }, []);
 
   return (
-    <article className="team">
+    <article className="team main-container">
       {teamData && (
         <>
           <header className="team-headline">

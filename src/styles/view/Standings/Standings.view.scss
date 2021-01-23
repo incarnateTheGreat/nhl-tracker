@@ -1,7 +1,7 @@
 .standings {
   display: flex;
   flex-direction: column;
-  margin: 10px auto 0;
+  margin: 10px auto 40px;
   width: 900px;
 
   &-conference {
@@ -9,6 +9,10 @@
       border-collapse: collapse;
       margin: 0 0 40px;
       width: 100%;
+
+      &:last-child {
+        margin: 0;
+      }
 
       thead {
         th {
