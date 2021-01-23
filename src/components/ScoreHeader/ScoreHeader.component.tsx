@@ -44,6 +44,8 @@ const ScoreHeader = () => {
           toDate(new Date(dateTime)),
           "MMM do, yyyy @ h:mm a"
         )} EDT`;
+      } else if (statusCode === "2") {
+        statusStr = gameData.status.detailedState;
       } else if (
         statusCode === "3" ||
         statusCode === "4" ||
@@ -95,7 +97,6 @@ const ScoreHeader = () => {
 
   return (
     <section className="game-header">
-      <div className="game-header-status">{statusInfo()}</div>
       <div className="game-header-score">
         <div className="game-header-score-team game-header-score-team-away">
           <span
@@ -158,7 +159,10 @@ const ScoreHeader = () => {
           ></span>
         </div>
       </div>
-      <div className="game-header-location">{gameData.venue.name}</div>
+      <div className="game-header-location">
+        <span>{statusInfo()}</span>
+        <span> {gameData.venue.name}</span>
+      </div>
     </section>
   );
 };

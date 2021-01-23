@@ -43,22 +43,20 @@ i18next.use(initReactI18next).init({
 // Display the Navigation.
 const handleNavigation = (t) => {
   return (
-    <nav className="siteNav">
-      <ul>
-        {routes(t).map((route, key) => {
-          return (
-            route.path !== history.location.pathname &&
-            ignoreRoutes(route, ["/game", "/player"]) && (
-              <li key={key}>
-                <a href={route.path} title={route.label}>
-                  {route.label}
-                </a>
-              </li>
-            )
-          );
-        })}
-      </ul>
-    </nav>
+    <ul className="siteNav">
+      {routes(t).map((route, key) => {
+        return (
+          route.path !== history.location.pathname &&
+          ignoreRoutes(route, ["/game", "/player"]) && (
+            <li key={key}>
+              <a href={route.path} title={route.label}>
+                {route.label}
+              </a>
+            </li>
+          )
+        );
+      })}
+    </ul>
   );
 };
 
@@ -73,22 +71,25 @@ const App: React.FC = () => {
 
   return (
     <div className="App container">
-      {handleNavigation(t)}
-      <div>
-        <select
-          ref={langValue}
-          name="lang"
-          id="lang"
-          value={localStorage.lang}
-          onChange={(e) => {
-            i18next.changeLanguage(e.target.value);
-            localStorage.setItem("lang", e.target.value);
-          }}
-        >
-          <option value="en">English</option>
-          <option value="es">Español</option>
-        </select>
-      </div>
+      <nav className="nav">
+        <div className="nav-container">
+          <h1>NHL Tracker</h1>
+          {handleNavigation(t)}
+          <select
+            ref={langValue}
+            name="lang"
+            id="lang"
+            value={localStorage.lang}
+            onChange={(e) => {
+              i18next.changeLanguage(e.target.value);
+              localStorage.setItem("lang", e.target.value);
+            }}
+          >
+            <option value="en">English</option>
+            <option value="es">Español</option>
+          </select>
+        </div>
+      </nav>
       <Router history={history}>
         <Switch>
           {routes(t).map((route, key) => (
@@ -101,6 +102,9 @@ const App: React.FC = () => {
           ))}
         </Switch>
       </Router>
+      <footer>
+        <div className="footer-container">Footer</div>
+      </footer>
     </div>
   );
 };

@@ -1,5 +1,9 @@
 .standings {
-  margin: 10px 0 0;
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto 0;
+  width: 900px;
+
   &-conference {
     &-division {
       border-collapse: collapse;
@@ -44,6 +48,10 @@
               }
             }
           }
+        }
+
+        &-selected {
+          font-weight: bold;
         }
       }
     }

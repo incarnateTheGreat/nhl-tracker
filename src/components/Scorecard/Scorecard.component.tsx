@@ -25,6 +25,8 @@ const Scorecard = ({ data }) => {
 
     if (statusCode === "1") {
       dateStr = `${format(new Date(gameDate), "h:mm a")} EDT`;
+    } else if (statusCode === "2") {
+      dateStr = status.detailedState;
     } else if (isLive()) {
       dateStr = `${linescore.currentPeriodOrdinal} - ${linescore.currentPeriodTimeRemaining}`;
     } else {

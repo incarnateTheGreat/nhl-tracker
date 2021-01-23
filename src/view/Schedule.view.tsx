@@ -71,7 +71,7 @@ const Schedule = () => {
       });
 
       const scheduledGamesData = gamesData.games.filter((game) => {
-        return game.status.statusCode === "1";
+        return game.status.statusCode === "1" || game.status.statusCode === "2";
       });
 
       setScheduledGames(scheduledGamesData);
@@ -108,7 +108,7 @@ const Schedule = () => {
   ]);
 
   return (
-    <article className="schedule">
+    <article className="schedule main-container">
       <nav>
         <Datepicker callback={dateHandler} dateValue={scheduleDate} />
       </nav>

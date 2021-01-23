@@ -105,7 +105,7 @@ const Game = () => {
         headToHeadData,
       }}
     >
-      <article className="game">
+      <article className="game main-container">
         {gameData && liveData ? (
           <>
             <ScoreHeader />

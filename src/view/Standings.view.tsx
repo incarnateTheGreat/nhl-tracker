@@ -20,11 +20,19 @@ const tableKey = {
 };
 
 const Standings = () => {
-  const [central, setCentral] = useState<object>();
-  const [western, setWestern] = useState<object>();
-  const [eastern, setEastern] = useState<object>();
-  const [northern, setNorthern] = useState<object>();
-  const [sortDirection, setSortDirection] = useState("ASC");
+  const [divisions, setDivisions] = useState<object>({
+    central: null,
+    western: null,
+    eastern: null,
+    northern: null,
+  });
+
+  const [divisionSortColumns, setDivisionSortColumns] = useState<object>({
+    central: { sortColumn: "points", sortDirection: "ASC" },
+    western: { sortColumn: "points", sortDirection: "ASC" },
+    eastern: { sortColumn: "points", sortDirection: "ASC" },
+    northern: { sortColumn: "points", sortDirection: "ASC" },
+  });
 
   const assembleRecord = useCallback((teamData) => {
     return teamData.reduce((r, acc) => {
@@ -107,19 +115,33 @@ const Standings = () => {
         </thead>
         <tbody className="standings-conference-division-body">
           {divisionData.map((team, key) => {
-            return <tr key={key}>{assembleTeamRow(team)}</tr>;
+            return (
+              <tr key={key}>
+                {assembleTeamRow(
+                  team,
+                  divisionSortColumns[divisionName].sortColumn
+                )}
+              </tr>
+            );
           })}
         </tbody>
       </>
     );
   };
 
-  const assembleTeamRow = (team) => {
+  const assembleTeamRow = (team, columnToIndicate) => {
     return Object.keys(team).map((prop, key) => {
       if (prop === "id") return;
 
       return (
-        <td key={key}>
+        <td
+          key={key}
+          className={`${
+            prop === columnToIndicate
+              ? "standings-conference-division-body-selected"
+              : ""
+          }`}
+        >
           {key === 0 && (
             <>
               {" "}
@@ -162,80 +184,99 @@ const Standings = () => {
           .teamRecords ?? [];
 
       // Sort the Tables by Points.
-      setCentral(sortTable(assembleRecord(central), "points", "central"));
-      setEastern(sortTable(assembleRecord(eastern), "points", "eastern"));
-      setWestern(sortTable(assembleRecord(western), "points", "western"));
-      setNorthern(sortTable(assembleRecord(northern), "points", "northern"));
+      setDivisions({
+        central: sortTable(
+          assembleRecord(central),
+          divisionSortColumns["central"],
+          "central"
+        ),
+        eastern: sortTable(
+          assembleRecord(eastern),
+          divisionSortColumns["eastern"],
+          "eastern"
+        ),
+        western: sortTable(
+          assembleRecord(western),
+          divisionSortColumns["western"],
+          "western"
+        ),
+        northern: sortTable(
+          assembleRecord(northern),
+          divisionSortColumns["northern"],
+          "northern"
+        ),
+      });
     };
 
     standingsCall();
   }, [assembleRecord]);
 
   const sortTable = useCallback(
-    (tableData: IStandings[], column, divisionName) => {
-      const direction = sortDirection === "ASC" ? "DESC" : "ASC";
+    (tableData: IStandings[], sortColumn, divisionName) => {
+      const sortDirection =
+        divisionSortColumns[divisionName].sortDirection === "ASC"
+          ? "DESC"
+          : "ASC";
 
       const table = tableData.sort((a, b) => {
         // Sort content alphabetically.
-        if (column === "name") {
+        if (sortColumn === "name") {
           const nameA = a.name.toUpperCase();
           const nameB = b.name.toUpperCase();
 
-          if (direction === "ASC") {
+          if (sortDirection === "ASC") {
             return nameA.localeCompare(nameB);
           }
 
           return nameB.localeCompare(nameA);
         } else {
-          if (direction === "ASC") {
-            return a[column] - b[column];
+          if (sortDirection === "ASC") {
+            return a[sortColumn] - b[sortColumn];
           }
 
-          return b[column] - a[column];
+          return b[sortColumn] - a[sortColumn];
         }
       });
 
-      switch (divisionName) {
-        case "eastern":
-          setEastern(table);
-          break;
-        case "western":
-          setWestern(table);
-          break;
-        case "central":
-          setCentral(table);
-          break;
-        case "northern":
-          setNorthern(table);
-          break;
-        default:
-      }
+      setDivisions({
+        ...divisions,
+        [divisionName]: table,
+      });
 
-      setSortDirection(direction);
+      setDivisionSortColumns({
+        ...divisionSortColumns,
+        [divisionName]: {
+          sortColumn,
+          sortDirection,
+        },
+      });
 
       return table;
     },
-    [sortDirection]
+    [divisionSortColumns, divisions]
   );
 
   return (
-    <article className="standings">
-      {central && eastern && western && northern && (
-        <section className="standings-conference">
-          <table className="standings-conference-division">
-            {assembleStandingsView(northern, "northern")}
-          </table>
-          <table className="standings-conference-division">
-            {assembleStandingsView(central, "central")}
-          </table>
-          <table className="standings-conference-division">
-            {assembleStandingsView(eastern, "eastern")}
-          </table>
-          <table className="standings-conference-division">
-            {assembleStandingsView(western, "western")}
-          </table>
-        </section>
-      )}
+    <article className="standings main-container">
+      {divisions["central"] &&
+        divisions["eastern"] &&
+        divisions["western"] &&
+        divisions["northern"] && (
+          <section className="standings-conference">
+            <table className="standings-conference-division">
+              {assembleStandingsView(divisions["northern"], "northern")}
+            </table>
+            <table className="standings-conference-division">
+              {assembleStandingsView(divisions["central"], "central")}
+            </table>
+            <table className="standings-conference-division">
+              {assembleStandingsView(divisions["eastern"], "eastern")}
+            </table>
+            <table className="standings-conference-division">
+              {assembleStandingsView(divisions["western"], "western")}
+            </table>
+          </section>
+        )}
     </article>
   );
 };

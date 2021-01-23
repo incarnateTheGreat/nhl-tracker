@@ -38,8 +38,10 @@ const Scoring = () => {
                               key={id}
                             >
                               {fullName} ({seasonTotal}){" "}
-                              {goal.result.strength.code === "PPG" &&
-                                `(Power Play)`}
+                              {(goal.result.strength.code === "SHG" ||
+                                goal.result.strength.code === "PPG") &&
+                                `(${goal.result.strength.code})`}
+                              {goal.result.emptyNet && `(EN)`}
                             </a>
                           );
                         } else if (
@@ -55,8 +57,6 @@ const Scoring = () => {
                             </span>
                           );
                         }
-
-                        return "N/A";
                       })}
                     </li>
                   </ul>

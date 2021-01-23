@@ -1,9 +1,11 @@
 .game {
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: none;
   background-color: rgba(250, 250, 250, 0.5);
   box-shadow: 1px 1px 2px 0 #ccc;
-  margin: 10px 0 0;
+  display: flex;
+  flex-direction: column;
 
   &-header {
     display: flex;
@@ -11,16 +13,13 @@
 
     &-score {
       display: flex;
+      flex-direction: column;
 
       &-team {
-        border-top: 1px solid rgba(204, 204, 204, 0.5);
+        border-bottom: 1px solid rgba(204, 204, 204, 0.5);
         display: flex;
         flex: 1;
         min-height: 80px;
-
-        &:last-child {
-          border-bottom: 1px solid rgba(204, 204, 204, 0.5);
-        }
 
         &-logo {
           align-items: center;
@@ -30,6 +29,7 @@
           display: flex;
           padding: 0 20px 0 40px;
           width: 45px;
+          order: 1;
         }
 
         &-info {
@@ -37,6 +37,7 @@
           flex: 1 1 auto;
           flex-direction: column;
           justify-content: center;
+          order: 2;
 
           &-teamName {
             font-weight: bold;
@@ -49,15 +50,10 @@
           font-weight: 100;
           display: flex;
           padding: 0 20px;
+          order: 3;
 
           &-winner {
             font-weight: bold;
-          }
-        }
-
-        &-home {
-          .game-header-score-team-info {
-            text-align: right;
           }
         }
       }
@@ -65,8 +61,10 @@
 
     &-location {
       font-weight: bold;
-      padding: 10px 0;
+      padding: 10px 18px 10px 10px;
       text-align: center;
+      display: flex;
+      justify-content: space-between;
     }
 
     &-status {
@@ -145,6 +143,7 @@
               align-items: initial;
               flex-direction: column;
               padding: 3px 0 0 8px;
+              justify-content: center;
 
               &-scorer {
                 align-items: center;
@@ -198,36 +197,7 @@
             align-items: flex-start;
             display: flex;
             flex-direction: column;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media only screen and (min-width: 900px) {
-  .game {
-    &-header {
-      &-score {
-        flex-direction: column;
-
-        &-team {
-          &-logo {
-            order: 1;
-          }
-
-          &-info {
-            order: 2;
-          }
-
-          &-score {
-            order: 3;
-          }
-
-          &-home {
-            .game-header-score-team-info {
-              text-align: left;
-            }
+            justify-content: center;
           }
         }
       }

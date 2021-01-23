@@ -87,7 +87,7 @@ const Team = () => {
             </span>
           </header>
 
-          <h3>Completed</h3>
+          <h2>Completed</h2>
           <table className="team-schedule">
             <thead>
               <tr>
@@ -156,7 +156,9 @@ const Team = () => {
                     <tr key={key}>
                       <td>{format(new Date(gameDate), "E, MMM. do")}</td>
                       <td className="team-schedule-logo">
-                        <span>{home_away_symbol}</span>
+                        <span className="team-schedule-logo-home-away">
+                          {home_away_symbol}
+                        </span>
                         <Logo size="small" teamName={logo_teamName} />{" "}
                         <a href={`/team/${opponentID}`} title={opponentName}>
                           {opponent}
@@ -181,7 +183,7 @@ const Team = () => {
             </tbody>
           </table>
 
-          <h3>Scheduled</h3>
+          <h2>Scheduled</h2>
           <table className="team-schedule team-schedule-results">
             <thead>
               <tr>
@@ -227,7 +229,9 @@ const Team = () => {
                     <tr key={key}>
                       <td>{format(new Date(gameDate), "E, MMM. do")}</td>
                       <td className="team-schedule-logo">
-                        <span>{home_away_symbol}</span>
+                        <span className="team-schedule-logo-home-away">
+                          {home_away_symbol}
+                        </span>
                         <Logo size="small" teamName={logo_teamName} />{" "}
                         <a href={`/team/${opponentID}`} title={opponentName}>
                           {opponent}

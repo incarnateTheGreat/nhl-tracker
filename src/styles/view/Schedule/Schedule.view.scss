@@ -1,9 +1,16 @@
 .schedule {
   display: flex;
   flex-direction: column;
-  margin: 10px 0;
+  margin: 10px auto 0;
+  width: 900px;
 
   nav {
     margin: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .schedule {
+    width: 100%;
   }
 }
