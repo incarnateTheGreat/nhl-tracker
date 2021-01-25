@@ -89,10 +89,18 @@
       display: table-row;
 
       &-period {
-        border: 1px solid black;
+        border: 1px solid #737373;
         display: table-cell;
         padding: 10px;
         text-align: center;
+
+        &:first-child {
+          border-left: none;
+        }
+
+        &:last-child {
+          border-right: none;
+        }
 
         &-title {
           font-weight: bold;
@@ -107,12 +115,22 @@
   }
 
   &-summary {
-    border: 1px solid;
-    padding: 5px 0 0 15px;
+    &-period-title {
+      background: #e1e1e1;
+      padding: 4px 0 4px 8px;
+    }
 
     &-scoring {
+      padding: 15px 0 0 10px;
+
       &-period {
         padding: 10px 0;
+
+        &-container {
+          &:nth-child(even) {
+            background-color: red;
+          }
+        }
       }
 
       &-player {
@@ -132,7 +150,7 @@
             > * {
               align-items: center;
               display: flex;
-              padding: 0 10px 0 0;
+              padding: 0 10px 0 8px;
             }
 
             &-time {
@@ -173,6 +191,8 @@
     }
 
     &-penalties {
+      padding: 15px 0 0 10px;
+
       &-period {
         padding: 10px 0;
 
@@ -181,7 +201,7 @@
           flex-direction: row;
           flex: 1;
           list-style: none;
-          padding: 0;
+          padding: 0 0 0 8px;
 
           > * {
             align-items: center;
@@ -207,7 +227,8 @@
 
 @media only screen and (max-width: 900px) {
   .game {
-    margin: 0;
+    margin: 0 20px;
+    padding: 0;
     width: auto;
   }
 }

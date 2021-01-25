@@ -11,7 +11,7 @@ const Scoring = () => {
       {Object.keys(goalsObjData).map((period) => {
         return (
           <div className="game-summary-scoring-period" key={period}>
-            <h4>{period}</h4>
+            <h4 className="game-summary-period-title">{period}</h4>
             {goalsObjData[period].map((goal, index) => (
               <div className="game-summary-scoring-period-data" key={index}>
                 <div className="game-summary-scoring-player-row">

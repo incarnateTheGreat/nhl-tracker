@@ -23,6 +23,15 @@ a {
   }
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
 .container {
   height: 100vh;
   display: flex;
@@ -30,7 +39,9 @@ a {
 }
 
 .nav {
+  background: #111;
   border-bottom: 1px solid rgba(171, 157, 157, 0.5);
+  color: #fff;
   display: flex;
   padding: 6px 0;
 
@@ -40,6 +51,10 @@ a {
     margin: 0 auto;
     padding: 0 20px;
     width: 900px;
+
+    h1 {
+      letter-spacing: 1.5px;
+    }
   }
 }
 

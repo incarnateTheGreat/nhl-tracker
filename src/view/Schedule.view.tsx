@@ -109,11 +109,27 @@ const Schedule = () => {
 
   return (
     <article className="schedule main-container">
-      <nav>
+      <div className="schedule-datepicker-container">
+        <h2>{scheduleDate && format(parseISO(scheduleDate), "MMMM do, Y")}</h2>
         <Datepicker callback={dateHandler} dateValue={scheduleDate} />
-      </nav>
+      </div>
 
-      <h2>{scheduleDate && format(parseISO(scheduleDate), "MMMM do, Y")}</h2>
+      {isToday(new Date(scheduleDate.split("-").join(","))) && (
+        <section className="scorecards">
+          <h3>Live</h3>
+          <div className="scorecards-container">
+            {activeGames.length > 0 ? (
+              activeGames.map((game) => (
+                <Scorecard key={game.gamePk} data={game} />
+              ))
+            ) : (
+              <div className="scorecards-container-no-data">
+                There are currently no live games.
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       {scheduledGames.length > 0 && (
         <section className="scorecards">
@@ -126,21 +142,6 @@ const Schedule = () => {
         </section>
       )}
 
-      {isToday(new Date(scheduleDate.split("-").join(","))) && (
-        <section className="scorecards">
-          <h3>Live</h3>
-          <div className="scorecards-container">
-            {activeGames.length > 0 ? (
-              activeGames.map((game) => (
-                <Scorecard key={game.gamePk} data={game} />
-              ))
-            ) : (
-              <div>There are currently no live games.</div>
-            )}
-          </div>
-        </section>
-      )}
-
       <section className="scorecards">
         <h3>Completed</h3>
         <div className="scorecards-container">
@@ -149,7 +150,9 @@ const Schedule = () => {
               <Scorecard key={game.gamePk} data={game} />
             ))
           ) : (
-            <div>There are no completed games.</div>
+            <div className="scorecards-container-no-data">
+              There are no completed games.
+            </div>
           )}
         </div>
       </section>
