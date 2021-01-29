@@ -87,8 +87,8 @@ const Team = () => {
             </span>
           </header>
 
-          <h2>Completed</h2>
-          <table className="team-schedule">
+          <h3>Completed</h3>
+          <table className="team-schedule team-schedule-upcoming">
             <thead>
               <tr>
                 <th title={t("team.schedule.date")}>
@@ -183,7 +183,7 @@ const Team = () => {
             </tbody>
           </table>
 
-          <h2>Scheduled</h2>
+          <h3>Scheduled</h3>
           <table className="team-schedule team-schedule-results">
             <thead>
               <tr>

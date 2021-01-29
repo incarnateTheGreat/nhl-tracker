@@ -108,7 +108,7 @@ const Schedule = () => {
   ]);
 
   return (
-    <article className="schedule main-container">
+    <article className="main-container schedule">
       <div className="schedule-datepicker-container">
         <h2>{scheduleDate && format(parseISO(scheduleDate), "MMMM do, Y")}</h2>
         <Datepicker callback={dateHandler} dateValue={scheduleDate} />

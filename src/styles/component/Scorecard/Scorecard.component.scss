@@ -19,7 +19,7 @@
   .scorecard {
     border: 1px solid rgba(171, 157, 157, 0.5);
     cursor: pointer;
-    flex: 1 0 33%;
+    flex: 1 0 25%;
     margin: 8px 10px 8px 0;
     transition: 25ms ease-in;
 
@@ -108,8 +108,22 @@
   }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 700px) {
   .scorecards {
-    width: auto;
+    width: 100%;
+
+    .scorecard {
+      flex-basis: 40%;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .scorecards {
+    width: 100%;
+
+    .scorecard {
+      flex-basis: 100%;
+    }
   }
 }

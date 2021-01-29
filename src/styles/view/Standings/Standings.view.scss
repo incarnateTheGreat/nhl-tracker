@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   margin: 10px auto 40px;
-  width: 900px;
 
   &-conference {
     &-division {
@@ -59,5 +58,11 @@
         }
       }
     }
+  }
+}
+
+@media only screen and (max-width: $container-width) {
+  .standings {
+    margin: 10px 20px;
   }
 }

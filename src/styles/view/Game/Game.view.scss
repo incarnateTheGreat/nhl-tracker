@@ -115,14 +115,14 @@
   }
 
   &-summary {
+    padding: 12px 10px 0;
+
     &-period-title {
       background: #e1e1e1;
       padding: 4px 0 4px 8px;
     }
 
     &-scoring {
-      padding: 15px 0 0 10px;
-
       &-period {
         padding: 10px 0;
 
@@ -191,7 +191,7 @@
     }
 
     &-penalties {
-      padding: 15px 0 0 10px;
+      margin: 10px 0 0;
 
       &-period {
         padding: 10px 0;
@@ -225,7 +225,7 @@
   }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: $container-width) {
   .game {
     margin: 0 20px;
     padding: 0;
