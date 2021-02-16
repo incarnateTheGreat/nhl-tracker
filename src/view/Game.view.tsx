@@ -5,6 +5,7 @@ import ScoreHeader from "../components/ScoreHeader/ScoreHeader.component";
 import Linescore from "../components/Linescore/Linescore.component";
 import Scoring from "../components/Scoring/Scoring.component";
 import Penalties from "../components/Penalties/Penalties.component";
+import Tabs from "../components/Tabs/tabs.component";
 import { getGameData, getHeadtoHeadTeamData } from "../services/api";
 import { IGame, IAllPlays } from "../intefaces/Game.interface";
 
@@ -15,6 +16,8 @@ const Game = () => {
   const [goalsObjData, setGoalsObjData] = useState<Array<object>>();
   const [penaltiesObjData, setPenaltiesObjData] = useState<Array<object>>();
   const { gameData, liveData } = data || {};
+  const [tabData, setTabData] = useState<object[]>([]);
+  const [activeTab, setActiveTab] = useState<number>(0);
 
   const getScoringPlays = useCallback(() => {
     let scoringPlays: Array<IAllPlays> = [];
@@ -65,6 +68,34 @@ const Game = () => {
     setPenaltiesObjData(penaltiesObj);
   }, [liveData]);
 
+  const LoadingSkeleton = () => {
+    const SkeletonCard = () => (
+      <svg className="scorecard scorecard--skeleton">
+        {Array(15)
+          .fill(1)
+          .map((elem, i) => (
+            <rect
+              className="rp1"
+              x="0"
+              y={10 * i}
+              rx="3"
+              ry="3"
+              width="100%"
+              height="100"
+            />
+          ))}
+      </svg>
+    );
+
+    return (
+      <section className="scorecards">
+        <div className="scorecards-container">
+          <SkeletonCard />
+        </div>
+      </section>
+    );
+  };
+
   useEffect(() => {
     const collecGameData = async () => {
       const res = await getGameData(gamePk);
@@ -93,6 +124,17 @@ const Game = () => {
   useEffect(() => {
     getScoringPlays();
     getPenaltiesPlays();
+
+    setTabData([
+      {
+        label: "Scoring",
+        component: <Scoring />,
+      },
+      {
+        label: "Penalties",
+        component: <Penalties />,
+      },
+    ]);
   }, [getPenaltiesPlays, getScoringPlays, liveData]);
 
   return (
@@ -113,13 +155,19 @@ const Game = () => {
 
             {gameData.status.codedGameState !== "1" && (
               <section className="game-summary">
-                <Scoring />
-                <Penalties />
+                <Tabs
+                  callback={(activeTabCallback) => {
+                    setActiveTab(activeTabCallback);
+                  }}
+                  activeTab={activeTab}
+                  className="grid-container-airport-flights-container"
+                  tabData={tabData}
+                />
               </section>
             )}
           </>
         ) : (
-          <div>No data.</div>
+          <LoadingSkeleton />
         )}
       </article>
     </Context.Provider>

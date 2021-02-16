@@ -125,7 +125,7 @@ const Player = () => {
 
     return (
       data && (
-        <section className="player">
+        <article className="player main-container">
           <div className="player-header">
             <div className="player-header-image">
               <img
@@ -160,7 +160,7 @@ const Player = () => {
             <h3>Current Stats: 2019-2020</h3>
             {getCurrentYearStats()}
           </div>
-        </section>
+        </article>
       )
     );
   }

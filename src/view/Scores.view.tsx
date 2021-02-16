@@ -5,15 +5,16 @@ import Datepicker from "../components/Datepicker/Datepicker.component";
 import Scorecard from "../components/Scorecard/Scorecard.component";
 import { IScheduleGame } from "../intefaces/ScheduleGame.interface";
 
-const Schedule = () => {
-  const [scheduleDate, setScheduleDate] = useState("");
+const Scores = () => {
+  const [selectedDate, setSelectedDate] = useState("");
   const [scheduledGames, setScheduledGames] = useState<IScheduleGame[]>([]);
   const [activeGames, setActiveGames] = useState<IScheduleGame[]>([]);
   const [completedGames, setCompletedGames] = useState<IScheduleGame[]>([]);
   const [totalGames, setTotalGames] = useState<IScheduleGame[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const dateHandler = (date) => {
-    setScheduleDate(date);
+    setSelectedDate(date);
   };
 
   const getListOfGames = useCallback(() => {
@@ -52,8 +53,72 @@ const Schedule = () => {
     [scheduledGames]
   );
 
+  const LoadingSkeleton = () => {
+    const SkeletonCard = () => (
+      <svg className="scorecard scorecard--skeleton">
+        <rect
+          className="rp1"
+          x="0"
+          y="5"
+          rx="3"
+          ry="3"
+          width="410"
+          height="6"
+        />
+        <rect
+          className="rp2"
+          x="0"
+          y="15"
+          rx="3"
+          ry="3"
+          width="250"
+          height="6"
+        />
+        <rect
+          className="rp3"
+          x="0"
+          y="25"
+          rx="3"
+          ry="3"
+          width="300"
+          height="6"
+        />
+        <rect
+          className="rp4"
+          x="0"
+          y="35"
+          rx="3"
+          ry="3"
+          width="410"
+          height="6"
+        />
+        <rect
+          className="rp5"
+          x="0"
+          y="45"
+          rx="3"
+          ry="3"
+          width="250"
+          height="6"
+        />
+      </svg>
+    );
+
+    return (
+      <section className="scorecards">
+        <div className="scorecards-container">
+          {Array(9)
+            .fill(1)
+            .map((e, key) => (
+              <SkeletonCard key={key} />
+            ))}
+        </div>
+      </section>
+    );
+  };
+
   const callScheduleData = useCallback(async () => {
-    const gamesOfDay = await getGamesOfDay(scheduleDate);
+    const gamesOfDay = await getGamesOfDay(selectedDate);
 
     if (gamesOfDay.dates.length > 0) {
       const gamesData = gamesOfDay.dates[0];
@@ -79,14 +144,22 @@ const Schedule = () => {
       setCompletedGames(completedGamesData);
       setTotalGames(gamesData.games);
     }
-  }, [scheduleDate]);
+
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, [selectedDate]);
+
+  useEffect(() => {
+    console.log({ isLoading });
+  }, [isLoading]);
 
   // Get Today's Scheduled Game Data every 15 seconds.
   useEffect(() => {
-    if (scheduleDate) {
+    if (selectedDate) {
       callScheduleData();
     }
-  }, [callScheduleData, scheduleDate]);
+  }, [callScheduleData, selectedDate]);
 
   useEffect(() => {
     if (totalGames.length > 0) {
@@ -110,54 +183,62 @@ const Schedule = () => {
   return (
     <article className="main-container schedule">
       <div className="schedule-datepicker-container">
-        <h2>{scheduleDate && format(parseISO(scheduleDate), "MMMM do, Y")}</h2>
-        <Datepicker callback={dateHandler} dateValue={scheduleDate} />
+        <h2>
+          {selectedDate && format(parseISO(selectedDate), "eeee, MMMM do, Y")}
+        </h2>
+        <Datepicker callback={dateHandler} dateValue={selectedDate} />
       </div>
 
-      {isToday(new Date(scheduleDate.split("-").join(","))) && (
-        <section className="scorecards">
-          <h3>Live</h3>
-          <div className="scorecards-container">
-            {activeGames.length > 0 ? (
-              activeGames.map((game) => (
-                <Scorecard key={game.gamePk} data={game} />
-              ))
-            ) : (
-              <div className="scorecards-container-no-data">
-                There are currently no live games.
+      {isLoading ? (
+        <LoadingSkeleton />
+      ) : (
+        <>
+          {isToday(new Date(selectedDate.split("-").join(","))) && (
+            <section className="scorecards">
+              <h3>Live</h3>
+              <div className="scorecards-container">
+                {activeGames.length > 0 ? (
+                  activeGames.map((game) => (
+                    <Scorecard key={game.gamePk} data={game} />
+                  ))
+                ) : (
+                  <div className="scorecards-container-no-data">
+                    There are currently no live games.
+                  </div>
+                )}
               </div>
-            )}
-          </div>
-        </section>
-      )}
-
-      {scheduledGames.length > 0 && (
-        <section className="scorecards">
-          <h3>Scheduled</h3>
-          <div className="scorecards-container">
-            {scheduledGames.map((game) => (
-              <Scorecard key={game.gamePk} data={game} />
-            ))}
-          </div>
-        </section>
-      )}
-
-      <section className="scorecards">
-        <h3>Completed</h3>
-        <div className="scorecards-container">
-          {completedGames.length > 0 ? (
-            completedGames.map((game) => (
-              <Scorecard key={game.gamePk} data={game} />
-            ))
-          ) : (
-            <div className="scorecards-container-no-data">
-              There are no completed games.
-            </div>
+            </section>
           )}
-        </div>
-      </section>
+
+          {scheduledGames.length > 0 && (
+            <section className="scorecards">
+              <h3>Scheduled</h3>
+              <div className="scorecards-container">
+                {scheduledGames.map((game) => (
+                  <Scorecard key={game.gamePk} data={game} />
+                ))}
+              </div>
+            </section>
+          )}
+
+          <section className="scorecards">
+            <h3>Completed</h3>
+            <div className="scorecards-container">
+              {completedGames.length > 0 ? (
+                completedGames.map((game) => (
+                  <Scorecard key={game.gamePk} data={game} />
+                ))
+              ) : (
+                <div className="scorecards-container-no-data">
+                  There are no completed games.
+                </div>
+              )}
+            </div>
+          </section>
+        </>
+      )}
     </article>
   );
 };
 
-export default Schedule;
+export default Scores;

@@ -23,6 +23,23 @@
     margin: 8px 10px 8px 0;
     transition: 25ms ease-in;
 
+    &--skeleton {
+      padding: 10px;
+
+      rect,
+      circle {
+        animation: pulse-skeleton-animation 0.75s infinite ease-in;
+      }
+
+      $time: 0.5s;
+
+      @for $i from 1 through 5 {
+        .rp#{$i} {
+          animation-delay: #{$i * 0.25}s;
+        }
+      }
+    }
+
     &:hover {
       background-color: rgba($color: #dadada, $alpha: 0.5);
       border: 1px dotted black;
@@ -92,11 +109,11 @@
   }
 }
 
-.pulse {
-  animation: pulse-animation 2.5s infinite ease-in-out;
+.pulse-live {
+  animation: pulse-live-animation 2.5s infinite ease-in-out;
 }
 
-@keyframes pulse-animation {
+@keyframes pulse-live-animation {
   0% {
     background-color: red;
   }
@@ -105,6 +122,18 @@
   }
   100% {
     background-color: red;
+  }
+}
+
+@keyframes pulse-skeleton-animation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 

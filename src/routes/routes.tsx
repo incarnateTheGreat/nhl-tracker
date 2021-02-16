@@ -1,4 +1,4 @@
-import Schedule from "../view/Schedule.view";
+import Scores from "../view/Scores.view";
 import Standings from "../view/Standings.view";
 import Game from "../view/Game.view";
 import Player from "../view/Player.view";
@@ -6,9 +6,9 @@ import Team from "../view/Team.view";
 
 const routes = (t) => [
   {
-    label: t("nav.schedule"),
+    label: t("nav.scores"),
     path: "/",
-    component: Schedule,
+    component: Scores,
     exact: true,
   },
   {

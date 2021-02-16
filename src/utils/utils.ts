@@ -19,7 +19,7 @@ export const resources = {
     translation: {
       date: `today is the {{now, intlDate}}`,
       nav: {
-        schedule: "Schedule",
+        scores: "Scores",
         standings: "Standings",
         game: "Game",
         player: "Player",
@@ -39,14 +39,14 @@ export const resources = {
     translation: {
       date: `today is the {{now, intlDate}}`,
       nav: {
-        schedule: "Calendario",
+        scores: "Resultados",
         standings: "Clasificación",
         game: "Partido",
         player: "Jugador",
       },
       team: {
         schedule: {
-          date: "Fecha",
+          Scoresdate: "Fecha",
           opponent: "Adversaria",
           time: "Hora (HNE)",
           result: "Resultado",

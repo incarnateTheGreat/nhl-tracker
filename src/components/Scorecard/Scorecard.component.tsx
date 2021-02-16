@@ -30,7 +30,6 @@ const Scorecard = ({ data }) => {
     } else if (isLive()) {
       dateStr = `${linescore.currentPeriodOrdinal} - ${linescore.currentPeriodTimeRemaining}`;
     } else {
-      // if (statusCode === "7") {
       dateStr = `${linescore.currentPeriodTimeRemaining}`;
 
       if (linescore.currentPeriodOrdinal !== "3rd") {
@@ -45,7 +44,9 @@ const Scorecard = ({ data }) => {
     <div onClick={navToGame} className="scorecard" role="presentation">
       <div className="scorecard-info">
         <div className="scorecard-info-status">
-          {isLive() && <div className="scorecard-info-status-live pulse" />}
+          {isLive() && (
+            <div className="scorecard-info-status-live pulse-live" />
+          )}
           <span className="scorecard-info-status-value">{formatDate()}</span>
         </div>
 
