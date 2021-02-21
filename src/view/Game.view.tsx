@@ -5,14 +5,20 @@ import ScoreHeader from "../components/ScoreHeader/ScoreHeader.component";
 import Linescore from "../components/Linescore/Linescore.component";
 import Scoring from "../components/Scoring/Scoring.component";
 import Penalties from "../components/Penalties/Penalties.component";
+import Statistics from "../components/Statistics/Statistics.component";
 import Tabs from "../components/Tabs/tabs.component";
-import { getGameData, getHeadtoHeadTeamData } from "../services/api";
+import {
+  getGameData,
+  getGameContent,
+  getHeadtoHeadTeamData,
+} from "../services/api";
 import { IGame, IAllPlays } from "../intefaces/Game.interface";
 
 const Game = () => {
   const { gamePk } = useParams();
   const [data, setData] = useState<IGame>();
   const [headToHeadData, setHeadtoHeadData] = useState<IGame>();
+  const [gameContent, setGameContent] = useState<IGame>();
   const [goalsObjData, setGoalsObjData] = useState<Array<object>>();
   const [penaltiesObjData, setPenaltiesObjData] = useState<Array<object>>();
   const { gameData, liveData } = data || {};
@@ -75,6 +81,7 @@ const Game = () => {
           .fill(1)
           .map((elem, i) => (
             <rect
+              key={i}
               className="rp1"
               x="0"
               y={10 * i}
@@ -98,15 +105,16 @@ const Game = () => {
 
   useEffect(() => {
     const collecGameData = async () => {
-      const res = await getGameData(gamePk);
-
+      const gameDataRes = await getGameData(gamePk);
+      const gameContentRes = await getGameContent(gamePk);
       const headToHead = await getHeadtoHeadTeamData(
-        res.gameData.teams.home.id,
-        res.gameData.teams.away.id
+        gameDataRes.gameData.teams.home.id,
+        gameDataRes.gameData.teams.away.id
       );
 
-      setData(res);
+      setData(gameDataRes);
       setHeadtoHeadData(headToHead);
+      setGameContent(gameContentRes);
     };
 
     if (!gameData) {
@@ -134,6 +142,10 @@ const Game = () => {
         label: "Penalties",
         component: <Penalties />,
       },
+      {
+        label: "Statistics",
+        component: <Statistics />,
+      },
     ]);
   }, [getPenaltiesPlays, getScoringPlays, liveData]);
 
@@ -142,6 +154,7 @@ const Game = () => {
       value={{
         gameData,
         liveData,
+        gameContent,
         goalsObjData,
         penaltiesObjData,
         headToHeadData,
@@ -156,9 +169,9 @@ const Game = () => {
             {gameData.status.codedGameState !== "1" && (
               <section className="game-summary">
                 <Tabs
-                  callback={(activeTabCallback) => {
-                    setActiveTab(activeTabCallback);
-                  }}
+                  callback={(activeTabCallback) =>
+                    setActiveTab(activeTabCallback)
+                  }
                   activeTab={activeTab}
                   className="grid-container-airport-flights-container"
                   tabData={tabData}

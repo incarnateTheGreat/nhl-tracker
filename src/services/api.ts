@@ -18,6 +18,12 @@ export const getGameData = async (gamePk) => {
   );
 };
 
+export const getGameContent = async (gamePk) => {
+  return await fetch(`${baseUrl}/game/${gamePk}/content`).then((response) =>
+    response.json()
+  );
+};
+
 export const getStandingsData = async () => {
   return await fetch(
     `${baseUrl}/standings?expand=standings.record`

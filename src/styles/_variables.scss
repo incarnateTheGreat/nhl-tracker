@@ -1,12 +1,13 @@
 // Link Colours
-$white: #fff;
+$white: rgb(255, 255, 255);
+$black: rgb(0, 0, 0);
 $link-color: #06c;
 $link-color-light: #bed8f5;
 $nav-link-color: $white;
 $base-header-colour: #0d243c;
 
 // Tables
-$table-row: rgba(0, 0, 0, 0.05);
+$table-row: rgba($black, 0.05);
 
 // Font Sizes
 $size-12: 0.75rem;

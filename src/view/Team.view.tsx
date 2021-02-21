@@ -238,6 +238,7 @@ const Team = () => {
                         </a>
                       </td>
                       <td>{format(new Date(gameDate), "h:mm a")}</td>
+                      <td>&nbsp;</td>
                     </tr>
                   );
                 })}
