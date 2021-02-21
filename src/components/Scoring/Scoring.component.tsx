@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Logo from "../Logo/Logo.component";
 import VideoDialog from "../VideoDialog/VideoDialog.component";
 import Context from "../../context/context";
@@ -7,6 +7,13 @@ const Scoring = () => {
   const { goalsObjData, gameContent }: any = useContext(Context);
   const [showDialog, setShowDialog] = useState<boolean>(false);
   const [videoSource, setVideoSource] = useState<string>("");
+
+  // Clear the Video Source when the Dialog closes.
+  useEffect(() => {
+    if (!showDialog) {
+      setVideoSource("");
+    }
+  }, [showDialog]);
 
   return (
     <section className="game-summary-scoring">
