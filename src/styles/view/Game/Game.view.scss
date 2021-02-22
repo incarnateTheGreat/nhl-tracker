@@ -127,6 +127,14 @@
       &-period {
         padding: 10px 0;
 
+        &-data {
+          border-bottom: 1px solid rgba($base-header-colour, 0.3);
+
+          &:last-child {
+            border: none;
+          }
+        }
+
         &-container {
           &:nth-child(even) {
             background-color: red;
@@ -244,6 +252,48 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+          }
+        }
+      }
+    }
+
+    &-statistics {
+      &-bar {
+        margin: 0 0 10px;
+        width: 100%;
+
+        &:last-child {
+          margin: 0;
+        }
+
+        &-stat {
+          &-name {
+            display: flex;
+            justify-content: space-between;
+          }
+
+          &-label {
+            font-weight: bold;
+          }
+
+          &-info {
+            background-color: #5c5c5c;
+            display: inline-block;
+            height: 4px;
+            margin: 5px;
+            transition: 350ms ease-in-out;
+
+            &--away {
+              background-color: #d74a1f;
+              border-radius: 10px 0 0 10px;
+              margin-left: 0;
+            }
+
+            &--home {
+              background-color: #0078fd;
+              border-radius: 0 10px 10px 0;
+              margin-right: 0;
+            }
           }
         }
       }

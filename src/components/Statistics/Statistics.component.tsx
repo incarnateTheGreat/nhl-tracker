@@ -1,7 +1,96 @@
-import React from "react";
+import React, { useContext } from "react";
+import Context from "../../context/context";
+
+interface IStatObject {
+  awayValue: number;
+  awayPercentage: number;
+  homeValue: number;
+  homePercentage: number;
+  label: string;
+}
 
 const Statistics = () => {
-  return <div>Statistics</div>;
+  const { liveData } = useContext(Context);
+  const { away, home } = liveData.boxscore.teams;
+
+  const statTitleIndex = {
+    blocked: "Blocked",
+    faceOffWinPercentage: "Faceoffs (%)",
+    giveaways: "Giveaways",
+    hits: "Hits",
+    pim: "Penalty Minutes",
+    powerPlayOpportunities: "PP Opportunities",
+    powerPlayPercentage: "PP (%)",
+    shots: "Shots",
+    takeaways: "Takeaways",
+  };
+
+  // Parse the input and fix to two percentage points.
+  const parsePercentage = (val, sum) => {
+    if (val <= 0) {
+      return 0;
+    }
+
+    return (val / sum) * 100;
+  };
+
+  // Create reference objects for easier access and reading.
+  const refAwayObj = away.teamStats.teamSkaterStats;
+  const refHomeObj = home.teamStats.teamSkaterStats;
+
+  // Create a statistics object
+  const statsObj = Object.keys(refAwayObj).reduce(
+    (r: IStatObject[], statName) => {
+      if (statTitleIndex[statName]) {
+        const sum = parseFloat(refAwayObj[statName] + refHomeObj[statName]);
+
+        r.push({
+          awayPercentage:
+            refAwayObj[statName] % 1 === 0
+              ? Number(parsePercentage(refAwayObj[statName], sum))
+              : refAwayObj[statName],
+          awayValue: +refAwayObj[statName],
+          homePercentage:
+            refHomeObj[statName] % 1 === 0
+              ? Number(parsePercentage(refHomeObj[statName], sum))
+              : refHomeObj[statName],
+          homeValue: +refHomeObj[statName],
+          label: statTitleIndex[statName],
+        });
+      }
+
+      return r;
+    },
+    []
+  );
+
+  return (
+    <div className="game-summary-statistics">
+      {statsObj.map((statObj: IStatObject, key) => (
+        <div key={key} className="game-summary-statistics-bar">
+          <div className="game-summary-statistics-bar-stat-name">
+            <span>{statObj.awayValue}</span>
+            <span className="game-summary-statistics-bar-stat-label">
+              {statObj.label}
+            </span>
+            <span>{statObj.homeValue}</span>
+          </div>
+          <div
+            className="game-summary-statistics-bar-stat-info game-summary-statistics-bar-stat-info--away"
+            style={{
+              width: `calc(${statObj.awayPercentage}% - 10px)`,
+            }}
+          ></div>
+          <div
+            className="game-summary-statistics-bar-stat-info game-summary-statistics-bar-stat-info--home"
+            style={{
+              width: `calc(${statObj.homePercentage}% - 0%)`,
+            }}
+          ></div>
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default Statistics;

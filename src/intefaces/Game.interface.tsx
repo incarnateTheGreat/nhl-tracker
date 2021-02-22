@@ -53,11 +53,154 @@ interface ITeamInfo {
   triCode: string;
 }
 
-interface ILiveData {
-  boxscore: object;
+export interface ILiveData {
+  boxscore: {
+    teams: {
+      away: ITeamBoxscore;
+      home: ITeamBoxscore;
+    };
+  };
   decisions: object;
   linescore: ILineScore;
   plays: IPlays;
+}
+
+interface ITeamBoxscore {
+  team: {
+    id: number;
+    name: string;
+    link: string;
+    abbreviation: string;
+    triCode: string;
+  };
+  teamStats: {
+    teamSkaterStats: {
+      goals: number;
+      pim: number;
+      shots: number;
+      powerPlayPercentage: string;
+      powerPlayGoals: number;
+      powerPlayOpportunities: number;
+      faceOffWinPercentage: string;
+      blocked: number;
+      takeaways: number;
+      giveaways: number;
+      hits: number;
+    };
+  };
+  players: {
+    ID8466138: {
+      person: {
+        id: number;
+        fullName: string;
+        link: string;
+        shootsCatches: string;
+        rosterStatus: string;
+      };
+      jerseyNumber: string;
+      position: {
+        code: string;
+        name: string;
+        type: string;
+        abbreviation: string;
+      };
+      stats: {
+        skaterStats: {
+          timeOnIce: string;
+          assists: number;
+          goals: number;
+          shots: number;
+          hits: number;
+          powerPlayGoals: number;
+          powerPlayAssists: number;
+          penaltyMinutes: number;
+          faceOffPct: number;
+          faceOffWins: number;
+          faceoffTaken: number;
+          takeaways: number;
+          giveaways: number;
+          shortHandedGoals: number;
+          shortHandedAssists: number;
+          blocked: number;
+          plusMinus: number;
+          evenTimeOnIce: string;
+          powerPlayTimeOnIce: string;
+          shortHandedTimeOnIce: string;
+        };
+      };
+    };
+    ["id"]: {
+      person: {
+        id: number;
+        fullName: string;
+        link: string;
+        shootsCatches: string;
+        rosterStatus: string;
+      };
+      jerseyNumber: string;
+      position: {
+        code: string;
+        name: string;
+        type: string;
+        abbreviation: string;
+      };
+      stats: {
+        skaterStats: {
+          timeOnIce: string;
+          assists: number;
+          goals: number;
+          shots: number;
+          hits: number;
+          powerPlayGoals: number;
+          powerPlayAssists: number;
+          penaltyMinutes: number;
+          faceOffWins: number;
+          faceoffTaken: number;
+          takeaways: number;
+          giveaways: number;
+          shortHandedGoals: number;
+          shortHandedAssists: number;
+          blocked: number;
+          plusMinus: number;
+          evenTimeOnIce: string;
+          powerPlayTimeOnIce: string;
+          shortHandedTimeOnIce: string;
+        };
+      };
+    };
+  };
+  goalies: number[];
+  skaters: number[];
+  onIce: number[];
+  onIcePlus: [
+    {
+      playerId: number;
+      shiftDuration: number;
+      stamina: number;
+    }
+  ];
+  scratches: number[];
+  penaltyBox: [
+    {
+      id: number;
+      timeRemaining: string;
+      active: boolean;
+    }
+  ];
+  coaches: [
+    {
+      person: {
+        fullName: string;
+        link: string;
+      };
+      position: {
+        code: string;
+        name: string;
+        type: string;
+        abbreviation: string;
+      };
+    }
+  ];
 }
 
 interface IGameContent {
