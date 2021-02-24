@@ -17,8 +17,6 @@ const Scoring = () => {
 
   return (
     <section className="game-summary-scoring">
-      <h3>Scoring</h3>
-
       {Object.keys(goalsObjData).length > 0 ? (
         Object.keys(goalsObjData).map((period) => {
           return (

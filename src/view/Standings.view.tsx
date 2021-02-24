@@ -187,22 +187,22 @@ const Standings = () => {
       setDivisions({
         central: sortTable(
           assembleRecord(central),
-          divisionSortColumns["central"],
+          divisionSortColumns["central"].sortColumn,
           "central"
         ),
         eastern: sortTable(
           assembleRecord(eastern),
-          divisionSortColumns["eastern"],
+          divisionSortColumns["eastern"].sortColumn,
           "eastern"
         ),
         western: sortTable(
           assembleRecord(western),
-          divisionSortColumns["western"],
+          divisionSortColumns["western"].sortColumn,
           "western"
         ),
         northern: sortTable(
           assembleRecord(northern),
-          divisionSortColumns["northern"],
+          divisionSortColumns["northern"].sortColumn,
           "northern"
         ),
       });

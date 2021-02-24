@@ -27,11 +27,17 @@ const Statistics = () => {
 
   // Parse the input and fix to two percentage points.
   const parsePercentage = (val, sum) => {
-    if (val <= 0) {
-      return 0;
+    val = parseFloat(val);
+
+    let res = (val / sum) * 100;
+
+    if (res > 98) {
+      res = 98;
+    } else if (res < 2) {
+      res = 2;
     }
 
-    return (val / sum) * 100;
+    return res;
   };
 
   // Create reference objects for easier access and reading.
@@ -42,7 +48,8 @@ const Statistics = () => {
   const statsObj = Object.keys(refAwayObj).reduce(
     (r: IStatObject[], statName) => {
       if (statTitleIndex[statName]) {
-        const sum = parseFloat(refAwayObj[statName] + refHomeObj[statName]);
+        const sum =
+          parseFloat(refAwayObj[statName]) + parseFloat(refHomeObj[statName]);
 
         r.push({
           awayPercentage:
@@ -75,18 +82,20 @@ const Statistics = () => {
             </span>
             <span>{statObj.homeValue}</span>
           </div>
-          <div
-            className="game-summary-statistics-bar-stat-info game-summary-statistics-bar-stat-info--away"
-            style={{
-              width: `calc(${statObj.awayPercentage}% - 10px)`,
-            }}
-          ></div>
-          <div
-            className="game-summary-statistics-bar-stat-info game-summary-statistics-bar-stat-info--home"
-            style={{
-              width: `calc(${statObj.homePercentage}% - 0%)`,
-            }}
-          ></div>
+          <div className="game-summary-statistics-bar-stat-container">
+            <div
+              className="game-summary-statistics-bar-stat-info game-summary-statistics-bar-stat-info--away"
+              style={{
+                width: `calc(${statObj.awayPercentage}% - 10px)`,
+              }}
+            ></div>
+            <div
+              className="game-summary-statistics-bar-stat-info game-summary-statistics-bar-stat-info--home"
+              style={{
+                width: `calc(${statObj.homePercentage}% - 0%)`,
+              }}
+            ></div>
+          </div>
         </div>
       ))}
     </div>

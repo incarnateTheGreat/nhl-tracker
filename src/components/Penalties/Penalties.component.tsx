@@ -7,7 +7,6 @@ const Scoring = () => {
 
   return (
     <section className="game-summary-penalties">
-      <h3>Penalties</h3>
       {Object.keys(penaltiesObjData).length > 0 ? (
         Object.keys(penaltiesObjData).map((period) => {
           return (
