@@ -118,6 +118,9 @@ const ScoreHeader = () => {
               {awayTeam?.record.leagueRecord.ot}
             </span>
           </span>
+          <span className="game-header-score-team-pp powerplay">
+            {liveData.linescore.teams.away.powerPlay && "PP"}
+          </span>
           <span
             className={`game-header-score-team-score ${
               isGameOver() &&
@@ -150,6 +153,9 @@ const ScoreHeader = () => {
               {homeTeam?.record.leagueRecord.losses}-
               {homeTeam?.record.leagueRecord.ot}
             </span>
+          </span>
+          <span className="game-header-score-team-pp powerplay">
+            {liveData.linescore.teams.home.powerPlay && "PP"}
           </span>
           <span
             className="game-header-score-team-logo"

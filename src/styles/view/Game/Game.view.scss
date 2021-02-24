@@ -34,7 +34,7 @@
 
         &-info {
           display: flex;
-          flex: 1 1 auto;
+          flex: 0 1 auto;
           flex-direction: column;
           justify-content: center;
           order: 2;
@@ -44,13 +44,22 @@
           }
         }
 
+        &-pp {
+          display: flex;
+          flex: 1 1 auto;
+          flex-direction: column;
+          justify-content: center;
+          order: 3;
+          padding: 0 0 0 20px;
+        }
+
         &-score {
           align-items: center;
           font-size: 2em;
           font-weight: 100;
           display: flex;
           padding: 0 20px;
-          order: 3;
+          order: 4;
 
           &-winner {
             font-weight: bold;

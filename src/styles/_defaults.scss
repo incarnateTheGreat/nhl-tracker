@@ -114,6 +114,13 @@ footer {
   }
 }
 
+.powerplay {
+  color: $red;
+  font-style: italic;
+  font-weight: bold;
+  margin: 0 0 0 6px;
+}
+
 @media only screen and (min-width: $container-width) {
   .main-container {
     margin: 0 auto 40px;

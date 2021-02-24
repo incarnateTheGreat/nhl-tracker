@@ -60,7 +60,9 @@ const Scorecard = ({ data }) => {
           <span className="scorecard-boxscore-team-name">
             {teams.away.team.name}
             {isPowerPlay(data.linescore.teams.away.powerPlay) && (
-              <span className="scorecard-boxscore-team-name-powerplay">PP</span>
+              <span className="scorecard-boxscore-team-name-powerplay powerplay">
+                PP
+              </span>
             )}
           </span>
           <span className="scorecard-boxscore-team-score">
@@ -74,7 +76,9 @@ const Scorecard = ({ data }) => {
           <span className="scorecard-boxscore-team-name">
             {teams.home.team.name}{" "}
             {isPowerPlay(data.linescore.teams.home.powerPlay) && (
-              <span className="scorecard-boxscore-team-name-powerplay">PP</span>
+              <span className="scorecard-boxscore-team-name-powerplay powerplay">
+                PP
+              </span>
             )}
           </span>
           <span className="scorecard-boxscore-team-score">
