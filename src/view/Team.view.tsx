@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { format } from "date-fns";
 import { useTranslation } from "react-i18next";
 import { getTeamData, getTeamScheduleData } from "../services/api";
 import { ITeam, ITeamInfo } from "../intefaces/Team.interface";
 import Logo from "../components/Logo/Logo.component";
+import { handleNavClick } from "../utils/utils";
 
 const rankGridHandler = (rank) => {
   if (rank === "1") {
@@ -21,6 +22,7 @@ const rankGridHandler = (rank) => {
 // label: t("nav.player"),
 
 const Team = () => {
+  const history = useHistory();
   let { teamID } = useParams();
   const [teamData, setTeamData] = useState<ITeamInfo>();
   const [teamScheduledGames, setTeamScheduledGames] = useState<ITeam[]>([]);
@@ -29,6 +31,13 @@ const Team = () => {
 
   // Parse to a Number;
   teamID = +teamID;
+
+  // When navigating between teams, listen for the route change so the previous team schedule data can be cleared.
+  // Not doing this allows for previou data to crash. Navigating to a similar link will not re-render the page.
+  history.listen(() => {
+    setTeamScheduledGames([]);
+    setTeamCompletedGames([]);
+  });
 
   useEffect(() => {
     const teamScheduleDataCall = async () => {
@@ -62,7 +71,7 @@ const Team = () => {
 
     teamScheduleDataCall();
     getTeamDataCall();
-  }, []);
+  }, [teamID]);
 
   return (
     <article className="team main-container">
@@ -152,6 +161,19 @@ const Team = () => {
                     (linescore.currentPeriodOrdinal === "OT" &&
                       `(${linescore.currentPeriodOrdinal})`);
 
+                  // console.log(
+                  //   { teamID, home: home.team.id },
+                  //   { teamID, away: away.team.id },
+                  //   opponentID
+                  // );
+
+                  // console.log(
+                  //   home.team.name,
+                  //   home.team.id,
+                  //   away.team.name,
+                  //   away.team.id
+                  // );
+
                   return (
                     <tr key={key}>
                       <td>{format(new Date(gameDate), "E, MMM. do")}</td>
@@ -160,9 +182,16 @@ const Team = () => {
                           {home_away_symbol}
                         </span>
                         <Logo size="small" teamName={logo_teamName} />{" "}
-                        <a href={`/team/${opponentID}`} title={opponentName}>
+                        <span
+                          className="link"
+                          onClick={handleNavClick(
+                            `/team/${opponentID}`,
+                            history
+                          )}
+                          title={opponentName}
+                        >
                           {opponent}
-                        </a>
+                        </span>
                       </td>
                       <td>
                         <span
@@ -172,9 +201,13 @@ const Team = () => {
                         >
                           {win_or_loss}
                         </span>{" "}
-                        <a href={`/game/${gamePk}`} title={finalScore}>
+                        <span
+                          className="link"
+                          onClick={handleNavClick(`/game/${gamePk}`, history)}
+                          title={finalScore}
+                        >
                           {finalScore} {extraTime}
-                        </a>
+                        </span>
                       </td>
                       <td>{teamRecord}</td>
                     </tr>
@@ -233,9 +266,16 @@ const Team = () => {
                           {home_away_symbol}
                         </span>
                         <Logo size="small" teamName={logo_teamName} />{" "}
-                        <a href={`/team/${opponentID}`} title={opponentName}>
+                        <span
+                          className="link"
+                          onClick={handleNavClick(
+                            `/team/${opponentID}`,
+                            history
+                          )}
+                          title={opponentName}
+                        >
                           {opponent}
-                        </a>
+                        </span>
                       </td>
                       <td>{format(new Date(gameDate), "h:mm a")}</td>
                       <td>&nbsp;</td>

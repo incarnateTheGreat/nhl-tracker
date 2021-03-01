@@ -1,7 +1,9 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { getStandingsData } from "../services/api";
 import Logo from "../components/Logo/Logo.component";
 import { IStandings } from "../intefaces/Standings.interface";
+import { handleNavClick } from "../utils/utils";
 
 const tableKey = {
   name: "",
@@ -20,6 +22,8 @@ const tableKey = {
 };
 
 const Standings = () => {
+  const history = useHistory();
+
   const [divisions, setDivisions] = useState<object>({
     central: null,
     western: null,
@@ -146,9 +150,13 @@ const Standings = () => {
             <>
               {" "}
               <Logo size="small" teamName={team["name"]} />{" "}
-              <a href={`/team/${team["id"]}`} title={team["name"]}>
+              <span
+                className="link"
+                onClick={handleNavClick(`/team/${team["id"]}`, history)}
+                title={team["name"]}
+              >
                 {team["name"]}
-              </a>
+              </span>
             </>
           )}
 

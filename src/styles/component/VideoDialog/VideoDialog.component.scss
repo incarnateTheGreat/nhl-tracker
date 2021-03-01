@@ -33,7 +33,7 @@
       right: -12px;
       position: absolute;
       padding: 4px;
-      top: -8px;
+      top: -12px;
       transition: 100ms;
       width: 20px;
       z-index: 5;
@@ -41,6 +41,14 @@
       &:hover {
         transform: scale3d(1.15, 1.15, 1.15);
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .video-dialog {
+    &-content {
+      width: 80%;
     }
   }
 }

@@ -1,12 +1,15 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState, useContext } from "react";
 import { format, isToday, parseISO } from "date-fns";
 import { getGamesOfDay } from "../services/api";
 import Datepicker from "../components/Datepicker/Datepicker.component";
 import Scorecard from "../components/Scorecard/Scorecard.component";
 import { IScheduleGame } from "../intefaces/ScheduleGame.interface";
 
+import DateContext from "../context/dateContext";
+
 const Scores = () => {
-  const [selectedDate, setSelectedDate] = useState("");
+  const { selectedDate, dispatch } = useContext(DateContext);
+  const [selectedDateInternal, setSelectedDateInternal] = useState("");
   const [scheduledGames, setScheduledGames] = useState<IScheduleGame[]>([]);
   const [activeGames, setActiveGames] = useState<IScheduleGame[]>([]);
   const [completedGames, setCompletedGames] = useState<IScheduleGame[]>([]);
@@ -14,7 +17,7 @@ const Scores = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const dateHandler = (date) => {
-    setSelectedDate(date);
+    setSelectedDateInternal(date);
   };
 
   const getListOfGames = useCallback(() => {
@@ -156,10 +159,11 @@ const Scores = () => {
 
   // Get Today's Scheduled Game Data every 15 seconds.
   useEffect(() => {
-    if (selectedDate) {
+    if (selectedDateInternal) {
+      dispatch({ type: "DATE", selectedDate: selectedDateInternal });
       callScheduleData();
     }
-  }, [callScheduleData, selectedDate]);
+  }, [callScheduleData, dispatch, selectedDateInternal]);
 
   useEffect(() => {
     if (totalGames.length > 0) {
@@ -186,6 +190,7 @@ const Scores = () => {
         <h2>
           {selectedDate && format(parseISO(selectedDate), "eeee, MMMM do, Y")}
         </h2>
+
         <Datepicker callback={dateHandler} dateValue={selectedDate} />
       </div>
 

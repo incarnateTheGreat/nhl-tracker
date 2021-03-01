@@ -4,7 +4,7 @@ import VideoDialog from "../VideoDialog/VideoDialog.component";
 import Context from "../../context/context";
 
 const Scoring = () => {
-  const { goalsObjData, gameContent }: any = useContext(Context);
+  const { goalsObjData, contentData }: any = useContext(Context);
   const [showDialog, setShowDialog] = useState<boolean>(false);
   const [videoSource, setVideoSource] = useState<string>("");
 
@@ -24,7 +24,7 @@ const Scoring = () => {
               <h4 className="game-summary-period-title">{period}</h4>
               {goalsObjData[period].map((goal, index) => {
                 // Find the corresponding video to the goal.
-                const videoUrl = gameContent?.highlights.scoreboard.items
+                const videoUrl = contentData?.highlights.scoreboard.items
                   .find((video) => {
                     const id = video.keywords.find(
                       (elem) => elem.type === "statsEventId"

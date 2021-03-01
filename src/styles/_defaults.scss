@@ -12,8 +12,10 @@ body {
   padding: 0;
 }
 
-a {
+a,
+.link {
   color: $link-color;
+  cursor: pointer;
   font-size: $size-14;
   text-decoration: none;
   transition: all 0.15s;
@@ -70,7 +72,11 @@ h6 {
   li {
     padding: 0 6px;
 
-    a {
+    button {
+      background: none;
+      box-shadow: none;
+      border: none;
+      cursor: pointer;
       color: $nav-link-color;
       text-decoration: none;
 

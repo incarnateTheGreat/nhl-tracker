@@ -5,7 +5,7 @@ export interface IGame {
   metaData: object;
 }
 
-interface IGameData {
+export interface IGameData {
   datetime: {
     dateTime: string;
   };
@@ -203,7 +203,7 @@ interface ITeamBoxscore {
   ];
 }
 
-interface IGameContent {
+export interface IGameContent {
   editorial: {
     articles: {
       items: IGameContentItems[];

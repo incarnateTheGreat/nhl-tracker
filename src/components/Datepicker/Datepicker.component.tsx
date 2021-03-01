@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { addDays, format, subDays } from "date-fns";
+import { addDays, format, subDays, parse } from "date-fns";
 
 const Datepicker = ({ dateValue, callback }) => {
   const dateFormat = "yyyy-MM-dd";
+
+  // Parse the date value if it has a value. Otherwise, spawna datestamp for now.
+  if (dateValue) {
+    dateValue = parse(dateValue, dateFormat, new Date());
+  }
+
   const [date, setDate] = useState(dateValue || new Date());
 
   const incrementDate = () => {

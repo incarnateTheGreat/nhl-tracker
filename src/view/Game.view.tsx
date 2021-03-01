@@ -12,16 +12,21 @@ import {
   getGameContent,
   getHeadtoHeadTeamData,
 } from "../services/api";
-import { IGame, IAllPlays } from "../intefaces/Game.interface";
+import {
+  IGame,
+  IAllPlays,
+  IGameData,
+  IGameContent,
+} from "../intefaces/Game.interface";
 
 const Game = () => {
   const { gamePk } = useParams();
   const [data, setData] = useState<IGame>();
-  const [headToHeadData, setHeadtoHeadData] = useState<IGame>();
-  const [gameContent, setGameContent] = useState<IGame>();
-  const [goalsObjData, setGoalsObjData] = useState<Array<object>>();
-  const [penaltiesObjData, setPenaltiesObjData] = useState<Array<object>>();
-  const { gameData, liveData } = data || {};
+  const [headToHeadData, setHeadtoHeadData] = useState<IGameData>();
+  const [contentData, setContentData] = useState<IGameContent>();
+  const [goalsObjData, setGoalsObjData] = useState<Array<object>>([]);
+  const [penaltiesObjData, setPenaltiesObjData] = useState<Array<object>>([]);
+  const { gameData, liveData } = data || ({} as IGame);
   const [tabData, setTabData] = useState<object[]>([]);
   const [activeTab, setActiveTab] = useState<number>(0);
 
@@ -106,7 +111,7 @@ const Game = () => {
   useEffect(() => {
     const collecGameData = async () => {
       const gameDataRes = await getGameData(gamePk);
-      const gameContentRes = await getGameContent(gamePk);
+      const contentDataRes = await getGameContent(gamePk);
       const headToHead = await getHeadtoHeadTeamData(
         gameDataRes.gameData.teams.home.id,
         gameDataRes.gameData.teams.away.id
@@ -114,7 +119,7 @@ const Game = () => {
 
       setData(gameDataRes);
       setHeadtoHeadData(headToHead);
-      setGameContent(gameContentRes);
+      setContentData(contentDataRes);
     };
 
     if (!gameData) {
@@ -154,7 +159,7 @@ const Game = () => {
       value={{
         gameData,
         liveData,
-        gameContent,
+        contentData,
         goalsObjData,
         penaltiesObjData,
         headToHeadData,

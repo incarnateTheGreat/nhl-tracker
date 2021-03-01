@@ -1,10 +1,26 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useReducer } from "react";
 import i18next from "i18next";
 import { useTranslation, initReactI18next } from "react-i18next";
-import { Router, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch, useLocation } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import routes from "./routes/routes";
-import { resources } from "./utils/utils";
+import { handleNavClick, resources } from "./utils/utils";
+
+import DateContext from "./context/dateContext";
+
+const initialState = {
+  selectedDate: "",
+  dispatch: undefined,
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "DATE":
+      return { ...state, selectedDate: action.selectedDate };
+    default:
+      return state;
+  }
+};
 
 // Initialize the History Browser History.
 const history = createBrowserHistory();
@@ -45,13 +61,20 @@ const handleNavigation = (t) => {
   return (
     <ul className="siteNav">
       {routes(t).map((route, key) => {
+        // console.log(route.path, history.location.pathname);
+        // history.listen() to update this. May need to segregate it as a component.
+
         return (
           route.path !== history.location.pathname &&
           ignoreRoutes(route, ["/game", "/player"]) && (
             <li key={key}>
-              <a href={route.path} title={route.label}>
+              <button
+                type="button"
+                onClick={handleNavClick(route.path, history)}
+                title={route.label}
+              >
                 {route.label}
-              </a>
+              </button>
             </li>
           )
         );
@@ -61,51 +84,66 @@ const handleNavigation = (t) => {
 };
 
 const App: React.FC = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
   const langValue = useRef<HTMLSelectElement>(null);
+  // const location = useLocation();
+
+  console.log({ state });
 
   useEffect(() => {
     lang();
   }, []);
 
+  // useEffect(() => {
+  //   console.log("Location changed");
+  // }, [location]);
+
   const { t } = useTranslation();
 
   return (
-    <div className="App container">
-      <nav className="nav">
-        <div className="nav-container">
-          <h1>NHL Tracker</h1>
-          {handleNavigation(t)}
-          <select
-            ref={langValue}
-            name="lang"
-            id="lang"
-            value={localStorage.lang}
-            onChange={(e) => {
-              i18next.changeLanguage(e.target.value);
-              localStorage.setItem("lang", e.target.value);
-            }}
-          >
-            <option value="en">English</option>
-            <option value="es">Español</option>
-          </select>
-        </div>
-      </nav>
-      <Router history={history}>
-        <Switch>
-          {routes(t).map((route, key) => (
-            <Route
-              key={key}
-              path={route.path}
-              component={route.component}
-              exact={route.exact}
-            />
-          ))}
-        </Switch>
-      </Router>
-      <footer>
-        <div className="footer-container">Footer</div>
-      </footer>
-    </div>
+    <DateContext.Provider
+      value={{
+        selectedDate: state.selectedDate,
+        dispatch,
+      }}
+    >
+      <div className="App container">
+        <nav className="nav">
+          <div className="nav-container">
+            <h1>NHL Tracker</h1>
+            {handleNavigation(t)}
+            <select
+              ref={langValue}
+              name="lang"
+              id="lang"
+              value={localStorage.lang}
+              onChange={(e) => {
+                i18next.changeLanguage(e.target.value);
+                localStorage.setItem("lang", e.target.value);
+              }}
+            >
+              <option value="en">English</option>
+              <option value="es">Español</option>
+            </select>
+          </div>
+        </nav>
+        <Router history={history}>
+          <Switch>
+            {routes(t).map((route, key) => (
+              <Route
+                key={key}
+                path={route.path}
+                component={route.component}
+                exact={route.exact}
+              />
+            ))}
+          </Switch>
+        </Router>
+        <footer>
+          <div className="footer-container">Footer</div>
+        </footer>
+      </div>
+    </DateContext.Provider>
   );
 };
 

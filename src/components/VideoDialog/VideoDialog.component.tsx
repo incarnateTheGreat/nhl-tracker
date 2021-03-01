@@ -4,8 +4,8 @@ const VideoDialog = ({ controlDialog, videoSource }) => {
   return (
     <div
       className="video-dialog"
-      onClick={(e) => {
-        if (e.target.classList.contains("video-dialog")) {
+      onClick={(event: any) => {
+        if (event.target.classList.contains("video-dialog")) {
           controlDialog(false);
         }
       }}

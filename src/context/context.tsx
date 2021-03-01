@@ -1,13 +1,17 @@
 import { createContext } from "react";
-import { IGame } from "../intefaces/Game.interface";
+import {
+  IGameData,
+  ILiveData,
+  IGameContent,
+} from "../intefaces/Game.interface";
 
 export interface INHLInterface {
-  gameData: IGame;
-  liveData: IGame;
-  gameContent: IGame;
+  gameData: IGameData;
+  liveData: ILiveData;
+  contentData: IGameContent | undefined;
   goalsObjData: Array<object>;
   penaltiesObjData: Array<object>;
-  headToHeadData: IGame;
+  headToHeadData: IGameData | undefined;
 }
 
-export default createContext({} as IGame);
+export default createContext({} as INHLInterface);
