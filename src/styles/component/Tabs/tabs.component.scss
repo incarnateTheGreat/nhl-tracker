@@ -15,9 +15,9 @@
       color: $white;
       cursor: pointer;
       background-color: $base-header-colour;
-      border-top: 1px solid #566a80;
-      border-right: 1px solid #566a80;
-      border-left: 1px solid #566a80;
+      border-top: 1px solid $border-colour;
+      border-right: 1px solid $border-colour;
+      border-left: 1px solid $border-colour;
       border-bottom: 1px solid transparent;
       border-radius: 4px 4px 0 0;
       font-size: small;
@@ -40,9 +40,9 @@
 
   &-body {
     background-color: $white;
-    border-left: 1px solid #566a80;
-    border-right: 1px solid #566a80;
-    border-bottom: 1px solid #566a80;
+    border-left: 1px solid $border-colour;
+    border-right: 1px solid $border-colour;
+    border-bottom: 1px solid $border-colour;
     border-top: 0;
     box-sizing: border-box;
     margin: 0 0 10px;

@@ -98,7 +98,7 @@
       display: table-row;
 
       &-period {
-        border: 1px solid #737373;
+        border: 1px solid $base-header-colour;
         display: table-cell;
         padding: 10px;
         text-align: center;
@@ -125,6 +125,16 @@
 
   &-summary {
     padding: 12px 10px 0;
+
+    &-goalies {
+      border: 1px solid $border-colour;
+      margin: 10px 0;
+      padding: 10px;
+
+      h3 {
+        margin: 0 0 10px;
+      }
+    }
 
     &-period-title {
       background: $base-header-colour;
@@ -219,7 +229,7 @@
               cursor: pointer;
               display: flex;
               justify-content: center;
-              padding: 0;
+              padding: 0 0 0 2px;
               height: 26px;
               transition: 100ms;
               width: 26px;

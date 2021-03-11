@@ -60,7 +60,7 @@ const Scores = () => {
     const SkeletonCard = () => (
       <svg className="scorecard scorecard--skeleton">
         <rect
-          className="rp1"
+          className="rp rp1"
           x="0"
           y="5"
           rx="3"
@@ -69,7 +69,7 @@ const Scores = () => {
           height="6"
         />
         <rect
-          className="rp2"
+          className="rp rp2"
           x="0"
           y="15"
           rx="3"
@@ -78,7 +78,7 @@ const Scores = () => {
           height="6"
         />
         <rect
-          className="rp3"
+          className="rp rp3"
           x="0"
           y="25"
           rx="3"
@@ -87,7 +87,7 @@ const Scores = () => {
           height="6"
         />
         <rect
-          className="rp4"
+          className="rp rp4"
           x="0"
           y="35"
           rx="3"
@@ -96,7 +96,7 @@ const Scores = () => {
           height="6"
         />
         <rect
-          className="rp5"
+          className="rp rp5"
           x="0"
           y="45"
           rx="3"
@@ -146,16 +146,16 @@ const Scores = () => {
       setActiveGames(activeGamesData);
       setCompletedGames(completedGamesData);
       setTotalGames(gamesData.games);
-    }
 
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 500);
+    }
   }, [selectedDate]);
 
   useEffect(() => {
-    console.log({ isLoading });
-  }, [isLoading]);
+    setIsLoading(true);
+  }, [selectedDate]);
 
   // Get Today's Scheduled Game Data every 15 seconds.
   useEffect(() => {

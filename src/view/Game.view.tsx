@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Context from "../context/context";
 import ScoreHeader from "../components/ScoreHeader/ScoreHeader.component";
 import Linescore from "../components/Linescore/Linescore.component";
+import Goalies from "../components/Goalies/Goalies.component";
 import Scoring from "../components/Scoring/Scoring.component";
 import Penalties from "../components/Penalties/Penalties.component";
 import Statistics from "../components/Statistics/Statistics.component";
@@ -18,6 +19,7 @@ import {
   IGameData,
   IGameContent,
 } from "../intefaces/Game.interface";
+import { isGameOver } from "../utils/utils";
 
 const Game = () => {
   const { gamePk } = useParams();
@@ -173,6 +175,8 @@ const Game = () => {
 
             {gameData.status.codedGameState !== "1" && (
               <section className="game-summary">
+                {isGameOver(liveData) && <Goalies />}
+
                 <Tabs
                   callback={(activeTabCallback) =>
                     setActiveTab(activeTabCallback)

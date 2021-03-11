@@ -10,6 +10,7 @@
   &-container {
     display: flex;
     flex-wrap: wrap;
+    width: calc(100% + 9px);
 
     &-no-data {
       padding: 10px 0;
@@ -19,7 +20,7 @@
   .scorecard {
     border: 1px solid rgba(171, 157, 157, 0.5);
     cursor: pointer;
-    flex: 1 0 25%;
+    flex: 1 0 300px;
     margin: 8px 10px 8px 0;
     transition: 25ms ease-in;
 
@@ -31,11 +32,9 @@
         animation: pulse-skeleton-animation 0.75s infinite ease-in;
       }
 
-      $time: 0.5s;
-
-      @for $i from 1 through 5 {
-        .rp#{$i} {
-          animation-delay: #{$i * 0.25}s;
+      .rp {
+        &:nth-child(odd) {
+          animation-delay: 0.25s;
         }
       }
     }
@@ -54,7 +53,9 @@
       padding: 5px 10px;
 
       &-venue {
+        overflow: hidden;
         padding: 0 0 0 10px;
+        text-overflow: ellipsis;
         white-space: nowrap;
       }
 
@@ -97,6 +98,13 @@
         &-score {
           font-weight: bold;
         }
+
+        &-record {
+          color: rgba($black, 0.8);
+          font-size: $size-12;
+          font-weight: 600;
+          margin: 0 0 0 6px;
+        }
       }
     }
   }
@@ -108,13 +116,13 @@
 
 @keyframes pulse-live-animation {
   0% {
-    background-color: red;
+    background-color: $red;
   }
   50% {
-    background-color: darkred;
+    background-color: $dark-red;
   }
   100% {
-    background-color: red;
+    background-color: $red;
   }
 }
 
@@ -133,19 +141,11 @@
 @media only screen and (max-width: 700px) {
   .scorecards {
     width: 100%;
-
-    .scorecard {
-      flex-basis: 40%;
-    }
   }
 }
 
 @media only screen and (max-width: 500px) {
   .scorecards {
     width: 100%;
-
-    .scorecard {
-      flex-basis: 100%;
-    }
   }
 }

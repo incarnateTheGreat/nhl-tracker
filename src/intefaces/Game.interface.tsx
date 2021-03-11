@@ -60,7 +60,33 @@ export interface ILiveData {
       home: ITeamBoxscore;
     };
   };
-  decisions: object;
+  decisions: {
+    winner: {
+      id: number;
+      fullName: string;
+      link: string;
+    };
+    loser: {
+      id: number;
+      fullName: string;
+      link: string;
+    };
+    firstStar: {
+      id: number;
+      fullName: string;
+      link: string;
+    };
+    secondStar: {
+      id: number;
+      fullName: string;
+      link: string;
+    };
+    thirdStar: {
+      id: number;
+      fullName: string;
+      link: string;
+    };
+  };
   linescore: ILineScore;
   plays: IPlays;
 }

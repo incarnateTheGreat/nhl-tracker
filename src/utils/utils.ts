@@ -11,6 +11,23 @@ export const handleNavClick = (path, history) => () => {
   history.push(path);
 };
 
+export const isLive = (statusCode) => {
+  return statusCode === "3" || statusCode === "4" || statusCode === "5";
+};
+
+export const isGameOver = (liveData) => {
+  const {
+    currentPeriodTimeRemaining,
+    currentPeriodOrdinal,
+  } = liveData.linescore;
+
+  return (
+    (currentPeriodTimeRemaining === "Final" &&
+      (currentPeriodOrdinal === "SO" || currentPeriodOrdinal === "OT")) ||
+    (currentPeriodTimeRemaining === "Final" && currentPeriodOrdinal === "3rd")
+  );
+};
+
 export const createImageLink = async (teamName) => {
   const teamNameModified = createFileName(teamName);
   const res = await import(`../assets/images/${teamNameModified}-logo.svg`);

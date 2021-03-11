@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { format, toDate } from "date-fns";
 import Context from "../../context/context";
-import { createImageLink } from "../../utils/utils";
+import { createImageLink, isLive, isGameOver } from "../../utils/utils";
 
 const ScoreHeader = () => {
   const { gameData, liveData, headToHeadData }: any = useContext(Context);
+  const { status } = gameData;
   const [awayTeamLogo, setAwayTeamLogo] = useState<string>("");
   const [homeTeamLogo, setHomeTeamLogo] = useState<string>("");
 
@@ -25,7 +26,7 @@ const ScoreHeader = () => {
 
     getLogo(gameData.teams.away.name, setAwayTeamLogo);
     getLogo(gameData.teams.home.name, setHomeTeamLogo);
-  }, []);
+  }, [gameData.teams.away.name, gameData.teams.home.name]);
 
   const statusInfo = () => {
     let statusStr = "";
@@ -70,19 +71,6 @@ const ScoreHeader = () => {
     return statusStr;
   };
 
-  const isGameOver = () => {
-    const {
-      currentPeriodTimeRemaining,
-      currentPeriodOrdinal,
-    } = liveData.linescore;
-
-    return (
-      (currentPeriodTimeRemaining === "Final" &&
-        (currentPeriodOrdinal === "SO" || currentPeriodOrdinal === "OT")) ||
-      (currentPeriodTimeRemaining === "Final" && currentPeriodOrdinal === "3rd")
-    );
-  };
-
   const homeTeamWinner = () => {
     return (
       liveData.linescore.teams.home.goals > liveData.linescore.teams.away.goals
@@ -119,11 +107,13 @@ const ScoreHeader = () => {
             </span>
           </span>
           <span className="game-header-score-team-pp powerplay">
-            {liveData.linescore.teams.away.powerPlay && "PP"}
+            {isLive(status.statusCode) &&
+              liveData.linescore.teams.away.powerPlay &&
+              "PP"}
           </span>
           <span
             className={`game-header-score-team-score ${
-              isGameOver() &&
+              isGameOver(liveData) &&
               awayTeamWinner() &&
               `game-header-score-team-score-winner`
             }`}
@@ -134,7 +124,7 @@ const ScoreHeader = () => {
         <div className="game-header-score-team game-header-score-team-home">
           <span
             className={`game-header-score-team-score ${
-              isGameOver() &&
+              isGameOver(liveData) &&
               homeTeamWinner() &&
               `game-header-score-team-score-winner`
             }`}
@@ -155,7 +145,9 @@ const ScoreHeader = () => {
             </span>
           </span>
           <span className="game-header-score-team-pp powerplay">
-            {liveData.linescore.teams.home.powerPlay && "PP"}
+            {isLive(status.statusCode) &&
+              liveData.linescore.teams.home.powerPlay &&
+              "PP"}
           </span>
           <span
             className="game-header-score-team-logo"

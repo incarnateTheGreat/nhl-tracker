@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useReducer } from "react";
 import i18next from "i18next";
+import { format } from "date-fns";
 import { useTranslation, initReactI18next } from "react-i18next";
-import { Router, Route, Switch, useLocation } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import routes from "./routes/routes";
 import { handleNavClick, resources } from "./utils/utils";
-
 import DateContext from "./context/dateContext";
 
 const initialState = {
@@ -83,6 +83,10 @@ const handleNavigation = (t) => {
   );
 };
 
+// history.listen(() => {
+//   console.log("cambia.");
+// });
+
 const App: React.FC = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const langValue = useRef<HTMLSelectElement>(null);
@@ -110,7 +114,7 @@ const App: React.FC = () => {
       <div className="App container">
         <nav className="nav">
           <div className="nav-container">
-            <h1>NHL Tracker</h1>
+            <h1 onClick={handleNavClick("/", history)}>NHL Tracker</h1>
             {handleNavigation(t)}
             <select
               ref={langValue}
@@ -140,7 +144,9 @@ const App: React.FC = () => {
           </Switch>
         </Router>
         <footer>
-          <div className="footer-container">Footer</div>
+          <div className="footer-container">
+            NHL Tracker &copy; {format(new Date(), "yyyy")}
+          </div>
         </footer>
       </div>
     </DateContext.Provider>
