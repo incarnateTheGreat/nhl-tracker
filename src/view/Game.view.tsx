@@ -6,7 +6,8 @@ import Linescore from "../components/Linescore/Linescore.component";
 import Goalies from "../components/Goalies/Goalies.component";
 import Scoring from "../components/Scoring/Scoring.component";
 import Penalties from "../components/Penalties/Penalties.component";
-import Statistics from "../components/Statistics/Statistics.component";
+import GameStatistics from "../components/Statistics/TeamStatistics.component";
+import PlayerStatistics from "../components/Statistics/PlayerStatistics.component";
 import Tabs from "../components/Tabs/tabs.component";
 import {
   getGameData,
@@ -30,7 +31,7 @@ const Game = () => {
   const [penaltiesObjData, setPenaltiesObjData] = useState<Array<object>>([]);
   const { gameData, liveData } = data || ({} as IGame);
   const [tabData, setTabData] = useState<object[]>([]);
-  const [activeTab, setActiveTab] = useState<number>(0);
+  const [activeTab, setActiveTab] = useState<number>(3);
 
   const getScoringPlays = useCallback(() => {
     let scoringPlays: Array<IAllPlays> = [];
@@ -150,8 +151,12 @@ const Game = () => {
         component: <Penalties />,
       },
       {
-        label: "Statistics",
-        component: <Statistics />,
+        label: "Team Statistics",
+        component: <GameStatistics />,
+      },
+      {
+        label: "Player Statistics",
+        component: <PlayerStatistics />,
       },
     ]);
   }, [getPenaltiesPlays, getScoringPlays, liveData]);

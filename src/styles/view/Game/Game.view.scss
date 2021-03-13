@@ -244,8 +244,6 @@
     }
 
     &-penalties {
-      margin: 10px 0 0;
-
       &-period {
         padding: 10px 0;
 
@@ -276,7 +274,7 @@
       }
     }
 
-    &-statistics {
+    &-team-statistics {
       &-bar {
         margin: 0 0 10px;
         width: 100%;
@@ -318,6 +316,17 @@
               margin-right: 0;
             }
           }
+        }
+      }
+    }
+
+    &-player-statistics {
+      &-header {
+        align-items: center;
+        display: flex;
+
+        h3 {
+          margin: 0 0 0 4px;
         }
       }
     }

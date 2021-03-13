@@ -9,7 +9,7 @@ interface IStatObject {
   label: string;
 }
 
-const Statistics = () => {
+const TeamStatistics = () => {
   const { liveData } = useContext(Context);
   const { away, home } = liveData.boxscore.teams;
 
@@ -72,25 +72,25 @@ const Statistics = () => {
   );
 
   return (
-    <div className="game-summary-statistics">
+    <section className="game-summary-team-statistics">
       {statsObj.map((statObj: IStatObject, key) => (
-        <div key={key} className="game-summary-statistics-bar">
-          <div className="game-summary-statistics-bar-stat-name">
+        <div key={key} className="game-summary-team-statistics-bar">
+          <div className="game-summary-team-statistics-bar-stat-name">
             <span>{statObj.awayValue}</span>
-            <span className="game-summary-statistics-bar-stat-label">
+            <span className="game-summary-team-statistics-bar-stat-label">
               {statObj.label}
             </span>
             <span>{statObj.homeValue}</span>
           </div>
-          <div className="game-summary-statistics-bar-stat-container">
+          <div className="game-summary-team-statistics-bar-stat-container">
             <div
-              className="game-summary-statistics-bar-stat-info game-summary-statistics-bar-stat-info--away"
+              className="game-summary-team-statistics-bar-stat-info game-summary-team-statistics-bar-stat-info--away"
               style={{
                 width: `calc(${statObj.awayPercentage}% - 10px)`,
               }}
             ></div>
             <div
-              className="game-summary-statistics-bar-stat-info game-summary-statistics-bar-stat-info--home"
+              className="game-summary-team-statistics-bar-stat-info game-summary-team-statistics-bar-stat-info--home"
               style={{
                 width: `calc(${statObj.homePercentage}% - 0%)`,
               }}
@@ -98,8 +98,8 @@ const Statistics = () => {
           </div>
         </div>
       ))}
-    </div>
+    </section>
   );
 };
 
-export default Statistics;
+export default TeamStatistics;
