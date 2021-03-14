@@ -87,6 +87,23 @@ const handleNavigation = (t) => {
 //   console.log("cambia.");
 // });
 
+// TODO: Use this to listen for goals. Select a game to follow, then observe the latest event in the game.
+// If it's a goal, then fire the Desktop Notification.
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   if (!Notification) {
+//     alert("Desktop notifications not available in your browser. Try Chromium.");
+//     return;
+//   }
+
+//   if (Notification.permission !== "granted") Notification.requestPermission();
+
+//   const notification = new Notification("Notification title", {
+//     icon: "http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png",
+//     body: "Hey there! You've been notified!",
+//   });
+// });
+
 const App: React.FC = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const langValue = useRef<HTMLSelectElement>(null);

@@ -114,87 +114,7 @@ interface ITeamBoxscore {
       hits: number;
     };
   };
-  players: {
-    ID8466138: {
-      person: {
-        id: number;
-        fullName: string;
-        link: string;
-        shootsCatches: string;
-        rosterStatus: string;
-      };
-      jerseyNumber: string;
-      position: {
-        code: string;
-        name: string;
-        type: string;
-        abbreviation: string;
-      };
-      stats: {
-        skaterStats: {
-          timeOnIce: string;
-          assists: number;
-          goals: number;
-          shots: number;
-          hits: number;
-          powerPlayGoals: number;
-          powerPlayAssists: number;
-          penaltyMinutes: number;
-          faceOffPct: number;
-          faceOffWins: number;
-          faceoffTaken: number;
-          takeaways: number;
-          giveaways: number;
-          shortHandedGoals: number;
-          shortHandedAssists: number;
-          blocked: number;
-          plusMinus: number;
-          evenTimeOnIce: string;
-          powerPlayTimeOnIce: string;
-          shortHandedTimeOnIce: string;
-        };
-      };
-    };
-    ["id"]: {
-      person: {
-        id: number;
-        fullName: string;
-        link: string;
-        shootsCatches: string;
-        rosterStatus: string;
-      };
-      jerseyNumber: string;
-      position: {
-        code: string;
-        name: string;
-        type: string;
-        abbreviation: string;
-      };
-      stats: {
-        skaterStats: {
-          timeOnIce: string;
-          assists: number;
-          goals: number;
-          shots: number;
-          hits: number;
-          powerPlayGoals: number;
-          powerPlayAssists: number;
-          penaltyMinutes: number;
-          faceOffWins: number;
-          faceoffTaken: number;
-          takeaways: number;
-          giveaways: number;
-          shortHandedGoals: number;
-          shortHandedAssists: number;
-          blocked: number;
-          plusMinus: number;
-          evenTimeOnIce: string;
-          powerPlayTimeOnIce: string;
-          shortHandedTimeOnIce: string;
-        };
-      };
-    };
-  };
+  players: IPlayerData;
   goalies: number[];
   skaters: number[];
   onIce: number[];
@@ -227,6 +147,84 @@ interface ITeamBoxscore {
       };
     }
   ];
+}
+
+export interface IPlayerData {
+  person: {
+    id: number;
+    fullName: string;
+    link: string;
+    shootsCatches: string;
+    rosterStatus: string;
+  };
+  jerseyNumber: string;
+  position: {
+    code: string;
+    name: string;
+    type: string;
+    abbreviation: string;
+  };
+  stats: {
+    skaterStats: {
+      timeOnIce: string;
+      assists: number;
+      goals: number;
+      shots: number;
+      hits: number;
+      powerPlayGoals: number;
+      powerPlayAssists: number;
+      penaltyMinutes: number;
+      faceOffWins: number;
+      faceoffTaken: number;
+      takeaways: number;
+      giveaways: number;
+      shortHandedGoals: number;
+      shortHandedAssists: number;
+      blocked: number;
+      plusMinus: number;
+      evenTimeOnIce: string;
+      powerPlayTimeOnIce: string;
+      shortHandedTimeOnIce: string;
+    };
+  };
+}
+
+export interface IGoalieData {
+  person: {
+    id: number;
+    fullName: string;
+    link: string;
+    shootsCatches: string;
+    rosterStatus: string;
+  };
+  jerseyNumber: string;
+  position: {
+    code: string;
+    name: string;
+    type: string;
+    abbreviation: string;
+  };
+  stats: {
+    goalieStats: {
+      timeOnIce: string;
+      assists: number;
+      goals: number;
+      pim: number;
+      shots: number;
+      saves: number;
+      powerPlaySaves: number;
+      shortHandedSaves: number;
+      evenSaves: number;
+      shortHandedShotsAgainst: number;
+      evenShotsAgainst: number;
+      powerPlayShotsAgainst: number;
+      decision: string;
+      savePercentage: number;
+      powerPlaySavePercentage: number;
+      shortHandedSavePercentage: number;
+      evenStrengthSavePercentage: number;
+    };
+  };
 }
 
 export interface IGameContent {
