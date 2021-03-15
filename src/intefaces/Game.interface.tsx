@@ -91,7 +91,7 @@ export interface ILiveData {
   plays: IPlays;
 }
 
-interface ITeamBoxscore {
+interface ITeamBoxscore extends ITeamGoalData {
   team: {
     id: number;
     name: string;
@@ -355,8 +355,8 @@ export interface ILineScore {
   powerPlayStrength: string;
   shootoutInfo: object;
   teams: {
-    away: ITeamGoalData;
-    home: ITeamGoalData;
+    away: ITeamBoxscore;
+    home: ITeamBoxscore;
   };
 }
 

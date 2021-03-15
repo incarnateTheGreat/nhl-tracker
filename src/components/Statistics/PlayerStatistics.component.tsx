@@ -202,11 +202,6 @@ const PlayerStatistics = () => {
     setHomeTeam(buildTeam(home.players));
   }, [away, home]);
 
-  //   useEffect(() => {
-  //      console.log({ awayTeam });
-  //        console.log({ homeTeam });
-  //   }, [awayTeam, homeTeam]);
-
   return (
     <section className="game-summary-player-statistics">
       <section className="game-summary-player-statistics-team">

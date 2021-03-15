@@ -15,23 +15,31 @@ const Goalies = () => {
       <h3>Goalies</h3>
       <div>
         W: &nbsp;
-        <span
-          className="link"
-          onClick={handleNavClick(`/player/${winner.id}`, history)}
-          title={winner.fullName}
-        >
-          {winner.fullName}
-        </span>
+        {winner ? (
+          <span
+            className="link"
+            onClick={handleNavClick(`/player/${winner.id}`, history)}
+            title={winner.fullName}
+          >
+            {winner.fullName}
+          </span>
+        ) : (
+          "TBA"
+        )}
       </div>
       <div>
         L: &nbsp;
-        <span
-          className="link"
-          onClick={handleNavClick(`/player/${loser.id}`, history)}
-          title={loser.fullName}
-        >
-          {loser.fullName}
-        </span>
+        {loser ? (
+          <span
+            className="link"
+            onClick={handleNavClick(`/player/${loser.id}`, history)}
+            title={loser.fullName}
+          >
+            {loser.fullName}
+          </span>
+        ) : (
+          "TBA"
+        )}
       </div>
     </section>
   );

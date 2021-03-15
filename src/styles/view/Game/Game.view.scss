@@ -88,7 +88,11 @@
     display: table;
     border-collapse: separate;
     margin: 20px 0 0;
-    width: 100%;
+    padding: 12px 10px 0;
+
+    &-container {
+      width: 100%;
+    }
 
     &-header {
       display: table-row;
@@ -102,14 +106,7 @@
         display: table-cell;
         padding: 10px;
         text-align: center;
-
-        &:first-child {
-          border-left: none;
-        }
-
-        &:last-child {
-          border-right: none;
-        }
+        width: 1%;
 
         &-title {
           font-weight: bold;
@@ -379,6 +376,7 @@
             text-overflow: ellipsis;
             white-space: nowrap;
             word-break: break-word;
+            overflow: hidden;
 
             &-position {
               align-self: center;
@@ -389,6 +387,7 @@
             }
 
             &:first-child {
+              flex-basis: 100px;
               justify-content: flex-start;
               padding-left: 0.8em;
             }
