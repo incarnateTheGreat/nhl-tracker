@@ -31,7 +31,7 @@ const Game = () => {
   const [penaltiesObjData, setPenaltiesObjData] = useState<Array<object>>([]);
   const { gameData, liveData } = data || ({} as IGame);
   const [tabData, setTabData] = useState<object[]>([]);
-  const [activeTab, setActiveTab] = useState<number>(3);
+  const [activeTab, setActiveTab] = useState<number>(0);
 
   const getScoringPlays = useCallback(() => {
     let scoringPlays: Array<IAllPlays> = [];
@@ -56,6 +56,23 @@ const Game = () => {
 
     setGoalsObjData(goalsObj);
   }, [liveData]);
+
+  // TODO: Use this to listen for goals. Select a game to follow, then observe the latest event in the game.
+  // If it's a goal, then fire the Desktop Notification.
+
+  // document.addEventListener("DOMContentLoaded", function () {
+  //   if (!Notification) {
+  //     alert("Desktop notifications not available in your browser. Try Chromium.");
+  //     return;
+  //   }
+
+  //   if (Notification.permission !== "granted") Notification.requestPermission();
+
+  //   const notification = new Notification("Notification title", {
+  //     icon: "http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png",
+  //     body: "Hey there! You've been notified!",
+  //   });
+  // });
 
   const getPenaltiesPlays = useCallback(() => {
     let penaltyPlays: Array<IAllPlays> = [];
@@ -140,6 +157,102 @@ const Game = () => {
   useEffect(() => {
     getScoringPlays();
     getPenaltiesPlays();
+
+    if (liveData) {
+      //   console.log(liveData.plays.allPlays);
+
+      const currentPlay = liveData.plays.currentPlay;
+
+      //   const currentPlay = {
+      //     players: [
+      //       {
+      //         player: {
+      //           id: 8477498,
+      //           fullName: "Darnell Nurse",
+      //           link: "/api/v1/people/8477498",
+      //         },
+      //         playerType: "Scorer",
+      //         seasonTotal: 12,
+      //       },
+      //       {
+      //         player: {
+      //           id: 8478402,
+      //           fullName: "Connor McDavid",
+      //           link: "/api/v1/people/8478402",
+      //         },
+      //         playerType: "Assist",
+      //         seasonTotal: 42,
+      //       },
+      //       {
+      //         player: {
+      //           id: 8477934,
+      //           fullName: "Leon Draisaitl",
+      //           link: "/api/v1/people/8477934",
+      //         },
+      //         playerType: "Assist",
+      //         seasonTotal: 35,
+      //       },
+      //       {
+      //         player: {
+      //           id: 8474636,
+      //           fullName: "Michael Hutchinson",
+      //           link: "/api/v1/people/8474636",
+      //         },
+      //         playerType: "Goalie",
+      //       },
+      //     ],
+      //     result: {
+      //       event: "Goal",
+      //       eventCode: "TOR674",
+      //       eventTypeId: "GOAL",
+      //       description:
+      //         "Darnell Nurse (12) Wrist Shot, assists: Connor McDavid (42), Leon Draisaitl (35)",
+      //       secondaryType: "Wrist Shot",
+      //       strength: {
+      //         code: "EVEN",
+      //         name: "Even",
+      //       },
+      //       gameWinningGoal: true,
+      //       emptyNet: false,
+      //     },
+      //     about: {
+      //       eventIdx: 312,
+      //       eventId: 674,
+      //       period: 4,
+      //       periodType: "OVERTIME",
+      //       ordinalNum: "OT",
+      //       periodTime: "00:17",
+      //       periodTimeRemaining: "04:43",
+      //       dateTime: "2021-03-30T01:30:18Z",
+      //       goals: {
+      //         away: 3,
+      //         home: 2,
+      //       },
+      //     },
+      //     coordinates: {
+      //       x: -71,
+      //       y: -17,
+      //     },
+      //     team: {
+      //       id: 22,
+      //       name: "Edmonton Oilers",
+      //       link: "/api/v1/teams/22",
+      //       triCode: "EDM",
+      //     },
+      //   };
+
+      if (currentPlay.result.event === "Goal") {
+        new Notification(
+          `GOAL! ${currentPlay.about.goals.away}-${currentPlay.about.goals.home} @ ${currentPlay.about.periodTimeRemaining} ${currentPlay.about.ordinalNum}`,
+          {
+            icon: "../assets/images/toronto-maple-leafs-logo.svg",
+            body: `${currentPlay.team.triCode}: ${currentPlay.result.description}`,
+          }
+        );
+      }
+      // else {
+      // }
+    }
 
     setTabData([
       {

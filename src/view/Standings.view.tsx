@@ -41,6 +41,7 @@ const Standings = () => {
   const assembleRecord = useCallback((teamData) => {
     return teamData.reduce((r, acc) => {
       const {
+        clinchIndicator = "",
         team,
         gamesPlayed,
         leagueRecord,
@@ -56,6 +57,7 @@ const Standings = () => {
       const { streakCode } = streak;
 
       const res = {
+        clinchIndicator,
         name,
         id,
         gamesPlayed,
@@ -107,14 +109,16 @@ const Standings = () => {
       <>
         <thead>
           <tr>
-            {Object.keys(tableKey).map((title, key) => (
-              <th
-                key={key}
-                onClick={() => sortTable(divisionData, title, divisionName)}
-              >
-                {title === "name" ? divisionName : tableKey[title]}
-              </th>
-            ))}
+            {Object.keys(tableKey).map((title, key) => {
+              return (
+                <th
+                  key={key}
+                  onClick={() => sortTable(divisionData, title, divisionName)}
+                >
+                  {title === "name" ? divisionName : tableKey[title]}
+                </th>
+              );
+            })}
           </tr>
         </thead>
         <tbody className="standings-conference-division-body">
@@ -135,7 +139,7 @@ const Standings = () => {
 
   const assembleTeamRow = (team, columnToIndicate) => {
     return Object.keys(team).map((prop, key) => {
-      if (prop === "id") return;
+      if (prop === "id" || prop === "clinchIndicator") return;
 
       return (
         <td
@@ -146,7 +150,7 @@ const Standings = () => {
               : ""
           }`}
         >
-          {key === 0 && (
+          {key === 1 && (
             <>
               {" "}
               <Logo size="small" teamName={team["name"]} />{" "}
@@ -155,12 +159,13 @@ const Standings = () => {
                 onClick={handleNavClick(`/team/${team["id"]}`, history)}
                 title={team["name"]}
               >
+                {team["clinchIndicator"] && `${team["clinchIndicator"]} -`}{" "}
                 {team["name"]}
               </span>
             </>
           )}
 
-          {key !== 0 && prop !== "id" && <>{team[prop]}</>}
+          {key !== 1 && prop !== "id" && <>{team[prop]}</>}
         </td>
       );
     });

@@ -130,7 +130,7 @@ const PlayerStatistics = () => {
             BLK
           </div>
           <div className="game-summary-player-statistics-body-container-element">
-            FOT-FOW
+            FOW-FOT
           </div>
           <div className="game-summary-player-statistics-body-container-element">
             TOI
@@ -196,10 +196,21 @@ const PlayerStatistics = () => {
     );
   };
 
+  const sortPlayers = (players: IPlayerData) => {
+    return Object.fromEntries(
+      Object.entries(players).sort(([, a], [, b]) => {
+        const nameA = a.person.fullName.toUpperCase();
+        const nameB = b.person.fullName.toUpperCase();
+
+        return nameA.localeCompare(nameB);
+      })
+    );
+  };
+
   // Build out the team's players.
   useEffect(() => {
-    setAwayTeam(buildTeam(away.players));
-    setHomeTeam(buildTeam(home.players));
+    setAwayTeam(buildTeam(sortPlayers(away.players)));
+    setHomeTeam(buildTeam(sortPlayers(home.players)));
   }, [away, home]);
 
   return (

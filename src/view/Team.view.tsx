@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { getTeamData, getTeamScheduleData } from "../services/api";
 import { ITeam, ITeamInfo } from "../intefaces/Team.interface";
 import Logo from "../components/Logo/Logo.component";
-import { handleNavClick } from "../utils/utils";
+import { handleNavClick, isLive } from "../utils/utils";
 
 const rankGridHandler = (rank) => {
   if (rank === "1") {
@@ -161,19 +161,6 @@ const Team = () => {
                     (linescore.currentPeriodOrdinal === "OT" &&
                       `(${linescore.currentPeriodOrdinal})`);
 
-                  // console.log(
-                  //   { teamID, home: home.team.id },
-                  //   { teamID, away: away.team.id },
-                  //   opponentID
-                  // );
-
-                  // console.log(
-                  //   home.team.name,
-                  //   home.team.id,
-                  //   away.team.name,
-                  //   away.team.id
-                  // );
-
                   return (
                     <tr key={key}>
                       <td>{format(new Date(gameDate), "E, MMM. do")}</td>
@@ -234,7 +221,13 @@ const Team = () => {
             <tbody>
               {teamScheduledGames.length > 0 &&
                 teamScheduledGames.map((game, key) => {
-                  const { gameDate, teams } = game.games[0];
+                  const {
+                    gameDate,
+                    gamePk,
+                    linescore,
+                    teams,
+                    status,
+                  } = game.games[0];
                   const { away, home } = teams;
 
                   let opponent;
@@ -258,6 +251,25 @@ const Team = () => {
                     home_away_symbol = "vs.";
                   }
 
+                  // If the game is live, show the current score and time remaining. Otherwise, display the result.
+                  const renderResultOrCurrent = isLive(status.statusCode) ? (
+                    <div className="team-schedule-live">
+                      <div className="live pulse-live" />
+                      <span
+                        className="link"
+                        onClick={handleNavClick(`/game/${gamePk}`, history)}
+                        title={opponentName}
+                      >
+                        {linescore.currentPeriodOrdinal}{" "}
+                        {linescore.currentPeriodTimeRemaining}{" "}
+                        {linescore.teams.away.goals} -{" "}
+                        {linescore.teams.home.goals}{" "}
+                      </span>{" "}
+                    </div>
+                  ) : (
+                    format(new Date(gameDate), "h:mm a")
+                  );
+
                   return (
                     <tr key={key}>
                       <td>{format(new Date(gameDate), "E, MMM. do")}</td>
@@ -277,7 +289,7 @@ const Team = () => {
                           {opponent}
                         </span>
                       </td>
-                      <td>{format(new Date(gameDate), "h:mm a")}</td>
+                      <td>{renderResultOrCurrent}</td>
                       <td>&nbsp;</td>
                     </tr>
                   );

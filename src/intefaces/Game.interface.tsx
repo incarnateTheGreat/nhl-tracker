@@ -318,6 +318,7 @@ interface IPlays {
   allPlays: IAllPlays[];
   penaltyPlays: number[];
   scoringPlays: number[];
+  currentPlay: IAllPlays;
 }
 
 export interface IAllPlays {
@@ -341,6 +342,13 @@ export interface IAllPlays {
     event: string;
     eventCode: string;
     eventTypeId: string;
+  };
+  team: {
+    id: number;
+    name: string;
+    link: string;
+    abbreviation: string;
+    triCode: string;
   };
 }
 

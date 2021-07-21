@@ -51,9 +51,7 @@ const Scorecard = ({ data }) => {
     <div onClick={navToGame} className="scorecard" role="presentation">
       <div className="scorecard-info">
         <div className="scorecard-info-status">
-          {isLive(statusCode) && (
-            <div className="scorecard-info-status-live pulse-live" />
-          )}
+          {isLive(statusCode) && <div className="live pulse-live" />}
           <span className="scorecard-info-status-value">{formatDate()}</span>
         </div>
 
